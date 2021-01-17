@@ -4,9 +4,9 @@
 objective
 =========
 
-The goal of this work is to provide ERNI project managers & integrators an easy way to select the branching strategy for their new project.
+The goal of this work is to provide ERNI project managers & integrators an easy way to select the branching strategy for their new project. You should not panic about not choosing the very best one, a few ones may suit you. You should panic about not choosing the one that does not suit you.
 
-It also provides a distilled explanation of what a branching strategy is and a selection of possible ones, as well as more in-depth documentation and references to detailed documentation.
+This work also expects to provide a distilled explanation of what a _branching strategy_ is and a selection of possible ones, as well as more in-depth documentation and references to detailed documentation.
 
 However, the most valuable assert of this work is to provide a no-brainer way to decide which branching strategy to use, even for people who are not familiar with them, thanks to a selection system.
 
@@ -19,6 +19,8 @@ selection parameters
 The inputs, or selection parameters that have may be used in order to choose the branching strategy are:
 
 * expected (main) project duration
+* deployment frequency
+* number of long-lived branches (1 or 2)
 * number of total developers
 * number of teams
 * number of projects
@@ -46,7 +48,8 @@ the output
 The main output for this work is a chosen branching strategy. It can be any of:
 
 - none (anarchy)
-- centralized
+- simple-man workflow
+- centralized workflow
 - git-flow (the most complete one)
 - github-flow
 - gitlab-flow
@@ -69,9 +72,11 @@ This work will also be helpful to :
 * choose wrapper layer over VCS (like TFS)
 * selection of code review (pull request?) method
 * appointment (or not) of a branching (and release) manager
+* commit message style and content
 * ...
 
-These other outputs besides the branching strategy are mostly independent of it.
+These other outputs besides the branching strategy are mostly independent of it, and a given set may fit many branching strategies.
+
 
 
 
@@ -118,6 +123,9 @@ what is a branch
 It depends on the VCS used.
 
 (elaborate/copy from MF)
+
+
+Few people know or are aware of this: every single working copy (either a _git clone_ or _svn checkout_) is actually a branch. Because when you _svn update_ you may have unwanted merge conflicts.
 
 
 branching is easy, merging is hard
