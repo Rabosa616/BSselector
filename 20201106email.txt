@@ -1,0 +1,38 @@
+De: Martin Casado Alberto (ERNI) <alberto.martincasado@erni-espana.es>
+Enviat el: divendres, 6 de novembre de 2020 10:32
+Per a: González Carnicer Marcos (ERNI) <marcos.gonzalez@erni-espana.es>
+Tema: Masterpiece doc
+ 
+Hola Marcos,
+
+ 
+
+Te adjunto la doc que te prometí (como podrás ver la mayoría viene de la web de Martin Fowler, donde creo que explica muy bien todos los entresijos de las ramas ?? )
+
+ 
+
+Base patterns https://martinfowler.com/articles/branching-patterns.html#BasePatterns
+Integration patterns https://martinfowler.com/articles/branching-patterns.html#integration-patterns
+Branching policies https://martinfowler.com/articles/branching-patterns.html#LookingAtSomeBranchingPolicies
+ 
+
+Software versioning:
+
+Semver https://semver.org/
+GitVersion (tool para automatizar el versionado): https://gitversion.net/docs/
+GitVersion strategies https://gitversion.net/docs/git-branching-strategies/overview
+GitVersion versioning modes https://gitversion.net/docs/reference/versioning-modes/versioning-mode
+ 
+
+CI evaluation (si podemos coger ideas de la matriz de evaluación):
+
+https://wiki.erninet.ch/display/SWi/Continuous+Integration+Service+Evaluation
+ 
+
+ 
+
+Seguimos en contacto! ??
+
+ 
+
+Alberto Martin Casado

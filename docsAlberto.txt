@@ -1,0 +1,28 @@
+
+ 
+Martin Fowler, "branching patterns":
+
+Base patterns https://martinfowler.com/articles/branching-patterns.html#BasePatterns
+Integration patterns https://martinfowler.com/articles/branching-patterns.html#integration-patterns
+Branching policies https://martinfowler.com/articles/branching-patterns.html#LookingAtSomeBranchingPolicies
+ 
+
+Software versioning concept and tool:
+
+Semver https://semver.org/
+
+GitVersion (tool para automatizar el versionado): https://gitversion.net/docs/
+GitVersion strategies https://gitversion.net/docs/git-branching-strategies/overview
+GitVersion versioning modes https://gitversion.net/docs/reference/versioning-modes/versioning-mode
+ 
+
+Other erni project reference
+CI evaluation (si podemos coger ideas de la matriz de evaluación):
+
+https://wiki.erninet.ch/display/SWi/Continuous+Integration+Service+Evaluation
+ 
+
+ypsomed PDFs by Alberto (example of policy documentation)
+
+https://innersourcecommons.org/
+

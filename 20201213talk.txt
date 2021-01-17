@@ -1,0 +1,30 @@
+
+
+identificar variables a analizar para decidir
+
+
+- numero de desarrolladores
+
+- numero de repositorios
+
+
+ver casos de exito
+
+
+- distinguir entre production1
+
+
+doc martin fowler : tipos de estrategias de branching
+
+
+- bluegreen deployment
+
+- canary release
+
+
+
+merge vs rebase : clean history with rebase
+
+
+
+

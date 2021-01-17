@@ -1,0 +1,27 @@
+
+good practices
+
+
+
+template del chat
+
+
+como hacer las 
+
+parametro de entrada : server
+
+
+estrategia de versionado de las ramas y de los deliverables
+
+(semver)
+
+
+inputs definidas
+
+diferentes estrategias y condiciones
+
+
+PPT + doc detallado
+
+
+
