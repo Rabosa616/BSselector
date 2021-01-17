@@ -21,6 +21,9 @@ one-flow
 * Adam Ruka (2015 and 2017) : "GitFlow considered harmful" (https://www.endoflineblog.com/gitflow-considered-harmful)
 * Adam Ruka (2017) : "OneFlow – a Git branching model and workflow" (https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
 
+simplified git-flow
+
+* Andrés González, "Guide to a better git flow for automated environments" (https://swapps.com/blog/guide-to-a-better-git-flow-for-automated-applications/)
 
 feature-branch model:
 
@@ -44,6 +47,11 @@ https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf
 
 Compares git-flow against github-flow, gitlab-flow, one-flow.
 
+
+comparing workflows by atlassian
+
+* https://www.atlassian.com/git/tutorials/comparing-workflows
+* https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
 
 

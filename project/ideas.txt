@@ -46,12 +46,15 @@ the output
 The main output for this work is a chosen branching strategy. It can be any of:
 
 - none (anarchy)
+- centralized
 - git-flow (the most complete one)
 - github-flow
 - gitlab-flow
 - one-flow
+- simplified git-flow
 - trunk-based development
 - continuous integration (not in the CI-CD meaning)
+- forking workflow (as suggested by atlassian doc)
 - ...
 
 
@@ -233,6 +236,11 @@ Its author claims that it is much simpler but also equally powerful as git-flow.
 
 Not recommended for continuous deployment.
 
+
+simplified git-flow
+-------------------
+
+A subset of git-flow.
 
 
 continuous-integration (not as in CI-CD!)

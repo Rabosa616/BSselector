@@ -1,0 +1,42 @@
+
+beneficios y motivación, y problemas que soluciona
+
+ahorro de tiempo, "higiene"/limpieza de la historia, y trazabilidad!!!
+
+en svn no pasa (tanto) ...
+
+
+
+cuánto tiempo se tarda en investigar/documentarse a la hora de decidir la branching strategy, y cuánto se ahorra con éste
+
+
+es importante no equivocarse mucho, no tanto matarse a elegir la mejorísima
+
+
+casos de éxito
+
+no he trabajado nunca con git con equipos
+
+
+es el equipo quien decide
+
+
+the dummy strategy
+
+
+
+https://12factor.net/
+
+
+https://chris.beams.io/posts/git-commit/
+
+
+
+me pediran un plan de la masterpiece, puedo pasar de febrero
+
+
+las policies de alberto para ypsomed en teoría son transversales => revisarlo y ver si algunas no
+
+
+
+
