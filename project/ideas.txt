@@ -1,35 +1,40 @@
+# VCS branching strategy & workflow selector
+
+
 objective
 =========
 
 The goal of this work is to provide ERNI project managers & integrators an easy way to select the branching strategy for their new project.
 
-It also provides a distilled explanation of what a branching strategy is and which ones are available, as well as more in-depth documentation and references to detailed documentation.
+It also provides a distilled explanation of what a branching strategy is and a selection of possible ones, as well as more in-depth documentation and references to detailed documentation.
 
-However, the most valuable assert of this work is to provide a no-brainer way to decide which branching strategy to use even for unfamiliar or not savvy people, thanks to a selection system.
+However, the most valuable assert of this work is to provide a no-brainer way to decide which branching strategy to use, even for people who are not familiar with them, thanks to a selection system.
 
-Attachments to this work are examples of use, templates for workflow policies and rules (besides the branching strategy), and tips to select other fundamental things such as the merge or rebase policy, picking of automating versioning tools, code review strategy, VCS (git/svn), VCS wrapper (TFS), and whether to appoint or not an integrator.
+Attachments to this work are a set of slides and a document with examples of use, templates for workflow policies and rules (besides the branching strategy), and tips to select other fundamental things such as the merge or rebase policy, picking of automating versioning tools, code review strategy, VCS (git/svn), VCS wrapper (TFS), and whether to appoint or not an integrator.
 
 
-input parameters
-================
+selection parameters
+====================
 
-The input parameters that have been selected in order to choose the braching strategy are:
+The inputs, or selection parameters that have may be used in order to choose the branching strategy are:
 
 * expected (main) project duration
-* number of developers
+* number of total developers
 * number of teams
 * number of projects
 * existing code base size (0?)
-* existing repos
+* existing code repos
 * single version / different-custom products or different customers
 * CI/CD: integration strategy(ies)
 * CI/CD: deployment strategy(ies)
+* error tolerance in production (none, trivial, serious)
 * releasing strategy(ies)
-* testing strategy(ies)
-* collaboration style
+* testing strategy / testing coverage
+* team collaboration style
+* application type (FW, app, web, ...)
 * team working mode (in person/remote, full/part time)
 * overall team experience with VCS tool
-* personal habits and prejudices
+* personal habits (and prejudices)
 * corporate policies (and managers/"gurus" prejudices)
 
 For selecting a branching strategy, not all the combinations between all of them will be generated, only the most important ones. The other will be used as guides.
@@ -38,24 +43,24 @@ For selecting a branching strategy, not all the combinations between all of them
 the output
 ==========
 
-The main output for this work is the branching strategy(ies). It can be any of:
+The main output for this work is a chosen branching strategy. It can be any of:
 
 - none (anarchy)
-- git-flow
+- git-flow (the most complete one)
 - github-flow
 - gitlab-flow
 - one-flow
-- one-flow
 - trunk-based development
 - continuous integration (not in the CI-CD meaning)
+- ...
 
 
-
-But also:
+This work will also be helpful to :
 
 * provide knowledge and references about branching strategies and related stuff
 * define (document) workflow policies (issue handling, branch naming, etc)
 * when to merge or rebase (cases not defined by the branching strategy)
+* when & where to squash (or not) before pushing - have a clean, meaningful history
 * selection (or not) of an automatic versioning tool such as gitversion
 * selection of the VCS (git is recommended, svn not discarded, hg... we don't know)
 * choose wrapper layer over VCS (like TFS)
@@ -69,15 +74,24 @@ These other outputs besides the branching strategy are mostly independent of it.
 
 
 
-ideas pot (refine this section)
-===============================
+basic concepts
+==============
+
+To start with, let's define some concepts that are fundamental to understand branching strategies.
 
 
-what's this?
-------------
+what's this branching strategy stuff?
+------------------------------------
 
-branching strategies it's all about working conventions between humans (rules), to agree and establish on _how to_ do things
+You may be wondering why do you need a branching strategy for your project, specially if you haven't used one ever. Or if you have not noticed.
 
+branching strategies it's all about working conventions (rules) between developers (humans), to agree and establish on _how to_ do things when storing and publishing their code.
+
+Do I really need one? I think I can do without.
+
+Not having a branching strategy will cause ...
+
+Choosing a bad branching strategy will ...
 
 
 what is a commit
@@ -87,7 +101,7 @@ Most developers know (or think they know) what a commit is, and what it implies.
 
 It's one of the few commands shared by git, svn and mercurial (the big 3), also TFS
 
-But it does not do the same. Or not everything. "Commit Often, Perfect Later, Publish Once" : http://sethrobertson.github.io/GitBestPractices/
+But it does not do the same. Or not everything. "Commit Often, Perfect Later, Publish Once" [reference]
 
 * saves your temporary work
 * publishes it (or not)
@@ -95,13 +109,67 @@ But it does not do the same. Or not everything. "Commit Often, Perfect Later, Pu
 See article "Commit Often, Perfect Later, Publish Once" by Seth Robertson.
 
 
+what is a branch
+----------------
+
+It depends on the VCS used.
+
+(elaborate/copy from MF)
+
+
+branching is easy, merging is hard
+----------------------------------
+
+This happens daily in some teams: more than 1 developer modify the code, and the latest one has to solve the merge conflicts. That can be complicated and dangerous.
+
+Modern VCS make it easy to branch, but then bringing the changes together may be painful, not only for the tools and their mechanics, but also because it is necessary to apply human and project knowledge to fix them. Sometimes it is not even possible.
+
+Having a sound branching strategy will minimize these issues.
+
+
 what is a pull-request
 ----------------------
 
-A pull-request is an approval-system-filtered merge (or rebase), named after the _git-pull_ command (git fetch + merge).
+A pull-request is an approval-system filtered merge (or rebase), named after the _git-pull_ command (git fetch + merge).
 
 But its internals are hidden in the supposedly helping interfaces of several tools, such as github, TFS ... and most users don't actually know what they are doing.
 
+
+merging conflicts
+-----------------
+
+Merging conflicts are the major pain when integrating branches that have diverged. Developers fear them. They may consume many hours, and also introduce functional errors when merging two branches that work fine.
+
+
+
+change frequency
+----------------
+
+One of the parameters for selecting a branching the branching strategy is the _change frequency_. This means how often developers commit/push changes.
+
+This frequency is key in order to minimize merging conflicts.
+
+* low frequency
+* high frequency
+* ...
+
+However, this frequency can always considered relative. Relative with time, and relative to an specific area of the code. It also depends on the project maturity. The more lines of code, the less likely are merging conflicts, and the important of change frequency decreases.
+
+
+
+deployment strategies
+=====================
+
+First 2 for FW/user applications. The other 6 for services.
+
+* user notification / pull
+* automated upgrade system
+* bluegreen deployment : Version B is released alongside version A, then the traffic is switched to version B.
+* canary : Version B is released to a subset of users, then proceed to a full rollout. Low testing confidence.
+* A/B testing: Version B is released to a subset of users under specific condition.
+* Recreate: Version A is terminated then version B is rolled out, implies shutdown time.
+* Ramped (also known as rolling-update or incremental): Version B is slowly rolled out and replacing version A.
+* Shadow: Version B receives real-world traffic alongside version A and doesn't impact the response.
 
 
 branching strategies
@@ -111,37 +179,101 @@ branching strategies
 NONE (simplest - non-existing, anarchy)
 ---------------------------------------
 
+No workflow rules are defined. May be ok, but may also be a mess. Low ceremony anyhow. Perhaps useful for teams with 3 or less people.
+
+
 
 git-flow
 --------
 
+Complex, suitable for large and long-lived projects, with different releases, products, ...
+
+Has 2 stable and long-lived branches:
+
+* master: for publishing
+* develop: for integrating all the development before publishing
+
+
+gitlab-flow
+-----------
+
+Simpler than git-flow, more complex than github-flow (really?)
+
+It has 11 rules, not only related to the VCS, but also to testing and deployment.
+
+Has intermediate branches such as production and staging.
+
+Emphasizes testing before testing, cant merge if tests are not passed.
+
+Emphasis on CI-CD (promotes automatic deployment)
 
 
 
 github-flow
 -----------
 
+Much simpler than git-flow and gitlab-flow.
+
+One stable branch (master), where everything is (supposed to be) deployable, therefore supposed to be good for continuous deployment.
+
+Create feature branches, and commit and also push to the server.
+
+Do pull-requests when the feature is ready.
+
+
+
+one-flow
+--------
+
+One stable branch (master). All new changes/features are rebased to the latest stable/published release.
+
+Allows feature branches, hotfix branches and also release branches.
+
+Its author claims that it is much simpler but also equally powerful as git-flow.
+
+Not recommended for continuous deployment.
+
+
 
 continuous-integration (not as in CI-CD!)
 -----------------------------------------
 
-https://martinfowler.com/articles/branching-patterns.html#continuous-integration
+Tries to emulate that everybody works on the same files/folders/disk.
+
+The main purpose (besides sharing continuously) is to minimize merging conflicts.
+
+Developers must commit at least once a day and share their healthy work.
+
+Not valid for multiple product development.
 
 
 trunk-based development
 -----------------------
 
-similar to continuous integration???
+Similar to continuous integration, but allows short-lived feature branches. Has also release branches, where it is forbidden to commit.
+
+Supposed to enable CI-CD (continuous integration and deployment).
+
+Not valid for large number of developers and several parallel developments.
+
+
+subversion-like development
+---------------------------
+
+The subversion VCS has a very limited merging capability, by poor design. It suggests creating branches/releases/tags folders.
+
+Therefore it encourages creating all branches under the branches folder, releases under the releases folder, etc. Still it allows for many flexibility which can lead to chaos without a proper branching strategy or workflow guidelines.
+
 
 
 the HP (BCN) way
 ----------------
 
-with svn!
+A use case of the subversion-like development is the one used by the author at his current customer, HP. It uses subversion with some enhancements.
 
-it's git-flow without develop branch => trunk is (and must be) clean and pure
+It's a bit like git-flow without a develop branch => trunk is expected to be always clean and pure (neither build errors nor failing tests), but this is not always the case because of the many diverse products.
 
-release (stabilitzation) branches and general-purpose branches leave from trunk
+release (stabilization) branches and general-purpose branches leave from trunk
 
 feature branches are called tasks, and leave from trunk or any other branch
 
@@ -154,6 +286,131 @@ Marc-flow (at HP)
 =================
 
 What is Marc doing?
+
+something similar to one-flow (always rebasing from latest)
+
+
+
+
+types of branching strategies
+=============================
+
+
+complex
+-------
+
+* git-flow
+* none (anarchy)
+* gitlab-flow (sometimes)
+
+
+feature-driven
+--------------
+
+* gitlab-flow
+* one-flow
+
+
+continuous delivery oriented
+-------------------
+
+* github-flow
+* gitlab-flow
+* continuous integration
+* trunk-based development
+
+
+maintain several products/releases/customers
+--------------------------------------------
+
+* git-flow
+
+
+
+maintain only 1 product
+-----------------------
+
+* one-flow
+* gitlab-flow
+* gitlab-flow
+
+
+low test coverage
+-----------------
+
+* git-flow
+* gitlab-flow
+
+
+high test coverage
+------------------
+
+* github-flow
+
+
+1 developer
+-----------
+
+* none (anarchy)
+* all the others ...
+
+
+1-3 developers
+--------------
+
+* all of them
+
+3-8 developers
+--------------
+
+* github-flow
+* one-flow
+
+1-8+ developers
+---------------
+
+* github-flow
+* one-flow
+
+
+
+
+more classifications are possible!
+----------------------------------
+
+add one classification for each selection parameter
+
+
+types of branches
+=================
+
+* release branch
+* maturity branch
+* long-lived release branch
+* environment branch
+* hotfix branch
+* experimental branch
+* future branch
+* collaboration branch
+* team-integration branch
+
+
+deployment release strategies
+=============================
+
+* release train (periodic releases)
+* release-ready mainline
+
+
+
+flexible branching strategy
+===========================
+
+True champions of VCSs and their branching strategies may consider switching it in the different maturity phases of a (years-long) project.
+
+May start with the continuous integration branching strategy until the first prototype is ready (version 0.1), then go with git-flow.
+
+
 
 
 misc
@@ -182,25 +439,3 @@ _P2PC_ : (mine) person to person communication, the best and cheapest way to avo
 
 be flexible and agile: need not sticking with the same branching strategy *always* and *everywhere*
 provide the _erni_
-
-
-gitversion install
-------------------
-
-Not easy to install in ubuntu. Follow this method (not the main one):
-
-With your user (not root), do:
-
-```bash
-cd ; mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-```
-
-Then try installing gitversion, but the _dotnet_ dependency fails:
-
-```bash
-brew install gitversion
-brew install dotnet # the above fails, and this dependency is the cause
-```
-
-A github issue has been created by me: https://github.com/Homebrew/linuxbrew-core/issues/22063
-

@@ -105,3 +105,5 @@ list and comments about (distributed) Version Control Systems - (D)VCSs: https:/
 Seth Robertson, 2012: "Commit Often, Perfect Later, Publish Once: Git Best Practices" : http://sethrobertson.github.io/GitBestPractices/
 Chief Scientist for Security, Systems, and Networks (DARPA, Raytheon ...)
 
+Etienne Tremel, 2017: "Six Strategies for Application Deployment" (https://thenewstack.io/deployment-strategies/)
+
