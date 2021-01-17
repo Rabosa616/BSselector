@@ -79,7 +79,16 @@ These other outputs besides the branching strategy are mostly independent of it,
 
 
 
+note about git vs svn vs others
+-------------------------------
 
+This work is basically intended for use with projects that use git, and git is somehow the only VCS mentioned on it. However, this does not mean it should not be considered for projects that use subversion of other serious VCSs such as mercurial.
+
+With subversion centralized use, and also because of its poor merging capabilities, merging happens much less often and usually with a lot of ceremony before. It is (almost) always easy to follow a subversion history timeline, and also to find changes.
+
+It is also possible to apply most of these git workflows and branching strategies with subversion, so reading this document will be helpful in that case too.
+
+Instead, because of git good design and powerful merging features, it is very easy to get into a messy, hard or impossible to follow history. More like a maze of a dish of long spaghetti.
 
 
 basic concepts
@@ -166,6 +175,13 @@ This frequency is key in order to minimize merging conflicts.
 
 However, this frequency can always considered relative. Relative with time, and relative to an specific area of the code. It also depends on the project maturity. The more lines of code, the less likely are merging conflicts, and the important of change frequency decreases.
 
+
+git usage
+---------
+
+In the author's experience, and deep and sincere apologies come with this statement if it's not your case, very few people know how to properly use git at its most basic commands beyond (or including) commit: fetch, pull, merge and push.
+
+Also, most people follow a very simple git workflow, either with command line or a graphic tool, or with a wrapper such as Microsoft's TFS.
 
 
 deployment strategies
@@ -395,6 +411,26 @@ more classifications are possible!
 ----------------------------------
 
 add one classification for each selection parameter
+
+
+TODO: use Alberto's template
+
+Git-flow
+
+* Works well if:
+  - Long Project duration
+  - 8+ developers
+  - 2 to n teams
+  - 2 to n projects
+  - New codebase
+  - Maintain several products/releases/customers
+  - Low test coverage
+  - Good error tolerance in production
+* Doesn't work well if:
+  - CD release strategy
+  - Web applications
+  - Big testing strategy
+  - ...
 
 
 types of branches
