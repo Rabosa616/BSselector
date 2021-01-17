@@ -13,8 +13,33 @@ However, the most valuable assert of this work is to provide a no-brainer way to
 Attachments to this work are a set of slides and a document with examples of use, templates for workflow policies and rules (besides the branching strategy), and tips to select other fundamental things such as the merge or rebase policy, picking of automating versioning tools, code review strategy, VCS (git/svn), VCS wrapper (TFS), and whether to appoint or not an integrator.
 
 
+introduction
+============
+
+
+You may be wondering what a _branching strategy_ is and why do you need one for your project, specially if you haven't used one ever. Or if you haven't noticed.
+
+Both concepts are all about working conventions (rules) between developers (humans), to agree and establish on _how to_ do things when storing and publishing their code. They make a team of developers to _commit_ (in the human sense) to perform some ceremonies and follow some agreed rules.
+
+A _git workflow_ includes a branching strategy, but it's more than that, it defines more things.
+
+It is important that the team agree in the selection, to avoid that it brings in the amount of rules that suits the project characteristics and the people preferences. It should neither be too many or too little complications nor should not fit the project.
+
+After reading this, you may still be asking yourself questions such as "Do I really need one? I think I can do without, as I have always done".
+
+The answer to this question is that _maybe yes, probably not_. And this, provided that everybody in your team masters git's intermediate usage (this includes _git rebase_).
+
+Not having a branching strategy will cause ...
+
+// TODO : estimate how much time can be saved using this work
+
+
+Choosing a bad branching strategy will have the worse of both worlds: Your git history will still be a perhaps clean-looking chaos, but this time _actually wasting time_ on it (disturbing instead of helping).
+
+
+
 selection parameters
-====================
+--------------------
 
 The inputs, or selection parameters that have may be used in order to choose the branching strategy are:
 
@@ -42,8 +67,8 @@ The inputs, or selection parameters that have may be used in order to choose the
 For selecting a branching strategy, not all the combinations between all of them will be generated, only the most important ones. The other will be used as guides.
 
 
-the output
-==========
+branching strategies
+--------------------
 
 The main output for this work is a chosen branching strategy. It can be any of:
 
@@ -61,7 +86,10 @@ The main output for this work is a chosen branching strategy. It can be any of:
 - ...
 
 
-This work will also be helpful to :
+other 'stuff'
+-------------
+
+But the (git) workflow includes any amount of these other things:
 
 * provide knowledge and references about branching strategies and related stuff
 * define (document) workflow policies (issue handling, branch naming, etc)
@@ -91,24 +119,15 @@ It is also possible to apply most of these git workflows and branching strategie
 Instead, because of git good design and powerful merging features, it is very easy to get into a messy, hard or impossible to follow history. More like a maze of a dish of long spaghetti.
 
 
+
+
+
 basic concepts
 ==============
 
 To start with, let's define some concepts that are fundamental to understand branching strategies.
 
 
-what's this branching strategy stuff?
-------------------------------------
-
-You may be wondering why do you need a branching strategy for your project, specially if you haven't used one ever. Or if you have not noticed.
-
-branching strategies it's all about working conventions (rules) between developers (humans), to agree and establish on _how to_ do things when storing and publishing their code.
-
-Do I really need one? I think I can do without.
-
-Not having a branching strategy will cause ...
-
-Choosing a bad branching strategy will ...
 
 
 what is a commit
