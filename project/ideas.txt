@@ -4,7 +4,7 @@
 objective
 =========
 
-The goal of this work is to provide ERNI project managers & integrators an easy way to select the branching strategy for their new project. You should not panic about not choosing the very best one, a few ones may suit you. You should panic about not choosing the one that does not suit you.
+The goal of this work is to provide ERNI project managers & integrators an easy way to select the *branching strategy* for their **new project**.
 
 This work also expects to provide a distilled explanation of what a _branching strategy_ is and a selection of possible ones, as well as more in-depth documentation and references to detailed documentation.
 
@@ -13,13 +13,12 @@ However, the most valuable assert of this work is to provide a no-brainer way to
 Attachments to this work are a set of slides and a document with examples of use, templates for workflow policies and rules (besides the branching strategy), and tips to select other fundamental things such as the merge or rebase policy, picking of automating versioning tools, code review strategy, VCS (git/svn), VCS wrapper (TFS), and whether to appoint or not an integrator.
 
 
-introduction
-============
-
+purpose & value
+===============
 
 You may be wondering what a _branching strategy_ is and why do you need one for your project, specially if you haven't used one ever. Or if you haven't noticed.
 
-Both concepts are all about working conventions (rules) between developers (humans), to agree and establish on _how to_ do things when storing and publishing their code. They make a team of developers to _commit_ (in the human sense) to perform some ceremonies and follow some agreed rules.
+Both concepts are all about working conventions (rules) between developers (humans). More specifically, in the way to use their VCSs. It is important that developers to agree, establish and abide on _how to_ do things when *storing*, *sharing*, *branching*, *merging*, and *publishing* the code they are working on. Therefore they will have to perform some ceremonies and follow some agreed rules.  
 
 A _git workflow_ includes a branching strategy, but it's more than that, it defines more things.
 
@@ -29,19 +28,59 @@ After reading this, you may still be asking yourself questions such as "Do I rea
 
 The answer to this question is that _maybe yes, probably not_. And this, provided that everybody in your team masters git's intermediate usage (this includes _git rebase_).
 
-Not having a branching strategy will cause ...
 
-// TODO : estimate how much time can be saved using this work
+why and how to use this work
+----------------------------
+
+This work is nothing more than a compilation of texts found on internet articles. Some of them are a kind of a reference, some others have been found by googling and the author has found them sound and interesting.
+
+Reading this work, or at least the introduction and an overview should take less than half an hour. After that, and by identifying your project features as listed in section _selection parameters_ you should be able to get a very-good enough *curated choice* in less than 5 minutes.
+
+Otherwise you may want to read some of the documents listed in the _annotated bibliography_ section, which would take more than 2 days.
 
 
-Choosing a bad branching strategy will have the worse of both worlds: Your git history will still be a perhaps clean-looking chaos, but this time _actually wasting time_ on it (disturbing instead of helping).
+
+benefits
+--------
+
+The benefits of having a (proper) workflow and branching strategy can be summarized as:
+
+- all developers *do things* the same way
+- avoid inconsistent practices and ill-defined workflows
+- having a clean & sound log history
+- not having an spaghetti-like log history (avoid history chaos)
+- reduce time when sharing / branching / merging / publishing your code
+
+It is estimated that not having a proper branching strategy or workflow may cost between 20%-40% of developer time.
+
+Choosing a bad branching strategy will have the worse of both worlds: Your git history may perhaps still feel like chaos, but this time _actually wasting time_ on it (disturbing instead of helping).
+
+You should not panic about not choosing the very best one, a few ones may suit you. You should panic about choosing one that **does not suit you**.
+
+
+cost
+----
+
+Branching strategies may also have an impact in cost, specially the most complex ones. If done properly, with a good training and after an initial phase, this overhead shall not be too much.
+
+It may be required to have a project integrator that is aware of all the branching and merging and that manages the releases.
+
+
+
+
+what to choose & how
+====================
+
+What workflows and strategies can we choose from? With which criteria?
+
+In the next section we will see which criteria (selection parameters) can be applied when choosing a git workflow and a branching strategy.
 
 
 
 selection parameters
 --------------------
 
-The inputs, or selection parameters that have may be used in order to choose the branching strategy are:
+The inputs, or selection parameters, that may be used in order to choose the branching strategy are:
 
 * expected (main) project duration
 * deployment frequency
@@ -64,6 +103,8 @@ The inputs, or selection parameters that have may be used in order to choose the
 * personal habits (and prejudices)
 * corporate policies (and managers/"gurus" prejudices)
 
+They are listed in a somehow most to less relevant order.
+
 For selecting a branching strategy, not all the combinations between all of them will be generated, only the most important ones. The other will be used as guides.
 
 
@@ -74,43 +115,49 @@ The main output for this work is a chosen branching strategy. It can be any of:
 
 - none (anarchy)
 - simple-man workflow
-- centralized workflow
 - git-flow (the most complete one)
 - github-flow
 - gitlab-flow
 - one-flow
-- simplified git-flow
 - trunk-based development
 - continuous integration (not in the CI-CD meaning)
+- simplified git-flow
+- centralized workflow
+- one-flow plus
 - forking workflow (as suggested by atlassian doc)
 - ...
+
+Remember, it is not fundamental to choose the very best strategy. Some of them are similar, and you may always change. The most important thing is that you DON'T pick the one that **DOES NOT suit you**.
+
 
 
 other 'stuff'
 -------------
 
-But the (git) workflow includes any amount of these other things:
+The branching strategy is the most important thing of a (git) workflow. But a workflow also includes any amount of these other things:
 
 * provide knowledge and references about branching strategies and related stuff
 * define (document) workflow policies (issue handling, branch naming, etc)
-* when to merge or rebase (cases not defined by the branching strategy)
-* when & where to squash (or not) before pushing - have a clean, meaningful history
+* when to merge or rebase (for cases not defined by the branching strategy)
+* when & where to squash (or not) - to have meaningful commits
 * selection (or not) of an automatic versioning tool such as gitversion
 * selection of the VCS (git is recommended, svn not discarded, hg... we don't know)
-* choose wrapper layer over VCS (like TFS)
-* selection of code review (pull request?) method
-* appointment (or not) of a branching (and release) manager
+* have a wrapper layer over the VCS (i.e. TFS over git)
+* code review method (pull request?)
+* appointment (or not) of an integrator (release / branching manager)
 * commit message style and content
 * ...
 
-These other outputs besides the branching strategy are mostly independent of it, and a given set may fit many branching strategies.
+You do not need to implement or choose something for any of these other items. Do what it is more convenient for you and your project.
+
+Most of these other items are independent of the branching strategy, and a given set may fit many of them.
 
 
 
-note about git vs svn vs others
--------------------------------
+use of git vs svn vs others
+---------------------------
 
-This work is basically intended for use with projects that use git, and git is somehow the only VCS mentioned on it. However, this does not mean it should not be considered for projects that use subversion of other serious VCSs such as mercurial.
+This work is basically intended for use with projects that use git, and git is somehow the only VCS mentioned on it. However, this does not mean it should not be considered for projects that use subversion of other serious VCSs such as mercurial. Nor that other VCSs other than git should be discarded!
 
 With subversion centralized use, and also because of its poor merging capabilities, merging happens much less often and usually with a lot of ceremony before. It is (almost) always easy to follow a subversion history timeline, and also to find changes.
 
@@ -122,31 +169,43 @@ Instead, because of git good design and powerful merging features, it is very ea
 
 
 
-basic concepts
-==============
+concepts & definitions
+======================
 
-To start with, let's define some concepts that are fundamental to understand branching strategies.
-
-
+To start with, let's define some concepts that are fundamental to understand branching strategies. Some of these concepts are quite basic and well-known, other are less known and more advanced.
 
 
-what is a commit
-----------------
+commit
+------
 
 Most developers know (or think they know) what a commit is, and what it implies.
 
-It's one of the few commands shared by git, svn and mercurial (the big 3), also TFS
+It's one of the few commands shared by git, svn and mercurial (the big 3), also TFS and other wrappers.
 
-But it does not do the same. Or not everything. "Commit Often, Perfect Later, Publish Once" [reference]
+But it does not do exactly the same on all.
 
-* saves your temporary work
+* saves your changes
 * publishes it (or not)
+
+In subversion, it sends your changes to the server, and they become published. This may be desirable or not.
 
 See article "Commit Often, Perfect Later, Publish Once" by Seth Robertson.
 
 
-what is a branch
-----------------
+
+repository & working copy
+-------------------------
+
+This depends on the VCS.
+
+In subversion, there is a clear separation between the central repository and the user working copy.
+
+In git, a working copy is also a repository. But not always the other way around.
+
+
+
+a branch
+--------
 
 It depends on the VCS used.
 
@@ -166,18 +225,40 @@ Modern VCS make it easy to branch, but then bringing the changes together may be
 Having a sound branching strategy will minimize these issues.
 
 
-what is a pull-request
-----------------------
 
-A pull-request is an approval-system filtered merge (or rebase), named after the _git-pull_ command (git fetch + merge).
+merging (reintegrating)
+-----------------------
 
-But its internals are hidden in the supposedly helping interfaces of several tools, such as github, TFS ... and most users don't actually know what they are doing.
+Perhaps, it can be stated that git was created because subversion merging design was flawed. At the time, other better VCSs were propietary and expensive.
+
+In subversion, branches can not be merged - only commits can be merged into a branch. However it is possible to do some workarounds that were added to subversion
+
+
+
+
+pull-request
+------------
+
+A pull-request is a merge (or rebase) filtered by an approval-system, named after the _git-pull_ command (git fetch + merge).
+
+Its internals are hidden in the supposedly helping interfaces of several tools, such as github, TFS ... and most users don't actually know what they are doing.
+
 
 
 merging conflicts
 -----------------
 
 Merging conflicts are the major pain when integrating branches that have diverged. Developers fear them. They may consume many hours, and also introduce functional errors when merging two branches that work fine.
+
+Choosing a proper branching strategy is key to reduce the complexity of these merging conflicts.
+
+
+rebase
+------
+
+In my limited experience, very few git users know well all the features of the rebase command.
+
+It is also possible to rebase in subversion, with some workaround.
 
 
 
@@ -204,7 +285,7 @@ Also, most people follow a very simple git workflow, either with command line or
 
 
 deployment strategies
-=====================
+---------------------
 
 First 2 for FW/user applications. The other 6 for services.
 
@@ -218,8 +299,8 @@ First 2 for FW/user applications. The other 6 for services.
 * Shadow: Version B receives real-world traffic alongside version A and doesn't impact the response.
 
 
-branching strategies
-====================
+branching strategies list
+=========================
 
 
 NONE (simplest - non-existing, anarchy)
@@ -334,7 +415,7 @@ no branch can have the same name of any other branch, even if they are completel
 
 
 Marc-flow (at HP)
-=================
+-----------------
 
 What is Marc doing?
 
@@ -343,8 +424,8 @@ something similar to one-flow (always rebasing from latest)
 
 
 
-types of branching strategies
-=============================
+branching strategies types
+==========================
 
 
 complex
@@ -432,6 +513,10 @@ more classifications are possible!
 add one classification for each selection parameter
 
 
+choose yours
+============
+
+
 TODO: use Alberto's template
 
 Git-flow
@@ -466,8 +551,8 @@ types of branches
 * team-integration branch
 
 
-deployment release strategies
-=============================
+deployment / release strategies
+===============================
 
 * release train (periodic releases)
 * release-ready mainline
