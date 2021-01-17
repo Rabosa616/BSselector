@@ -1,0 +1,49 @@
+Branching and versioning templating
+===================================
+
+Main Objective
+--------------
+
+Provide + document + automate branching and versioning concepts for projects. Will help teams to quickly adopt a strategy to organize their work and not re-implement things already done in all the projects.
+
+
+Secondary Objectives
+--------------------
+
+Foster automatization + documentation
+
+
+
+Technical Scope
+---------------
+
+There is the need of having a great Git knowledge as well as versioning or experience with it (i.e. SemVer or another). The goal is, based on different team sizes or projects, have templates to choose the right branching strategy and versioning concept.
+
+Define the most common scenarios at ERNI projects:
+
+Examples:
+
+* Team of 4 people:
+  - Use mainline development (feature branches) -- document collaboration model
+  - Use SemVer with GitVersion -- provide templates for using automatic versioning/tagging
+* Team of 30 people working simultaneously:
+  - Use gitflow -- install tool and document it's model collaboration
+  - Use GitVersion for managing also the versioning applied to gitflow
+
+
+ 
+
+References
+----------
+
+* https://martinfowler.com/articles/branching-patterns.html
+* https://semver.org/
+* https://gitversion.net/docs/
+
+ 
+
+Business Owner
+--------------
+
+Alberto Martín Casado (MAAT)
+

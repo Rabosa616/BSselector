@@ -1,0 +1,206 @@
+objective
+=========
+
+The goal of this work is to provide ERNI project managers & integrators an easy way to select the branching strategy for their new project.
+
+It also provides a distilled explanation of what a branching strategy is and which ones are available, as well as more in-depth documentation and references to detailed documentation.
+
+However, the most valuable assert of this work is to provide a no-brainer way to decide which branching strategy to use even for unfamiliar or not savvy people, thanks to a selection system.
+
+Attachments to this work are examples of use, templates for workflow policies and rules (besides the branching strategy), and tips to select other fundamental things such as the merge or rebase policy, picking of automating versioning tools, code review strategy, VCS (git/svn), VCS wrapper (TFS), and whether to appoint or not an integrator.
+
+
+input parameters
+================
+
+The input parameters that have been selected in order to choose the braching strategy are:
+
+* expected (main) project duration
+* number of developers
+* number of teams
+* number of projects
+* existing code base size (0?)
+* existing repos
+* single version / different-custom products or different customers
+* CI/CD: integration strategy(ies)
+* CI/CD: deployment strategy(ies)
+* releasing strategy(ies)
+* testing strategy(ies)
+* collaboration style
+* team working mode (in person/remote, full/part time)
+* overall team experience with VCS tool
+* personal habits and prejudices
+* corporate policies (and managers/"gurus" prejudices)
+
+For selecting a branching strategy, not all the combinations between all of them will be generated, only the most important ones. The other will be used as guides.
+
+
+the output
+==========
+
+The main output for this work is the branching strategy(ies). It can be any of:
+
+- none (anarchy)
+- git-flow
+- github-flow
+- gitlab-flow
+- one-flow
+- one-flow
+- trunk-based development
+- continuous integration (not in the CI-CD meaning)
+
+
+
+But also:
+
+* provide knowledge and references about branching strategies and related stuff
+* define (document) workflow policies (issue handling, branch naming, etc)
+* when to merge or rebase (cases not defined by the branching strategy)
+* selection (or not) of an automatic versioning tool such as gitversion
+* selection of the VCS (git is recommended, svn not discarded, hg... we don't know)
+* choose wrapper layer over VCS (like TFS)
+* selection of code review (pull request?) method
+* appointment (or not) of a branching (and release) manager
+* ...
+
+These other outputs besides the branching strategy are mostly independent of it.
+
+
+
+
+
+ideas pot (refine this section)
+===============================
+
+
+what's this?
+------------
+
+branching strategies it's all about working conventions between humans (rules), to agree and establish on _how to_ do things
+
+
+
+what is a commit
+----------------
+
+Most developers know (or think they know) what a commit is, and what it implies.
+
+It's one of the few commands shared by git, svn and mercurial (the big 3), also TFS
+
+But it does not do the same. Or not everything. "Commit Often, Perfect Later, Publish Once" : http://sethrobertson.github.io/GitBestPractices/
+
+* saves your temporary work
+* publishes it (or not)
+
+See article "Commit Often, Perfect Later, Publish Once" by Seth Robertson.
+
+
+what is a pull-request
+----------------------
+
+A pull-request is an approval-system-filtered merge (or rebase), named after the _git-pull_ command (git fetch + merge).
+
+But its internals are hidden in the supposedly helping interfaces of several tools, such as github, TFS ... and most users don't actually know what they are doing.
+
+
+
+branching strategies
+====================
+
+
+NONE (simplest - non-existing, anarchy)
+---------------------------------------
+
+
+git-flow
+--------
+
+
+
+
+github-flow
+-----------
+
+
+continuous-integration (not as in CI-CD!)
+-----------------------------------------
+
+https://martinfowler.com/articles/branching-patterns.html#continuous-integration
+
+
+trunk-based development
+-----------------------
+
+similar to continuous integration???
+
+
+the HP (BCN) way
+----------------
+
+with svn!
+
+it's git-flow without develop branch => trunk is (and must be) clean and pure
+
+release (stabilitzation) branches and general-purpose branches leave from trunk
+
+feature branches are called tasks, and leave from trunk or any other branch
+
+no branch can have the same name of any other branch, even if they are completely unrelated, because of the upper layer of services
+
+
+
+
+Marc-flow (at HP)
+=================
+
+What is Marc doing?
+
+
+misc
+====
+
+This work is *not limited* to existing bibliography: Also provides concepts and ideas based on both the author and supervisor experience.
+
+
+have a chapter about _change frequency_, which is the most important quantitative metric
+https://martinfowler.com/bliki/FrequencyReducesDifficulty.html
+
+MF: high-frequency / low-frequency:
+
+- https://martinfowler.com/articles/branching-patterns.html#integration-frequency
+- https://martinfowler.com/articles/branching-patterns.html#Low-frequencyIntegration
+- https://martinfowler.com/articles/branching-patterns.html#High-frequencyIntegration
+- https://martinfowler.com/articles/branching-patterns.html#compare-freq
+
+i don't like this approach, prefer using:
+
+_conflict probability_ concept: depending of change frequency and developers working in the same area
+
+_semantic conflict_ concept : serious conflicts that may happen during refactoring and may go unnoticed
+
+_P2PC_ : (mine) person to person communication, the best and cheapest way to avoid semantic conflicts (agile's stand-up/daily meetings)
+
+be flexible and agile: need not sticking with the same branching strategy *always* and *everywhere*
+provide the _erni_
+
+
+gitversion install
+------------------
+
+Not easy to install in ubuntu. Follow this method (not the main one):
+
+With your user (not root), do:
+
+```bash
+cd ; mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+```
+
+Then try installing gitversion, but the _dotnet_ dependency fails:
+
+```bash
+brew install gitversion
+brew install dotnet # the above fails, and this dependency is the cause
+```
+
+A github issue has been created by me: https://github.com/Homebrew/linuxbrew-core/issues/22063
+

@@ -1,0 +1,107 @@
+More docs found by Marc, either references from Alberto docs and complementary searches.
+
+
+git-flow (Scott Chacon, github):
+
+* Vincent Driessen, "a successful git branching model (git-flow)", 2010: https://nvie.com/posts/a-successful-git-branching-model/
+
+
+github-flow
+
+* "GitHub Flow" (Scott Chacon, github), http://scottchacon.com/2011/08/31/github-flow.html
+
+
+gitlab-flow
+
+* Sid Sijbrandij, 2016 : "The 11 Rules of GitLab Flow" (https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/)
+
+
+one-flow
+
+* Adam Ruka (2015 and 2017) : "GitFlow considered harmful" (https://www.endoflineblog.com/gitflow-considered-harmful)
+* Adam Ruka (2017) : "OneFlow – a Git branching model and workflow" (https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
+
+
+feature-branch model:
+
+* Bruno Luiz da Silva (2017) : "Still using GitFlow? What about a simpler alternative?" https://medium.com/@brunoluiz/still-using-gitflow-what-about-a-simpler-alternative-74aa9a46b9a3
+* Martin Fowler Branching Patterns : https://martinfowler.com/articles/branching-patterns.html#feature-branching
+
+
+mainline integration:
+
+* Martin Fowler Branching Patterns : https://martinfowler.com/articles/branching-patterns.html#mainline-integration
+
+
+trunk-based development
+
+
+* trunk-based development (Paul Hammant, independent devops consultant): https://trunkbaseddevelopment.com
+
+
+a comparative by Patrick Porto: "4 branching workflows for git", appeared at medium.com - he is a SW dev at loft (Brazil)
+https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf
+
+Compares git-flow against github-flow, gitlab-flow, one-flow.
+
+
+
+
+merging and conflicts
+=====================
+
+about frequency: most important concept (==> annotated bibliography)
+
+https://martinfowler.com/bliki/FrequencyReducesDifficulty.html
+
+
+semantic conflict (to be avoided at all costs!) https://martinfowler.com/bliki/SemanticConflict.html
+
+
+
+history cleanup and maintenance
+=============== ===============
+
+Can we provide some tricks for cleaning up spaghetti-like git histories?
+
+This seems to be one of the most recurrent negative aspects of git-flow.
+
+Use of tortoise-git's _compressed graph_ and other _walk behaviour_ options.
+
+
+
+deployment
+==========
+
+https://martinfowler.com/bliki/DeploymentPipeline.html (Martin Fowler, guru-level consultant & author)
+
+
+
+agile
+=====
+
+XP - eXtreme Programming : BS https://martinfowler.com/bliki/ExtremeProgramming.html
+
+
+
+other stuff
+===========
+
+
+https://martinfowler.com/bliki/SelfTestingCode.html (Martin Fowler, guru-level consultant & author)
+
+https://martinfowler.com/bliki/UnitTest.html
+
+https://martinfowler.com/articles/is-quality-worth-cost.html
+- https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines
+
+key stone interface (big deal) https://martinfowler.com/bliki/KeystoneInterface.html
+
+test pyramid (not really related) https://martinfowler.com/bliki/TestPyramid.html https://alisterbscott.com/kb/testing-pyramids/
+
+list and comments about (distributed) Version Control Systems - (D)VCSs: https://martinfowler.com/bliki/VersionControlTools.html
+
+
+Seth Robertson, 2012: "Commit Often, Perfect Later, Publish Once: Git Best Practices" : http://sethrobertson.github.io/GitBestPractices/
+Chief Scientist for Security, Systems, and Networks (DARPA, Raytheon ...)
+
