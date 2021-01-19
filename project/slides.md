@@ -280,3 +280,73 @@ most relevant selection parameters
 * single version / different-custom
 * number of total developers
 
+
+---
+
+branching strategies (1/3)
+
+- none (anarchy)
+- simple-man workflow
+- git-flow (the most complete one)
+- github-flow
+
+
+---
+
+branching strategies (2/3)
+
+- gitlab-flow
+- one-flow
+- trunk-based development
+- continuous integration (not in the CI-CD meaning)
+
+
+---
+
+branching strategies (3/3)
+
+- simplified git-flow
+- centralized workflow
+- one-flow plus
+- ...
+
+
+---
+
+workflow items (docs)
+
+* provide knowledge and references about branching strategies and related stuff
+* define (document) workflow policies (issue handling, branch naming, etc)
+
+---
+
+workflow items (VCS)
+
+* selection of the VCS (git/svn/hg...)
+* wrapper layer over the VCS (i.e. TFS over git)
+
+---
+
+workflow items (VCS style)
+
+* when to merge or rebase
+* when & where to squash
+* commit message style and content
+
+---
+
+workflow items (tools/methods)
+
+* automatic versioning tool (gitversion)
+* code review method (pull request?)
+* appointment (or not) of an integrator (release / branching manager)
+* ...
+
+---
+
+workflow items
+
+* no need to implement them all
+* most of them B.S.-independent
+
+

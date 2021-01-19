@@ -127,7 +127,7 @@ The main output for this work is a chosen branching strategy. It can be any of:
 - forking workflow (as suggested by atlassian doc)
 - ...
 
-Remember, it is not fundamental to choose the very best strategy. Some of them are similar, and you may always change. The most important thing is that you DON'T pick the one that **DOES NOT suit you**.
+It is not essential to choose the very best strategy. Some of them are similar, and you may always change. The most important thing is that you DON'T pick the one that **DOES NOT suit you**.
 
 
 
