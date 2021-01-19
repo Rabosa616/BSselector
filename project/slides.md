@@ -18,16 +18,6 @@ objective
 
 ---
 
-objective (BQ)
-
->  Help YOU & your TEAM CHOOSE for your project a proper:
-
-- (git?) workflow &
-- branching strategy
-
-
----
-
 HEY WAIT! what's this flow BS stuff?
 
 - is this a *self-help therapy*?
@@ -533,7 +523,7 @@ high test coverage
 
 ---
 
-example 1
+example #1
 
 - long project duration
 - 7-15 developers
@@ -544,15 +534,16 @@ example 1
 
 ---
 
-example 1
+example #1 selection
 
-* B.S. #1 : github-flow
-* B.S. #1 : github-flow
+* B.S. #1 : git-flow
+* B.S. #1 : one-flow (not really)
+* github-flow : NO!
 
 
 ---
 
-example 2
+example #2
 
 - must deliver soon
 - 3 dev / 1 team
@@ -562,10 +553,11 @@ example 2
 
 ---
 
-example 2
+example #2 selection
 
 * B.S. #1 : github-flow
 * B.S. #2 : gitlab-flow
 * B.S. #3 : one-flow
+* git-flow : NO!
 
 
