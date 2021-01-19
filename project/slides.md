@@ -208,3 +208,75 @@ slide with blockquote
 -->
 
 
+
+
+
+# what to choose & how
+
+---
+
+what to choose
+
+* a branching strategy
+* (as part of) a git workflow
+
+
+---
+
+how to choose
+
+* based on selection parameters
+* listed by type (presentation - here)
+* listed by relevance order (doc)
+
+---
+
+selection parameters (quantitative)
+
+* expected (main) project duration
+* number of long-lived branches
+* number of total developers
+* number of teams
+* number of projects
+
+---
+
+selection parameters (code type)
+
+* application type (FW, app, web, ...)
+* existing code base size (0?)
+* existing code repos
+* single version / different-custom
+
+---
+
+selection parameters (deployment)
+
+* deployment frequency
+* CI/CD: integration strategy(ies)
+* CI/CD: deployment strategy(ies)
+* releasing strategy(ies)
+* testing strategy / testing coverage
+* error tolerance in production
+
+---
+
+selection parameters (people)
+
+* remote team? part time?
+* overall git team experience
+* team collaboration style
+* personal habits (and prejudices)
+* corporate policies (and managers/"gurus" prejudices)
+
+---
+
+most relevant selection parameters
+
+* deployment frequency
+* expected (main) project duration
+* application type (FW, app, web, ...)
+* error tolerance in production
+* single version / different-custom
+* number of total developers
+
