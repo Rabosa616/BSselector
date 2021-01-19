@@ -57,14 +57,6 @@ avoiding merge conflicts
 :::
 ::::::::::::::
 
-<!--
-  Pandoc uses fenced div for multiple columns in slide shows.
-  I get the impression that DZslides is designed to create
-  a slide show with a very simple, uncluttered look.
-  If you are using a lot of columns, you might consider
-  a different slide format.
--->
-
 ---
 
 contents
@@ -166,48 +158,6 @@ cost
 
 
 ---
-
-slide with blockquote
-
-> a very nice blockquote
-
----
-
-<!-- 2 columns
-
-2 Columns
-
-:::::::::::::: {.columns}
-::: {.column width="50%"}
-
-![](images/bench.jpg){width=100% height=100%}
-
-:::
-::: {.column width="50%"}
-
-- Bullet
-- Bullet
-- Bullet
-
--->
-
-<!-- 100% of this column, that is
-
-:::
-::::::::::::::
-
--->
-
-
-<!--
-  Pandoc uses fenced div for multiple columns in slide shows.
-  I get the impression that DZslides is designed to create
-  a slide show with a very simple, uncluttered look.
-  If you are using a lot of columns, you might consider
-  a different slide format.
--->
-
-
 
 
 
@@ -451,7 +401,7 @@ git-flow
 
 git-flow structure
 
-![](images/git-flow_log.png){width=40% height=40%}
+![](images/git-flow_log.png){width=70% height=70%}
 
 
 ---
@@ -467,7 +417,7 @@ github-flow
 
 github-flow structure
 
-![](images/github-flow_log.png){width=40% height=40%}
+![](images/github-flow_log.png){width=92% height=92%}
 
 
 ---
@@ -582,3 +532,40 @@ high test coverage
 # selection examples
 
 ---
+
+example 1
+
+- long project duration
+- 7-15 developers
+- 3 teams
+- existing codebase
+- must maintain several products/customers
+- low test coverage
+
+---
+
+example 1
+
+* B.S. #1 : github-flow
+* B.S. #1 : github-flow
+
+
+---
+
+example 2
+
+- must deliver soon
+- 3 dev / 1 team
+- no existing codebase
+- only 1 version
+- high test coverage
+
+---
+
+example 2
+
+* B.S. #1 : github-flow
+* B.S. #2 : gitlab-flow
+* B.S. #3 : one-flow
+
+
