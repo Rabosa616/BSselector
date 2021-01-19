@@ -342,6 +342,12 @@ No workflow rules are defined. May be ok, but may also be a mess. Low ceremony a
 
 
 
+simple-guy
+----------
+
+Just add, commit, no branches, no pull ...
+
+
 git-flow
 --------
 
@@ -351,6 +357,20 @@ Has 2 stable and long-lived branches:
 
 * master: for publishing
 * develop: for integrating all the development before publishing
+
+
+
+github-flow
+-----------
+
+Much simpler than git-flow and gitlab-flow.
+
+One stable branch (master), where everything is (supposed to be) deployable, therefore supposed to be good for continuous deployment.
+
+Create feature branches, and commit and also push to the server.
+
+Do pull-requests when the feature is ready.
+
 
 
 gitlab-flow
@@ -365,19 +385,6 @@ Has intermediate branches such as production and staging.
 Emphasizes testing before testing, cant merge if tests are not passed.
 
 Emphasis on CI-CD (promotes automatic deployment)
-
-
-
-github-flow
------------
-
-Much simpler than git-flow and gitlab-flow.
-
-One stable branch (master), where everything is (supposed to be) deployable, therefore supposed to be good for continuous deployment.
-
-Create feature branches, and commit and also push to the server.
-
-Do pull-requests when the feature is ready.
 
 
 
