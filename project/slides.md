@@ -32,8 +32,32 @@ been here before?
 
 <!-- vertical column with picture last-to-commit -->
 
+
+2 Columns
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+![](images/bench.jpg){width=100% height=100%}
+
+:::
+::: {.column width="50%"}
+
 * answers will come later
 * are you familiar with these situations?
+
+<!-- 100% of this column, that is -->
+
+:::
+::::::::::::::
+
+<!--
+  Pandoc uses fenced div for multiple columns in slide shows.
+  I get the impression that DZslides is designed to create
+  a slide show with a very simple, uncluttered look.
+  If you are using a lot of columns, you might consider
+  a different slide format.
+-->
 
 ---
 
@@ -67,46 +91,65 @@ about me @ERNI
 - like *playing* with VCSs
 - mostly used svn (git over svn)
 
----
 
-avoid history chaos
-
-```
-    this is code
-
-    how does this look?
-```
+# purpose & value
 
 ---
 
-avoid history chaos
+about workflows and strategies
+
+* conventions between developers
+* how to store, branch, merge changes
+* how to publish and deploy ...
+* a B.S. is part of a (git) workflow
+* the most important one
+
+
+---
+
+now seriously, do I need one?
+
+* you may not (who knows)
+* will **most probably** be helpful
+* ... and will save time & money
+* **be careful**! choosing *the wrong one*
+* ... will be painful
+
+
+---
+
+benefits
+
+- developers *do things* the same way
+- get rid of inconsistent practices
+- avoid ill-defined workflows
+- have a clean & sound log history
+- no spaghetti-like / chaos history
+
+---
+
+benefits (merging)
+
+- avoid / minimize *merge conflicts*
+- minimize conflicts **complexity**
+- reduce time when *publishing*
+
+---
+
+benefits (general)
 
 ```
-    this is code
+    having a proper branching strategy
+    => save 20%-40% in developer time
 
-    how does this look?
+    choose a proper one
+      in less than 1 hour
+    (with this work)
 ```
 
 ---
 
-history chaos
-
-### h3 history chaos
-
-```
-    this is code
-
-    how does this look?
-```
-
----
-
-history chaos
-
-> This is a quoted text (1st line)
-> Here starts the 2nd line
-
----
+<!-- 2 columns
 
 2 Columns
 
@@ -122,11 +165,15 @@ history chaos
 - Bullet
 - Bullet
 
+-->
 
-<!-- 100% of this column, that is -->
+<!-- 100% of this column, that is
 
 :::
 ::::::::::::::
+
+-->
+
 
 <!--
   Pandoc uses fenced div for multiple columns in slide shows.
