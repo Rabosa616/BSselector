@@ -104,6 +104,12 @@ now seriously, do I need one?
 * **be careful**! choosing *the wrong one*
 * ... will be painful
 
+---
+
+git log chaos
+
+![](images/messyLog0.gif){width=70% height=70%}
+
 
 ---
 
@@ -337,7 +343,23 @@ conflicts
 
 * merging conflicts
 * change frequency
-* git usage
+
+---
+
+conflicts
+
+![](images/svnmergeconflict.png){width=70% height=70%}
+
+
+---
+
+git knowledge
+
+* how to pull, fetch, push
+* how to merge
+* how to rebase
+* how to reflog
+* ...
 
 
 ---
@@ -350,10 +372,24 @@ deploy/release strategies
 
 ---
 
-other
+flexible branching strategy
 
-* flexible branching strategy
-* types of branches
+* projects have different phases
+* time to change B.S.?
+
+---
+
+types of branches
+
+* hotfix branch
+* release branch
+* long-lived release branch
+* environment branch
+* maturity branch
+* experimental branch
+* future branch
+* collaboration branch
+* team-integration branch
 
 ---
 
@@ -560,4 +596,8 @@ example #2 selection
 * B.S. #3 : one-flow
 * git-flow : NO!
 
+
+---
+
+# thank you
 
