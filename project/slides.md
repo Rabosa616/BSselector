@@ -8,10 +8,21 @@ objective
 
 ```
     Help YOU & your TEAM
-    CHOOSE for your project a proper:
+    CHOOSE for your project
+    a proper:
 ```
 
-- (git?) workflow
+- (git?) workflow &
+- branching strategy
+
+
+---
+
+objective (BQ)
+
+>  Help YOU & your TEAM CHOOSE for your project a proper:
+
+- (git?) workflow &
 - branching strategy
 
 
@@ -29,22 +40,17 @@ HEY WAIT! what's this flow BS stuff?
 
 been here before?
 
-
 <!-- vertical column with picture last-to-commit -->
-
-
-2 Columns
 
 :::::::::::::: {.columns}
 ::: {.column width="50%"}
 
-![](images/bench.jpg){width=100% height=100%}
+![](images/avoidConflict.jpg){width=55% height=55%}
 
 :::
 ::: {.column width="50%"}
 
-* answers will come later
-* are you familiar with these situations?
+avoiding merge conflicts
 
 <!-- 100% of this column, that is -->
 
@@ -85,12 +91,13 @@ about this work
 about me @ERNI
 
 - joined ERNI as senior 4 years ago
-- worked in HP ever since
+- worked for HP ever since
 - printer FW developer (C++, linux)
 - HP multiplatform library (C++)
-- like *playing* with VCSs
+- likes *playing* with VCSs
 - mostly used svn (git over svn)
 
+---
 
 # purpose & value
 
@@ -149,6 +156,23 @@ benefits (general)
 
 ---
 
+
+cost
+
+* more ceremony for some operations
+* integration manager may be required (if none already)
+* need to train developers
+* developers may need time to be used to new workflow
+
+
+---
+
+slide with blockquote
+
+> a very nice blockquote
+
+---
+
 <!-- 2 columns
 
 2 Columns
@@ -183,4 +207,4 @@ benefits (general)
   a different slide format.
 -->
 
----
+
