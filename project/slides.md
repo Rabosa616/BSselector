@@ -379,17 +379,22 @@ flexible branching strategy
 
 ---
 
-types of branches
+types of branches (1)
 
 * hotfix branch
 * release branch
-* long-lived release branch
-* environment branch
-* maturity branch
 * experimental branch
-* future branch
+* long-lived release branch
 * collaboration branch
+
+---
+
+types of branches (2)
+
+* maturity branch
+* future branch
 * team-integration branch
+* environment branch
 
 ---
 
