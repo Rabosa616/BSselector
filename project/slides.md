@@ -357,3 +357,62 @@ VCS selection
 * git almost always assumed
 * but others not discarded (svn, hg...)
 * possible to use _git workflows_ without git
+
+
+---
+
+# concepts & definitions
+
+---
+
+concepts & definitions
+
+* VCS-related concepts
+* deployment
+* branching
+* ...
+
+
+---
+
+VCS basics
+
+* commit
+* repository & working copy
+* branch
+
+---
+
+branching / merging
+
+* branching vs merging
+* merging / reintegrating
+* pull-request
+* rebase
+
+
+---
+
+conflicts
+
+* merging conflicts
+* change frequency
+* git usage
+
+
+---
+
+deploy/release strategies
+
+* deployment strategies
+* release strategies
+
+
+---
+
+other
+
+* flexible branching strategy
+* types of branches
+
+
