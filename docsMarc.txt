@@ -115,3 +115,10 @@ Chief Scientist for Security, Systems, and Networks (DARPA, Raytheon ...)
 
 Etienne Tremel, 2017: "Six Strategies for Application Deployment" (https://thenewstack.io/deployment-strategies/)
 
+https://clubhouse.io/blog/why-you-need-a-branching-strategy/
+
+https://medium.com/dev-genius/choosing-the-right-git-branching-strategy-for-your-team-2a53144fcbdb
+
+https://medium.com/@jezhalford/choosing-a-git-branching-strategy-cd7a774a68a1
+
+
