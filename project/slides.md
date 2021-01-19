@@ -350,3 +350,10 @@ workflow items
 * most of them B.S.-independent
 
 
+---
+
+VCS selection
+
+* git almost always assumed
+* but others not discarded (svn, hg...)
+* possible to use _git workflows_ without git
