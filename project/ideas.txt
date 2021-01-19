@@ -299,6 +299,38 @@ First 2 for FW/user applications. The other 6 for services.
 * Shadow: Version B receives real-world traffic alongside version A and doesn't impact the response.
 
 
+types of branches
+-----------------
+
+* release branch
+* maturity branch
+* long-lived release branch
+* environment branch
+* hotfix branch
+* experimental branch
+* future branch
+* collaboration branch
+* team-integration branch
+
+
+deployment / release strategies
+-------------------------------
+
+* release train (periodic releases)
+* release-ready mainline
+
+
+
+flexible branching strategy
+---------------------------
+
+True champions of VCSs and their branching strategies may consider switching it in the different maturity phases of a (years-long) project.
+
+May start with the continuous integration branching strategy until the first prototype is ready (version 0.1), then go with git-flow.
+
+
+
+
 branching strategies list
 =========================
 
@@ -535,38 +567,6 @@ Git-flow
   - Web applications
   - Big testing strategy
   - ...
-
-
-types of branches
-=================
-
-* release branch
-* maturity branch
-* long-lived release branch
-* environment branch
-* hotfix branch
-* experimental branch
-* future branch
-* collaboration branch
-* team-integration branch
-
-
-deployment / release strategies
-===============================
-
-* release train (periodic releases)
-* release-ready mainline
-
-
-
-flexible branching strategy
-===========================
-
-True champions of VCSs and their branching strategies may consider switching it in the different maturity phases of a (years-long) project.
-
-May start with the continuous integration branching strategy until the first prototype is ready (version 0.1), then go with git-flow.
-
-
 
 
 misc
