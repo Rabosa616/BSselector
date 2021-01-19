@@ -415,4 +415,170 @@ other
 * flexible branching strategy
 * types of branches
 
+---
 
+
+# branching strategies list
+
+
+---
+
+NONE (no B.S.)
+
+* simplest
+* anarchy
+* may be OK (or not)
+
+
+---
+
+simple-guy
+
+* just commit
+* no branches
+* (almost) no pull
+
+
+---
+
+git-flow
+
+* _complex_ reputation
+* 2 stable, 2 stable long-lived branches
+* releases, bugfixes ...
+
+---
+
+git-flow structure
+
+![](images/git-flow_log.png){width=40% height=40%}
+
+
+---
+
+github-flow
+
+
+* much simpler than git-flow
+* used for continous deployment
+* _master_ must be stable (deployable)
+
+---
+
+github-flow structure
+
+![](images/github-flow_log.png){width=40% height=40%}
+
+
+---
+
+
+one-flow
+
+* 1 stable branch
+* new changes/features are rebased to the latest stable
+* allows feature, hotfix, release branches
+* claims to be much simpler but equally powerful as git-flow
+
+
+---
+
+gitlab-flow
+
+* 11 rules, related to the VCS
+* rules also about testing and deployment
+* intermediate branches (production and staging)
+* emphasizes testing & CI-CD (automatic deployment)
+
+---
+
+continuous-integration
+
+* (not as in CI-CD!)
+* emulates everybody works on the same files
+* must commit and share at least once a day
+* focus on merging conflicts minimiztion
+
+
+---
+
+trunk-based development
+
+* similar to continuous integration
+* allows short-lived feature branches
+* allows release branches
+
+
+---
+
+subversion-like development
+
+* branches/releases/tags folders
+* centralized work
+
+
+---
+
+# branching strategies types
+
+
+---
+
+complex
+
+* git-flow
+* none (anarchy)
+* gitlab-flow (sometimes)
+
+---
+
+feature-driven
+
+* gitlab-flow
+* one-flow
+
+---
+
+continuous delivery oriented
+
+* github-flow
+* gitlab-flow
+* continuous integration
+* trunk-based development
+
+
+--------------------------------------------
+
+several products/versions
+
+* git-flow
+
+
+---
+
+only 1 product
+
+* one-flow
+* gitlab-flow
+* gitlab-flow
+
+
+---
+
+low test coverage
+
+* git-flow
+* gitlab-flow
+
+---
+
+high test coverage
+
+* github-flow
+
+
+---
+
+# selection examples
+
+---
