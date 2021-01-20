@@ -384,7 +384,7 @@ conflicts
 
 change frequency
 
-![](images/svnupdateErrors.png){width=80% height=80%}
+![](images/svnupdateErrors.jpg){width=80% height=80%}
 
 
 ---
