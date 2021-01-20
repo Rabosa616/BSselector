@@ -18,7 +18,7 @@ objective
 
 ---
 
-HEY WAIT! what's this flow BS stuff?
+HEY WAIT! what's this flow/BS stuff?
 
 - is this a *self-help therapy*?
 - do I really need BS?
@@ -49,17 +49,6 @@ avoiding merge conflicts
 
 ---
 
-contents
-
-- purpose & value
-- what to choose & how
-- concepts & definitions
-- branching strategies list
-- branching strategies types
-- selection examples
-
----
-
 about this work
 
 - something I wanted to know about
@@ -78,6 +67,17 @@ about me @ERNI
 - HP multiplatform library (C++)
 - likes *playing* with VCSs
 - mostly used svn (git over svn)
+
+---
+
+contents
+
+- purpose & value
+- what to choose & how
+- concepts & definitions
+- branching strategies list
+- branching strategies types
+- selection examples
 
 ---
 
