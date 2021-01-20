@@ -21,7 +21,7 @@ objective
 HEY WAIT! what's this flow/BS stuff?
 
 - is this a *self-help therapy*?
-- do I really need BS?
+- do I really need a BS?
 - can't I do without? (as usual)
 - *how much* does this cost?
 - what do I get/avoid *in return*?
@@ -328,9 +328,9 @@ git usage
 VCS selection
 
 * git almost always assumed
-* git: hard to learn, devs can destroy others work
-* but others not discarded (svn, hg...)
-* svn: history less messy
+* git: hard to learn, developerss can destroy others' work
+* don't discard other VCSs (svn, hg...)
+* svn: history less messy (linear, no joined branches)
 * possible to use _git workflows_ without git
 
 
@@ -345,7 +345,6 @@ concepts & definitions
 * VCS-related concepts
 * deployment
 * branching
-* ...
 
 
 ---
