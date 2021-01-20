@@ -310,6 +310,13 @@ workflow items
 
 ---
 
+git usage
+
+![](images/gitComplicatedXKCD.png){width=70% height=70%}
+
+
+---
+
 VCS selection
 
 * git almost always assumed
@@ -369,7 +376,7 @@ conflicts
 
 change frequency
 
-![](images/svnmergeconflict.png){width=70% height=70%}
+![](images/svnupdateErrors.png){width=80% height=80%}
 
 
 ---
