@@ -87,11 +87,19 @@ contents
 
 about workflows and strategies
 
+* a branching strategy (B.S.)
+* ... is part of a (git) workflow
+* ... the most important one
+
+
+---
+
+about workflows and strategies
+
 * conventions between developers
 * rules to store, branch, merge changes
 * rules to publish and deploy ...
-* a B.S. is part of a (git) workflow
-* ... the most important one
+* conventions may feel arbitrary, inappropiate ...
 
 
 ---
