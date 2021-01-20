@@ -88,10 +88,10 @@ contents
 about workflows and strategies
 
 * conventions between developers
-* how to store, branch, merge changes
-* how to publish and deploy ...
+* rules to store, branch, merge changes
+* rules to publish and deploy ...
 * a B.S. is part of a (git) workflow
-* the most important one
+* ... the most important one
 
 
 ---
@@ -99,7 +99,7 @@ about workflows and strategies
 now seriously, do I need one?
 
 * you may not (who knows)
-* will **most probably** be helpful
+* will **most probably** be useful
 * ... and will save time & money
 * **be careful**! choosing *the wrong one*
 * ... will be painful
@@ -113,13 +113,24 @@ git log chaos
 
 ---
 
-benefits
+benefits (1)
 
 - developers *do things* the same way
 - get rid of inconsistent practices
 - avoid ill-defined workflows
-- have a clean & sound log history
-- no spaghetti-like / chaos history
+- have a clean & sound log history (hygiene)
+- no spaghetti-like / no chaos history
+
+
+---
+
+benefits (2)
+
+- optimize productivity
+- enable parallel development
+- allow planned, structured releases
+- clear path for SW changes through production
+
 
 ---
 
@@ -147,10 +158,10 @@ benefits (general)
 
 cost
 
-* more ceremony for some operations
+* more (?) ceremony for some operations
 * integration manager may be required (if none already)
 * need to train developers
-* developers may need time to be used to new workflow
+* developers may need to be used to it
 
 
 ---
@@ -269,7 +280,8 @@ workflow items (docs)
 workflow items (VCS)
 
 * selection of the VCS (git/svn/hg...)
-* wrapper layer over the VCS (i.e. TFS over git)
+* wrapper layer over the VCS (i.e. TFS/perforce over git)
+* remote/in-house hosting
 
 ---
 
@@ -301,7 +313,9 @@ workflow items
 VCS selection
 
 * git almost always assumed
+* git: hard to learn, devs can destroy others work
 * but others not discarded (svn, hg...)
+* svn: history less messy
 * possible to use _git workflows_ without git
 
 
@@ -336,6 +350,12 @@ branching / merging
 * pull-request
 * rebase
 
+---
+
+conflicts : developers nightmare
+
+![](images/svnmergeconflict.png){width=70% height=70%}
+
 
 ---
 
@@ -343,10 +363,11 @@ conflicts
 
 * merging conflicts
 * change frequency
+* P2PC : _magic tool_ to avoid conflicts
 
 ---
 
-conflicts
+change frequency
 
 ![](images/svnmergeconflict.png){width=70% height=70%}
 
@@ -427,6 +448,8 @@ git-flow
 * _complex_ reputation
 * 2 stable, 2 stable long-lived branches
 * releases, bugfixes ...
+* helper tools available
+
 
 ---
 
