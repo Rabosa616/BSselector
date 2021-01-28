@@ -70,13 +70,32 @@ about me @ERNI
 
 ---
 
-contents
+deliverables
+
+- large, in-depth whitepaper
+- long slides demo (mimics the WP)
+- short slides demo
+
+
+---
+
+whitepaper contents
 
 - purpose & value
 - what to choose & how
 - concepts & definitions
 - branching strategies list
 - branching strategies types
+- selection examples
+
+---
+
+short demo contents
+
+- purpose & value
+- what to choose & how
+- micro branching strategies list
+- micro branching strategies types
 - selection examples
 
 ---
@@ -196,46 +215,6 @@ how to choose
 
 ---
 
-selection parameters (quantitative)
-
-* expected (main) project duration
-* number of long-lived branches
-* number of total developers
-* number of teams
-* number of projects
-
----
-
-selection parameters (code type)
-
-* application type (FW, app, web, ...)
-* existing code base size (0?)
-* existing code repos
-* single version / different-custom
-
----
-
-selection parameters (deployment)
-
-* deployment frequency
-* CI/CD: integration strategy(ies)
-* CI/CD: deployment strategy(ies)
-* releasing strategy(ies)
-* testing strategy / testing coverage
-* error tolerance in production
-
----
-
-selection parameters (people)
-
-* remote team? part time?
-* overall git team experience
-* team collaboration style
-* personal habits (and prejudices)
-* corporate policies (and managers/"gurus" prejudices)
-
----
-
 most relevant selection parameters
 
 * deployment frequency
@@ -248,32 +227,12 @@ most relevant selection parameters
 
 ---
 
-branching strategies (1/3)
+branching strategies
 
 - none (anarchy)
 - simple-man workflow
 - git-flow (the most complete one)
 - github-flow
-
-
----
-
-branching strategies (2/3)
-
-- gitlab-flow
-- one-flow
-- trunk-based development
-- continuous integration (not in the CI-CD meaning)
-
-
----
-
-branching strategies (3/3)
-
-- simplified git-flow
-- centralized workflow
-- one-flow plus
-- ...
 
 
 ---
@@ -325,144 +284,10 @@ git usage
 
 ---
 
-VCS selection
-
-* git almost always assumed
-* git: hard to learn, developerss can destroy others' work
-* don't discard other VCSs (svn, hg...)
-* svn: history less messy (linear, no joined branches)
-* possible to use _git workflows_ without git
-
-
----
-
-# concepts & definitions
-
----
-
-concepts & definitions
-
-* VCS-related concepts
-* deployment
-* branching
-
-
----
-
-VCS basics
-
-* commit
-* repository & working copy
-* branch
-
----
-
-branching / merging
-
-* branching vs merging
-* merging / reintegrating
-* pull-request
-* rebase
-
----
-
 conflicts : developers nightmare
 
 ![](images/svnmergeconflict.png){width=70% height=70%}
 
-
----
-
-conflicts
-
-* merging conflicts
-* change frequency
-* P2PC : _magic tool_ to avoid conflicts
-
----
-
-change frequency
-
-![](images/svnupdateErrors.jpg){width=80% height=80%}
-
-
----
-
-git knowledge
-
-* how to pull, fetch, push
-* how to merge
-* how to rebase
-* how to reflog
-* ...
-
-
----
-
-deploy/release strategies
-
-* deployment strategies
-* release strategies
-
-
----
-
-flexible branching strategy
-
-* projects have different phases
-* time to change B.S.?
-
----
-
-types of branches (1)
-
-* hotfix branch
-* release branch
-* experimental branch
-* long-lived release branch
-* collaboration branch
-
----
-
-types of branches (2)
-
-* maturity branch
-* future branch
-* team-integration branch
-* environment branch
-
----
-
-
-# branching strategies list
-
-
----
-
-NONE (no B.S.)
-
-* simplest
-* anarchy
-* may be OK (or not)
-
-
----
-
-simple-guy
-
-* just commit
-* no branches
-* (almost) no pull
-
-
----
-
-git-flow
-
-* _complex_ reputation
-* 2 stable, 2 stable long-lived branches
-* releases, bugfixes ...
-* helper tools available
 
 
 ---
@@ -474,65 +299,9 @@ git-flow structure
 
 ---
 
-github-flow
-
-
-* much simpler than git-flow
-* used for continous deployment
-* _master_ must be stable (deployable)
-
----
-
 github-flow structure
 
 ![](images/github-flow_log.png){width=92% height=92%}
-
-
----
-
-
-one-flow
-
-* 1 stable branch
-* new changes/features are rebased to the latest stable
-* allows feature, hotfix, release branches
-* claims to be much simpler but equally powerful as git-flow
-
-
----
-
-gitlab-flow
-
-* 11 rules, related to the VCS
-* rules also about testing and deployment
-* intermediate branches (production and staging)
-* emphasizes testing & CI-CD (automatic deployment)
-
----
-
-continuous-integration
-
-* (not as in CI-CD!)
-* emulates everybody works on the same files
-* must commit and share at least once a day
-* focus on merging conflicts minimiztion
-
-
----
-
-trunk-based development
-
-* similar to continuous integration
-* allows short-lived feature branches
-* allows release branches
-
-
----
-
-subversion-like development
-
-* branches/releases/tags folders
-* centralized work
 
 
 ---
