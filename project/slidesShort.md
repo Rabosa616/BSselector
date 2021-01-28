@@ -51,6 +51,7 @@ avoiding merge conflicts
 
 about this work
 
+- part of ERNI SERVICES
 - something I wanted to know about
 - performed guided search & read
 - this presentation +
@@ -75,6 +76,7 @@ deliverables
 - large, in-depth whitepaper
 - long slides demo (mimics the WP)
 - short slides demo
+- annotated bibliography
 
 
 ---
