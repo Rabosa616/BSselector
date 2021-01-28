@@ -161,6 +161,14 @@ benefits (2)
 
 ---
 
+conflicts : developers nightmare
+
+![](images/svnmergeconflict.png){width=70% height=70%}
+
+
+
+---
+
 benefits (merging)
 
 - avoid / minimize *merge conflicts*
@@ -186,9 +194,17 @@ benefits (general)
 cost
 
 * more (?) ceremony for some operations
-* integration manager may be required (if none already)
+* integration manager may be required
+* ... if none already & complex workflow
 * need to train developers
 * developers may need to be used to it
+
+
+---
+
+git usage
+
+![](images/gitComplicatedXKCD.png){width=70% height=70%}
 
 
 ---
@@ -277,17 +293,7 @@ workflow items
 
 ---
 
-git usage
-
-![](images/gitComplicatedXKCD.png){width=70% height=70%}
-
-
----
-
-conflicts : developers nightmare
-
-![](images/svnmergeconflict.png){width=70% height=70%}
-
+# branching strategies types
 
 
 ---
@@ -302,11 +308,6 @@ git-flow structure
 github-flow structure
 
 ![](images/github-flow_log.png){width=92% height=92%}
-
-
----
-
-# branching strategies types
 
 
 ---
@@ -334,7 +335,7 @@ continuous delivery oriented
 * trunk-based development
 
 
---------------------------------------------
+---
 
 several products/versions
 
