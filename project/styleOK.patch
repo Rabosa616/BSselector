@@ -1,0 +1,7 @@
+12a13
+>   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
+18c19,20
+<       font-family: 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', arial, serif;
+---
+>       /* The font from Google */
+>       font-family: 'Oswald', arial, serif;
