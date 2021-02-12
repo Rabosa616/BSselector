@@ -1,1 +1,2 @@
-pandoc -t dzslides -s slides.md -o slides.html
+pandoc -t dzslides -s slidesShort.md -o slidesShort.html
+patch slidesShort.html < styleOK.patch
