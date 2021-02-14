@@ -73,7 +73,7 @@ whitepaper contents
 
 ---
 
-short demo contents
+presentation contents
 
 - intro + purpose & value
 - what to choose & how
@@ -105,11 +105,72 @@ about workflows and strategies
 
 ---
 
+
+protocol branch / merge
+
+<!-- vertical column with picture last-to-commit -->
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+![](images/protocolCheckList.png){width=75% height=75%}
+
+:::
+::: {.column width="50%"}
+
+![](images/branch-merge.png){width=75% height=75%}
+
+<!-- 100% of this column, that is -->
+
+:::
+::::::::::::::
+
+
+---
+
 conventions for what?
 
 * release often / rarely
 * work isolated / always sharing
 * ... (I have a picture for this)
+
+---
+
+sharing styles
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+![](images/isolated.png){width=55% height=55%}
+
+:::
+::: {.column width="50%"}
+
+![](images/interaction.png){width=55% height=55%}
+
+<!-- 100% of this column, that is -->
+
+:::
+::::::::::::::
+
+---
+
+release frequency
+
+:::::::::::::: {.columns}
+::: {.row width="50%"}
+
+![](images/relOften.png){width=55% height=55%}
+
+:::
+::: {.row width="50%"}
+
+![](images/relRare.png){width=55% height=55%}
+
+<!-- 100% of this column, that is -->
+
+:::
+::::::::::::::
 
 ---
 
