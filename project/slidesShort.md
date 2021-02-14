@@ -13,7 +13,7 @@ objective
 ```
 
 - (git?) workflow &
-- branching strategy
+- branching strategy (BS)
 
 
 ---
@@ -28,34 +28,14 @@ HEY WAIT! what's this flow/BS stuff?
 
 ---
 
-been here before?
-
-<!-- vertical column with picture last-to-commit -->
-
-:::::::::::::: {.columns}
-::: {.column width="50%"}
-
-![](images/avoidConflict.jpg){width=55% height=55%}
-
-:::
-::: {.column width="50%"}
-
-avoiding merge conflicts
-
-<!-- 100% of this column, that is -->
-
-:::
-::::::::::::::
-
----
-
 about this work
 
 - part of ERNI SERVICES
+- target audience: PMs / architects
 - something I wanted to know about
 - performed guided search & read
 - this presentation +
-- ... detailed, in-depth document
+- ... detailed, in-depth whitepaper
 - ... annotated bibliography
 
 ---
@@ -64,19 +44,19 @@ about me @ERNI
 
 - joined ERNI as senior 4 years ago
 - worked for HP ever since
+- helped in a Roche bid (architect)
 - printer FW developer (C++, linux)
 - HP multiplatform library (C++)
 - likes *playing* with VCSs
-- mostly used svn (git over svn)
 
 ---
 
 deliverables
 
-- large, in-depth whitepaper
-- long slides demo (mimics the WP)
-- short slides demo
+- long, in-depth whitepaper
+- whitepaper, slides version
 - annotated bibliography
+- this presentation
 
 
 ---
@@ -86,6 +66,7 @@ whitepaper contents
 - purpose & value
 - what to choose & how
 - concepts & definitions
+- git workflow items
 - branching strategies list
 - branching strategies types
 - selection examples
@@ -94,23 +75,22 @@ whitepaper contents
 
 short demo contents
 
-- purpose & value
+- intro + purpose & value
 - what to choose & how
-- micro branching strategies list
-- micro branching strategies types
+- micro BS list & types
 - selection examples
 
 ---
 
-# purpose & value
+# intro + purpose & value
 
 ---
 
 about workflows and strategies
 
-* a branching strategy (B.S.)
-* ... is part of a (git) workflow
-* ... the most important one
+* a branching strategy (BS)
+* ... is the most important part
+* ... of a (git) workflow
 
 
 ---
@@ -118,10 +98,18 @@ about workflows and strategies
 about workflows and strategies
 
 * conventions between developers
-* rules to store, branch, merge changes
-* rules to publish and deploy ...
-* conventions may feel arbitrary, inappropiate ...
+* store code changes
+* branch (new task) & merge (join)
+* publish and deploy
 
+
+---
+
+conventions for what?
+
+* release often / rarely
+* work isolated / always sharing
+* ... (I have a picture for this)
 
 ---
 
@@ -135,6 +123,24 @@ now seriously, do I need one?
 
 ---
 
+benefits (project manager)
+
+* choose a BS, reliably & effortless
+* save days reading and asking
+* don't pick a wrong one
+
+---
+
+benefits (project)
+
+- all developers work *the same way*
+- no inconsistent practices
+- clean & sound log history (hygiene)
+- avoid / minimize *merge conflicts*
+
+
+---
+
 git log chaos
 
 ![](images/messyLog0.gif){width=70% height=70%}
@@ -142,71 +148,44 @@ git log chaos
 
 ---
 
-benefits (1)
+avoiding merge conflicts
 
-- developers *do things* the same way
-- get rid of inconsistent practices
-- avoid ill-defined workflows
-- have a clean & sound log history (hygiene)
-- no spaghetti-like / no chaos history
+<!-- vertical column with picture last-to-commit -->
 
+:::::::::::::: {.columns}
+::: {.column width="50%"}
 
----
+![](images/avoidConflict.jpg){width=55% height=55%}
 
-benefits (2)
+:::
+::: {.column width="50%"}
 
-- optimize productivity
-- enable parallel development
-- allow planned, structured releases
-- clear path for SW changes through production
+been here before? sounds familiar?
 
+<!-- 100% of this column, that is -->
 
----
-
-conflicts : developers nightmare
-
-![](images/svnmergeconflict.png){width=70% height=70%}
-
-
+:::
+::::::::::::::
 
 ---
 
-benefits (merging)
+benefits (company)
 
-- avoid / minimize *merge conflicts*
-- minimize conflicts **complexity**
-- reduce time when *publishing*
+* save 20%-40% in developer time
+* maximize productivity
+* reduce time waste in processes
+* have a well-organized team
 
----
-
-benefits (general)
-
-```
-    having a proper branching strategy
-    => save 20%-40% in developer time
-
-    choose a proper one
-      in less than 1 hour
-    (with this work)
-```
 
 ---
-
 
 cost
 
-* more (?) ceremony for some operations
-* integration manager may be required
-* ... if none already & complex workflow
+* ++ ceremony for some operations
+* integration manager required?
+* (... if complex workflow)
 * need to train developers
-* developers may need to be used to it
-
-
----
-
-git usage
-
-![](images/gitComplicatedXKCD.png){width=70% height=70%}
+* developers: get used
 
 
 ---
@@ -217,19 +196,19 @@ git usage
 
 ---
 
-what to choose
+what to choose (output)
 
-* a branching strategy
+* a branching strategy (BS)
 * (as part of) a git workflow
 
 
 ---
 
-how to choose
+how to choose (inputs)
 
 * based on selection parameters
-* listed by type (presentation - here)
-* listed by relevance order (doc)
+* qualitative & quantitive questions
+* easy to find out answers
 
 ---
 
@@ -240,7 +219,7 @@ most relevant selection parameters
 * application type (FW, app, web, ...)
 * error tolerance in production
 * single version / different-custom
-* number of total developers
+* number of developers / teams
 
 
 ---
@@ -248,54 +227,35 @@ most relevant selection parameters
 branching strategies
 
 - none (anarchy)
-- simple-man workflow
 - git-flow (the most complete one)
 - github-flow
+- trunk-based development
+- one-flow
 
 
 ---
 
 workflow items (docs)
 
-* provide knowledge and references about branching strategies and related stuff
-* define (document) workflow policies (issue handling, branch naming, etc)
-
----
-
-workflow items (VCS)
-
-* selection of the VCS (git/svn/hg...)
-* wrapper layer over the VCS (i.e. TFS/perforce over git)
-* remote/in-house hosting
-
----
-
-workflow items (VCS style)
-
-* when to merge or rebase
-* when & where to squash
-* commit message style and content
-
----
-
-workflow items (tools/methods)
-
-* automatic versioning tool (gitversion)
-* code review method (pull request?)
-* appointment (or not) of an integrator (release / branching manager)
-* ...
-
----
-
-workflow items
-
-* no need to implement them all
-* most of them B.S.-independent
+* document workflow policies
+* issue handling, branch naming
+* VCS use/choice policies
+* VCS style for merge/rebase
+* releasing policy
+* many more (NOT required to use all)
 
 
 ---
 
-# branching strategies types
+my contribution (whitepaper)
+
+* encourage flexibility (change BS?)
+* best tool: people communication
+
+
+---
+
+# BS list & types
 
 
 ---
@@ -314,57 +274,12 @@ github-flow structure
 
 ---
 
-complex
+branching strategies types
 
-* git-flow
-* none (anarchy)
-* gitlab-flow (sometimes)
-
----
-
-feature-driven
-
-* gitlab-flow
-* one-flow
-
----
-
-continuous delivery oriented
-
-* github-flow
-* gitlab-flow
-* continuous integration
-* trunk-based development
-
-
----
-
-several products/versions
-
-* git-flow
-
-
----
-
-only 1 product
-
-* one-flow
-* gitlab-flow
-* gitlab-flow
-
-
----
-
-low test coverage
-
-* git-flow
-* gitlab-flow
-
----
-
-high test coverage
-
-* github-flow
+* complexity / simplicity
+* continuous delivery oriented
+* several products-versions / single
+* test coverage
 
 
 ---
@@ -386,8 +301,8 @@ example #1
 
 example #1 selection
 
-* B.S. #1 : git-flow
-* B.S. #1 : one-flow (not really)
+* BS #1 : git-flow
+* BS #1 : one-flow (not really)
 * github-flow : NO!
 
 
@@ -395,7 +310,7 @@ example #1 selection
 
 example #2
 
-- must deliver soon
+- must deliver frequently
 - 3 dev / 1 team
 - no existing codebase
 - only 1 version
@@ -405,13 +320,12 @@ example #2
 
 example #2 selection
 
-* B.S. #1 : github-flow
-* B.S. #2 : gitlab-flow
-* B.S. #3 : one-flow
+* BS #1 : github-flow
+* BS #2 : gitlab-flow
+* BS #3 : one-flow
 * git-flow : NO!
 
 
----
 
 # thank you
 
