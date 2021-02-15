@@ -28,16 +28,6 @@ HEY WAIT! what's this 'flow' stuff?
 
 ---
 
-about this work
-
-- target audience: PMs / architects
-- requested by SERVICES dpt (ERNI)
-* services wants it available in github
-* considering a video pill / streaming
-
-
----
-
 about me @ERNI
 
 - joined ERNI as senior 4 years ago
@@ -50,40 +40,13 @@ about me @ERNI
 
 ---
 
-deliverables
-
-- long, in-depth whitepaper
-- whitepaper, slides version
-- annotated bibliography
-- this presentation
-
-
----
-
 presentation contents
 
+- about (this)
 - purpose & value
 - what to choose & how
+- masterpiece plan
 - micro BS list & types
-- selection examples
-
----
-
-whitepaper contents
-
-- purpose & value
-- what to choose & how
-- concepts & definitions
-- git workflow items
-- branching strategies list
-- branching strategies types
-- selection examples
-
----
-
----
-
-# purpose & value
 
 ---
 
@@ -173,6 +136,13 @@ release frequency
 :::
 ::::::::::::::
 
+
+---
+
+---
+
+# purpose & value
+
 ---
 
 now seriously, do I need one?
@@ -243,24 +213,11 @@ benefits (company)
 
 cost / investment
 
-* performed guided search & read
 * ++ ceremony for some operations
 * integration manager required?
 * (... if complex workflow)
 * need to train developers
 * developers: get used
-
-
----
-
-masterpiece plan
-
-* finish whitepaper (2 weeks)
-* cuanto cuesta implementar o desarrollar
-* services le va a dar visibilidad
-* involved people
-* EDD, video pill / streaming
-* available at github
 
 
 
@@ -305,6 +262,106 @@ my contribution (whitepaper)
 * not just copy & paste:
 * encourage flexibility (change BS?)
 * best tool: people communication
+
+
+---
+
+
+## selection examples
+
+---
+
+example #1
+
+- long project duration
+- 7-15 developers
+- 3 teams
+- existing codebase
+- must maintain several products/customers
+- low test coverage
+
+---
+
+example #1 selection
+
+* BS #1 : git-flow
+* BS #2 : one-flow (not really)
+* github-flow : NO!
+
+
+---
+
+example #2
+
+- must deliver frequently
+- 3 dev / 1 team
+- no existing codebase
+- only 1 version
+- high test coverage
+
+---
+
+example #2 selection
+
+* BS #1 : github-flow
+* BS #2 : gitlab-flow
+* BS #3 : one-flow
+* git-flow : NO!
+
+
+---
+
+# masterpiece plan
+
+---
+
+about this work
+
+- requested by SERVICES dpt (ERNI)
+- target audience: PMs / architects
+- expected 
+- performed guided search & read
+- compilation + sorting + add content
+
+
+---
+
+deliverables (done)
+
+- long, in-depth whitepaper
+- whitepaper, slides version
+- annotated bibliography
+
+
+---
+
+future / possible deliverables
+
+* publicly available in github
+* possible content for ERNI EDDs
+* video pill / streaming
+
+
+---
+
+masterpiece plan
+
+* finish whitepaper (2 weeks)
+* cuanto cuesta implementar o desarrollar
+* involved people
+
+
+---
+
+whitepaper contents
+
+- purpose & value
+- what to choose & how
+- concepts & definitions
+- git workflow items
+- branching strategies list
+- branching strategies types
+- selection examples
 
 
 ---
@@ -368,50 +425,6 @@ branching strategies types
 
 
 ---
-
----
-
-# selection examples
-
----
-
-example #1
-
-- long project duration
-- 7-15 developers
-- 3 teams
-- existing codebase
-- must maintain several products/customers
-- low test coverage
-
----
-
-example #1 selection
-
-* BS #1 : git-flow
-* BS #1 : one-flow (not really)
-* github-flow : NO!
-
-
----
-
-example #2
-
-- must deliver frequently
-- 3 dev / 1 team
-- no existing codebase
-- only 1 version
-- high test coverage
-
----
-
-example #2 selection
-
-* BS #1 : github-flow
-* BS #2 : gitlab-flow
-* BS #3 : one-flow
-* git-flow : NO!
-
 
 
 # thank you
