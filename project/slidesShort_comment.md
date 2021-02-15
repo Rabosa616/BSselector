@@ -19,11 +19,17 @@ prepare for later info, and what win-get / cost
 
 SELL
 
+JC: remove self-help
+
+
 ---
 
 about this work
 
 formally required
+
+remove last 3, move search to cost
+
 
 ---
 
@@ -31,11 +37,16 @@ about me @ERNI
 
 formally required
 
+just read the first 3
+
+
 ---
 
 deliverables
 
 formally required
+
+eliminar -> posar-ho al cost
 
 ---
 
@@ -45,10 +56,11 @@ explain my work reach
 
 ---
 
-short demo contents
+presentation contents
 
 explain what we will listen to
 
+?
 
 ---
 
@@ -74,6 +86,8 @@ explain what's this about (required)
 
 in a manager-oriented way
 
+
+JC: add 1, try to explain as _start ..._ ?
 
 ---
 
@@ -103,6 +117,7 @@ git log chaos
 
 explain how bad is a chaotic history
 
+removable? dins la mateixa
 
 ---
 
@@ -110,6 +125,7 @@ been here before?
 
 explain how bad are merge conflicts
 
+removable? dins la mateixa
 
 ---
 

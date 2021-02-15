@@ -18,7 +18,7 @@ objective
 
 ---
 
-HEY WAIT! what's this flow/BS stuff?
+HEY WAIT! what's this 'flow' stuff?
 
 - is this a *self-help therapy*?
 - do I really need a BS?
@@ -30,10 +30,11 @@ HEY WAIT! what's this flow/BS stuff?
 
 about this work
 
-- part of ERNI SERVICES
 - target audience: PMs / architects
-- something I wanted to know about
-- performed guided search & read
+- requested by SERVICES dpt (ERNI)
+* services wants it available in github
+* considering a video pill / streaming
+
 
 ---
 
@@ -45,6 +46,7 @@ about me @ERNI
 - printer FW developer (C++, linux)
 - HP multiplatform library (C++)
 - likes *playing* with VCSs
+
 
 ---
 
@@ -95,9 +97,9 @@ about workflows and strategies
 about workflows and strategies
 
 * conventions between developers
-* store code changes
+* store & track code changes
 * branch (new task) & merge (join)
-* publish and deploy
+* publish & deploy
 
 
 ---
@@ -127,9 +129,9 @@ protocol branch / merge
 
 conventions for what?
 
-* release often / rarely
 * work isolated / always sharing
-* ... (I have a picture for this)
+* publish often / rarely
+* add one more
 
 ---
 
@@ -237,8 +239,9 @@ benefits (company)
 
 ---
 
-cost
+cost / investment
 
+* performed guided search & read
 * ++ ceremony for some operations
 * integration manager required?
 * (... if complex workflow)
