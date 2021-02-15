@@ -251,17 +251,14 @@ cost / investment
 
 ---
 
-masterpiece PLAN / utility
+masterpiece plan
 
-(deliverables #2?)
-
+* finish whitepaper (2 weeks)
 * cuanto cuesta implementar o desarrollar
-* personas involucradas
 * services le va a dar visibilidad
-* EDD
-* pill / streaming
-* publicarlo en github
-
+* involved people
+* EDD, video pill / streaming
+* available github
 
 
 
@@ -306,6 +303,12 @@ my contribution (whitepaper)
 * encourage flexibility (change BS?)
 * best tool: people communication
 
+
+
+
+# interesting?
+
+want to know more?
 
 ---
 
