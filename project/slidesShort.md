@@ -34,9 +34,6 @@ about this work
 - target audience: PMs / architects
 - something I wanted to know about
 - performed guided search & read
-- this presentation +
-- ... detailed, in-depth whitepaper
-- ... annotated bibliography
 
 ---
 
@@ -247,6 +244,22 @@ cost
 * (... if complex workflow)
 * need to train developers
 * developers: get used
+
+
+---
+
+masterpiece PLAN / utility
+
+(deliverables #2?)
+
+* cuanto cuesta implementar o desarrollar
+* personas involucradas
+* services le va a dar visibilidad
+* EDD
+* pill / streaming
+* publicarlo en github
+
+
 
 
 ---
