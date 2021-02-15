@@ -12,8 +12,8 @@ objective
     a proper:
 ```
 
-- (git?) workflow &
 - branching strategy (BS)
+- & a git workflow
 
 
 ---
@@ -60,6 +60,15 @@ deliverables
 
 ---
 
+presentation contents
+
+- intro + purpose & value
+- what to choose & how
+- micro BS list & types
+- selection examples
+
+---
+
 whitepaper contents
 
 - purpose & value
@@ -72,20 +81,13 @@ whitepaper contents
 
 ---
 
-presentation contents
-
-- intro + purpose & value
-- what to choose & how
-- micro BS list & types
-- selection examples
-
 ---
 
 # intro + purpose & value
 
 ---
 
-about workflows and strategies
+about workflows and BS (1)
 
 * a branching strategy (BS)
 * ... is the most important part
@@ -94,7 +96,7 @@ about workflows and strategies
 
 ---
 
-about workflows and strategies
+about workflows and BS (2)
 
 * conventions between developers
 * store & track code changes
@@ -129,9 +131,9 @@ protocol branch / merge
 
 conventions for what?
 
-* work isolated / always sharing
-* publish often / rarely
-* add one more
+* work isolated / share work often
+* publishing strategy
+* versioning strategy (automatic?)
 
 ---
 
@@ -258,13 +260,13 @@ masterpiece plan
 * services le va a dar visibilidad
 * involved people
 * EDD, video pill / streaming
-* available github
+* available at github
 
 
 
 ---
 
-
+---
 
 # what to choose & how
 
@@ -304,11 +306,13 @@ my contribution (whitepaper)
 * best tool: people communication
 
 
-
+---
 
 # interesting?
 
 want to know more?
+
+---
 
 ---
 
@@ -362,6 +366,8 @@ branching strategies types
 * several products-versions / single
 * test coverage
 
+
+---
 
 ---
 
