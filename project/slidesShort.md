@@ -61,9 +61,9 @@ about workflows and BS (1)
 
 about workflows and BS (2)
 
-* conventions between developers
+* **conventions** between developers
 * store & track code changes
-* branch (new task) & merge (join)
+* **branch** (new task) & **merge** (join)
 * publish & deploy
 
 
@@ -157,9 +157,9 @@ now seriously, do I need one?
 
 benefits (project manager)
 
-* choose a BS, reliably & effortless
+* choose a BS, **reliably** & **effortless**
 * save days reading and asking
-* don't pick a wrong one
+* don't pick a **wrong one**
 
 ---
 
@@ -206,7 +206,7 @@ benefits (company)
 * have a well-organized team
 * reduce time waste / people stress
 * maximize productivity
-* save 20%-40% in developer time
+* **save 20%-40%** in developer time
 
 
 ---
@@ -240,8 +240,8 @@ what to choose (output)
 how to choose (inputs)
 
 * based on selection parameters
-* qualitative & quantitive questions
-* easy to find out answers
+* qualitative & quantitive **questions**
+* **easy** to find out answers
 
 ---
 
@@ -319,7 +319,7 @@ about this work
 
 - requested by SERVICES dpt (ERNI)
 - target audience: PMs / architects
-- expected 
+- ERNI-wide awareness expected 
 - performed guided search & read
 - compilation + sorting + add content
 
