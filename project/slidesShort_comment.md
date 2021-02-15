@@ -8,6 +8,7 @@ objective
 
 required
 
+in powerpoint : provide acronyms at the slide FOOTER
 
 ---
 
@@ -30,6 +31,7 @@ formally required
 
 remove last 3, move search to cost
 
+perhaps some content duplicated in plan
 
 ---
 
@@ -48,11 +50,8 @@ formally required
 
 eliminar -> posar-ho al cost
 
----
+part del plan?
 
-whitepaper contents
-
-explain my work reach
 
 ---
 
@@ -64,18 +63,28 @@ explain what we will listen to
 
 ---
 
-about workflows and strategies
+whitepaper contents
+
+explain my work reach
+
+contents can be skipped, just show there is more
+
+---
+
+about workflows and BS (2)
 
 explain what's this about
 
 
 ---
 
-about workflows and strategies
+about workflows and BS (2)
 
-explain what's this about (required)
+overview definitions
 
 in a manager-oriented way
+
+with some pictures
 
 
 ---
@@ -121,7 +130,7 @@ removable? dins la mateixa
 
 ---
 
-been here before?
+avoiding merge conflicts
 
 explain how bad are merge conflicts
 
@@ -132,6 +141,8 @@ removable? dins la mateixa
 benefits (company)
 
 SELL (manager-oriented)
+
+cause => consequence
 
 
 ---
