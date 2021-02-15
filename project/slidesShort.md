@@ -160,12 +160,12 @@ release frequency
 :::::::::::::: {.columns}
 ::: {.row width="50%"}
 
-![](images/relOften.png){width=55% height=55%}
+![](images/relOften.png){width=25% height=25%}
 
 :::
 ::: {.row width="50%"}
 
-![](images/relRare.png){width=55% height=55%}
+![](images/relRare.png){width=25% height=25%}
 
 <!-- 100% of this column, that is -->
 
@@ -285,6 +285,19 @@ most relevant selection parameters
 
 ---
 
+my contribution (whitepaper)
+
+* encourage flexibility (change BS?)
+* best tool: people communication
+
+
+---
+
+# BS list & types
+
+
+---
+
 branching strategies
 
 - none (anarchy)
@@ -292,6 +305,7 @@ branching strategies
 - github-flow
 - trunk-based development
 - one-flow
+- ...
 
 
 ---
@@ -304,19 +318,6 @@ workflow items (docs)
 * VCS style for merge/rebase
 * releasing policy
 * many more (NOT required to use all)
-
-
----
-
-my contribution (whitepaper)
-
-* encourage flexibility (change BS?)
-* best tool: people communication
-
-
----
-
-# BS list & types
 
 
 ---
