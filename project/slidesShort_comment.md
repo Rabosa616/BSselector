@@ -4,6 +4,15 @@
 
 ---
 
+JC suggests:
+
+* section _PLAN_ with about work, whitepaper content, etc (end) 
+* section _WHAT_ (first) with description of GF/BS
+* section _WHY_ (value) - does not have description
+
+
+---
+
 objective
 
 required
