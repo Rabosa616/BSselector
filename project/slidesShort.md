@@ -62,7 +62,7 @@ deliverables
 
 presentation contents
 
-- intro + purpose & value
+- purpose & value
 - what to choose & how
 - micro BS list & types
 - selection examples
@@ -83,7 +83,7 @@ whitepaper contents
 
 ---
 
-# intro + purpose & value
+# purpose & value
 
 ---
 
@@ -195,8 +195,8 @@ benefits (project manager)
 
 benefits (project)
 
-- all developers work *the same way*
 - no inconsistent practices
+- all developers work *the same way*
 - clean & sound log history (hygiene)
 - avoid / minimize *merge conflicts*
 
@@ -233,10 +233,10 @@ been here before? sounds familiar?
 
 benefits (company)
 
-* save 20%-40% in developer time
-* maximize productivity
-* reduce time waste in processes
 * have a well-organized team
+* reduce time waste / people stress
+* maximize productivity
+* save 20%-40% in developer time
 
 
 ---
@@ -302,15 +302,16 @@ most relevant selection parameters
 
 my contribution (whitepaper)
 
+* not just copy & paste:
 * encourage flexibility (change BS?)
 * best tool: people communication
 
 
 ---
 
-# interesting?
+# any questions?
 
-want to know more?
+better ask ... ME!
 
 ---
 
@@ -337,8 +338,7 @@ workflow items (docs)
 
 * document workflow policies
 * issue handling, branch naming
-* VCS use/choice policies
-* VCS style for merge/rebase
+* join work style (merge or rebase)
 * releasing policy
 * many more (NOT required to use all)
 
