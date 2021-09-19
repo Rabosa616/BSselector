@@ -1,5 +1,7 @@
 More docs found by Marc, either references from Alberto docs and complementary searches.
 
+https://gitential.com/git-branching-strategies-for-your-team-how-to-choose-the-best/
+
 
 git-flow (Scott Chacon, github):
 
