@@ -69,8 +69,6 @@ about me with VCSs
 
 about me with VCSs #2
 
-feat:
-
 - 2005: convinced management (and colleagues) at my former company to:
 - use SVN, and ...
 - replace existing inferior solutions
@@ -155,6 +153,20 @@ about workflows and strategies
 
 ---
 
+branching patterns / branching strategies
+
+* a branching pattern is a way of sharing/integrating developer changes
+* a branching pattern is a way of managing the path to production / deployment
+* a branching strategy is a set of branching patterns
+
+
+---
+
+# benefits & costs of gWF & BS
+
+---
+
+
 now seriously, do I need one?
 
 * you may not (who knows)
@@ -226,6 +238,18 @@ cost
 
 
 ---
+
+# basic concepts
+
+---
+
+what is a commit?
+
+
+---
+
+merge vs rebase?
+
 
 ---
 
