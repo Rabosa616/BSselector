@@ -1,14 +1,73 @@
+about me with VCSs
+
+- always been interested in VCSs, even when not available
+- happy to discover SCCS (with GUI in sun's solaris), disgusted about MS's SS
+- very happy when found SVN (unlike Linus Torvalds)
+- lucky to never use CVS (worse than its simple predecessor RCS)
+- DVCSs: tried Ubuntu's bzr (bazaar), never tried mercurial (hg)
+- tried git in the beginning, didn't understand anything
+- tried again when hype, and liked so much that used over SVN
+- using git "officially" only since May 2021
+
+
+about me with VCSs #2
+
+feat:
+
+- 2005: convinced management (and colleagues) at my former company to:
+- use SVN, and ...
+- replace existing inferior solutions
+- despite not being a _salesman_ (quite the opposite)
+
 
 objective:
 
+- present ERNI-services's BS selector
+- provide knowledge about BS & GWF and underlying concepts
+- understand why are useful (or not)
+- help you decide if you need one (or not!)
+- help you decide is most suited for YOUR project
+- decide with awareness (not blindly)
 
-contents:
+
+target audience
+
+- managers (have the last word)
+- product owners
+- SW architects
+- project managers
+- devops engineers (know more than me!)
+- agile masters?
+- ... and developers
+
+
+contents (general)
+
+- ... only at introductory level (devops engineers know more than me!)
+- definition of branching pattern, branching strategy, git workflow
+- list and description of some of them
+- benefits (& costs)
+- list of branching patterns
+- merge conflicts, solving vs minimizing
+
+
+contents, concepts determining which BS to choose
+
+- about integration of developers work
+- about BS strategy
+- related to deployment & releasing
+- CI/CD (devops only?)
+- testing & - error tolerance
+- etc ... (some contents are self-provided)
 
 
 
-zip files BS (when you dont trust infrastructure)
 
-linear / single guy
+installed 
+
+- zip files BS (when you dont trust infrastructure)
+
+- linear / single-alone person
 
 
 "what is the BEST branching strategy?"
