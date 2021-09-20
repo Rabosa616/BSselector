@@ -126,7 +126,7 @@ contents, concepts determining which BS to choose
 
 ---
 
-# git workflows & branching strategies
+# git workflows & branching strategies, patterns
 
 ---
 
@@ -136,10 +136,6 @@ about workflows and strategies
 * ... is part of a (git) workflow
 * ... the most important one
 
-
----
-
-# definitions (gWF, BS, BP)
 
 ---
 
@@ -166,14 +162,13 @@ branching patterns / branching strategies
 
 ---
 
-
 now seriously, do I need one?
 
-* you may not (who knows)
-* will **most probably** be useful
-* ... and will save time & money
-* **be careful**! choosing *the wrong one*
-* ... will be painful
+- you may not (who knows)
+- will __most probably__ be useful
+- ... and will save time & money
+- __be careful!__ choosing _the wrong one_
+- ... will be painful
 
 
 ---
@@ -187,7 +182,7 @@ git log chaos
 
 benefits (1)
 
-- developers *do things* the same way
+- developers _do things_ the same way
 - get rid of inconsistent practices
 - avoid ill-defined workflows
 - have a clean & sound log history (hygiene)
@@ -208,9 +203,9 @@ benefits (2)
 
 benefits (merging)
 
-- avoid / minimize *merge conflicts*
-- minimize conflicts **complexity**
-- reduce time when *publishing*
+- avoid / minimize _merge conflicts_
+- minimize conflicts __complexity__
+- reduce time when _publishing_
 
 
 ---
@@ -245,10 +240,17 @@ cost
 
 what is a commit?
 
+- commits have different meanings / actions depending on the VCS
+- in SVN: store + share + publish
+- in git: store only
+- git encourages committing often / svn not
+
 
 ---
 
 merge vs rebase?
+
+Reminder of these 2 ways of integrating changes.
 
 ![](images/mergeVSrebase.png){width=40% height=40%}
 
