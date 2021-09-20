@@ -1,7 +1,10 @@
 DOC=slidesShort
 echo processing $DOC ...
 pandoc -t dzslides -s $DOC.md -o $DOC.html || exit 1
-DOC=${DOC}_comment
+patch $DOC.html < styleOK.patch
+
+#DOC=${DOC}_comment
+DOC=slides
 echo processing $DOC ...
 pandoc -t dzslides -s $DOC.md -o $DOC.html || exit 1
-patch slidesShort.html < styleOK.patch
+patch $DOC.html < styleOK.patch
