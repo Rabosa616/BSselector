@@ -250,6 +250,7 @@ what is a commit?
 
 merge vs rebase?
 
+![](images/mergeVSrebase.png){width=40% height=40%}
 
 ---
 
