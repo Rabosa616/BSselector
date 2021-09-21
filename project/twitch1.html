@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Marc Gonzalez-Carnicer (ERNI Barcelona)">
+  <title>branching strategy selector, part #1 (basic concepts)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
+<style>
+  html, .view body { background-color: black; counter-reset: slideidx; }
+  body, .view section { background-color: white; border-radius: 12px }
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section, .view head > title {
+      /* The font from Google */
+      font-family: 'Oswald', arial, serif;
+      font-size: 30px;
+  }
+
+  .view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+  }
+
+  .view head > title {
+    color: white;
+    text-align: center;
+    margin: 1em 0 1em 0;
+  }
+
+  h1, h2 {
+    margin-top: 200px;
+    text-align: center;
+    font-size: 80px;
+  }
+  h3 {
+    margin: 100px 0 50px 100px;
+  }
+
+  ul {
+      margin: 50px 200px;
+  }
+  li > ul {
+      margin: 15px 50px;
+  }
+
+  p {
+    margin: 75px;
+    font-size: 50px;
+  }
+
+  blockquote {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+  }
+  blockquote:before {
+    content: open-quote;
+  }
+  blockquote:after {
+    content: close-quote;
+  }
+
+  /* Figures are displayed full-page, with the caption
+     on top of the image/video */
+  figure {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+  }
+  figure > * {
+    position: absolute;
+  }
+  figure > img, figure > video {
+    width: 100%; height: 100%;
+  }
+  figcaption {
+    margin: 70px;
+    font-size: 50px;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    text-align: right;
+    background-color: #F3F4F8;
+    border-top: 1px solid #CCC;
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+     How to use CSS3 Transitions: */
+  section {
+    -moz-transition: left 400ms linear 0s;
+    -webkit-transition: left 400ms linear 0s;
+    -ms-transition: left 400ms linear 0s;
+    transition: left 400ms linear 0s;
+  }
+  .view section {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+
+  .view section[aria-selected] {
+    border: 5px red solid;
+  }
+
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+
+  /* The current item */
+  .incremental > *[aria-selected] { opacity: 1; }
+
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0; }
+
+  /* The progressbar, at the bottom of the slides, show the global
+     progress of the presentation. */
+  #progress-bar {
+    height: 2px;
+    background: #AAA;
+  }
+</style>
+</head>
+<body>
+<section class="title">
+  <h1 class="title">branching strategy selector, part #1 (basic concepts)</h1>
+  <footer>
+    <span class="author">Marc Gonzalez-Carnicer (ERNI Barcelona)</span> · <span class="date">September 2021</span>
+  </footer>
+</section>
+<section class="slide level6">
+
+<p>objective</p>
+<pre><code>    Help YOU &amp; your TEAM
+    CHOOSE for your project
+    a proper:</code></pre>
+<ul>
+<li>(git?) workflow &amp;</li>
+<li>branching strategy</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>HEY WAIT! what’s this flow/BS stuff?</p>
+<ul>
+<li>is this a <em>self-help therapy</em>?</li>
+<li>do I really need a BS?</li>
+<li>can’t I do without? (as usual)</li>
+<li><em>how much</em> does this cost?</li>
+<li>what do I get/avoid <em>in return</em>?</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>about this work</p>
+<ul>
+<li>part of my ERNI (career path) masterpiece</li>
+<li>something I wanted to know about</li>
+<li>performed guided search &amp; read</li>
+<li>this presentation +</li>
+<li>… detailed, in-depth document</li>
+<li>… annotated bibliography</li>
+<li>… BS selector tools</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>about me <span class="citation" data-cites="ERNI">@ERNI</span></p>
+<ul>
+<li>joined ERNI as senior 4+ years ago</li>
+<li>worked for HP ever since</li>
+<li>printer FW developer (C++, linux)</li>
+<li>HP multiplatform library (C++)</li>
+<li>HP common platform developer (DUNE)</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>about me with VCSs (Version Control Systems)</p>
+<ul>
+<li>always been interested in VCSs, even when not available (no internet)</li>
+<li>happy to discover SCCS (GUI in sun’s solaris), disgusted about Microsoft’s SS</li>
+<li>very happy when found out about SVN (unlike Linus Torvalds)</li>
+<li>lucky to have never used CVS (worse than its simple predecessor RCS)</li>
+<li>DVCSs: tried Ubuntu’s bzr (bazaar), though never tried mercurial (hg)</li>
+<li>tried git in the beginning, didn’t understand anything</li>
+<li>tried git again when hype, and liked it so much, started to use it over SVN</li>
+<li>using git <em>officially</em> only since May 2021</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>about me with VCSs #2</p>
+<ul>
+<li>2005: convinced management (and colleagues) at my former company to:</li>
+<li>use SVN, and …</li>
+<li>replace existing inferior solutions</li>
+<li>despite not being a <em>salesman</em> (quite the opposite)</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>target audience</p>
+<ul>
+<li>managers (have the last word)</li>
+<li>product owners</li>
+<li>SW architects</li>
+<li>project managers</li>
+<li>agile masters?</li>
+<li>NOT FOR devops engineers (know more than me :) !)</li>
+<li>… and developers</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>objective:</p>
+<ul>
+<li>showcase ERNI-services’s BS selector</li>
+<li>provide <em>beginner level</em> knowledge about BS &amp; gWF and underlying, related concepts</li>
+<li>understand why they are (or not) useful</li>
+<li>help you decide if you need one (or not!), and the MOST suited</li>
+<li>decide with <em>awareness</em> (not blindly or with inertia / prejudice)</li>
+<li><em>humbly</em> provide tips on using VCSs and BSs (I am sure you know or heard of most of the covered topics)</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>contents (general) (part #1, this session)</p>
+<ul>
+<li>… only at introductory level (devops engineers know more than me!)</li>
+<li>definition of branching pattern, branching strategy, git workflow</li>
+<li>benefits (&amp; costs) of gWF &amp; BS</li>
+<li>basic concepts, featuring merge conflicts (solving vs minimizing)</li>
+<li>list of branching patterns</li>
+<li>list of branching strategies</li>
+</ul>
+</section>
+<section class="slide level6">
+
+<p>contents, concepts determining which BS to choose (in part #2, next session)</p>
+<ul>
+<li>about integration of developers work</li>
+<li>about BS strategy</li>
+<li>related to deployment &amp; releasing</li>
+<li>CI/CD (devops only?)</li>
+<li>testing &amp; - error tolerance</li>
+<li>etc … (some contents are self-provided)</li>
+</ul>
+</section>
+<section class="slide level6">
+
+</section>
+<section id="git-workflows-branching-strategies-patterns" class="title-slide slide level1"><h1>git workflows &amp; branching strategies / patterns</h1></section><section class="slide level6">
+
+<p>abbreviations</p>
+<ul>
+<li>BS: Branching Strategy</li>
+<li>gWF: (git) WorkFlow – not only with git!</li>
+<li>VCS: Version Control System (like svn, git, …)</li>
+<li>D-VCS / DVCS: Distributed VCS (git, hg, bzr, …)</li>
+<li>PR: pull request</li>
+</ul>
+</section><section class="slide level6">
+
+<p>about workflows and strategies</p>
+<ul>
+<li>a branching strategy (BS)<br />
+</li>
+<li>… is part of a (git) workflow</li>
+<li>… the most important one</li>
+</ul>
+</section><section class="slide level6">
+
+<p>branching patterns / branching strategies</p>
+<ul>
+<li>a branching pattern is a way of sharing/integrating developer changes</li>
+<li>a branching pattern is a way of managing the path to production / deployment</li>
+<li>a branching strategy is a set of branching patterns (maybe only 1)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>git workflows and strategies</p>
+<ul>
+<li>conventions between developers</li>
+<li>rules to store, branch, merge changes</li>
+<li>rules to publish and deploy …</li>
+<li>conventions may feel arbitrary, inappropiate …</li>
+</ul>
+</section><section class="slide level6">
+
+</section>
+<section id="benefits-costs-of-gwf-bs" class="title-slide slide level1"><h1>benefits &amp; costs of gWF &amp; BS</h1></section><section class="slide level6">
+
+<p>now seriously, do I need one?</p>
+<ul>
+<li>are these BS just <em>hype</em>?</li>
+<li>you may not (who knows)</li>
+<li>will <strong>most probably</strong> be useful</li>
+<li>… and will save time &amp; money</li>
+<li><strong>be careful!</strong> choosing <em>the wrong one</em></li>
+<li>… will be painful</li>
+</ul>
+</section><section class="slide level6">
+
+<p>git log chaos</p>
+<p><img src="images/messyLog0.gif" style="width:70.0%;height:70.0%" /></p>
+</section><section class="slide level6">
+
+<p>benefits (1)</p>
+<ul>
+<li>developers <em>do things</em> the same way</li>
+<li>get rid of inconsistent practices</li>
+<li>avoid ill-defined workflows</li>
+<li>have a clean &amp; sound log history (hygiene)</li>
+<li>no spaghetti-like / chaotic history</li>
+</ul>
+</section><section class="slide level6">
+
+<p>benefits (2)</p>
+<ul>
+<li>optimize productivity</li>
+<li>enable parallel development</li>
+<li>allow planned, structured releases</li>
+<li>have a clear path for SW changes through production</li>
+</ul>
+</section><section class="slide level6">
+
+<p>benefits (merging-related)</p>
+<ul>
+<li>avoid / minimize amount of <em>merge conflicts</em></li>
+<li>minimize conflicts <strong>complexity</strong></li>
+<li>reduce time when <em>publishing</em></li>
+</ul>
+</section><section class="slide level6">
+
+<p>benefits (general)</p>
+<pre><code>    having a proper branching strategy
+    =&gt; save 20%-40% in developer time
+
+    choose a proper one
+      in less than 1 hour
+    (with this work)</code></pre>
+<p>Source: our own survey (mostly between ERNI developers)</p>
+</section><section class="slide level6">
+
+<p>cost</p>
+<ul>
+<li>more ceremony/bureaucracy for some operations (maybe)</li>
+<li>integration / release manager may be required (if none already)</li>
+<li>may need to train / educate developers</li>
+<li>developers may need some time to be adapt to it</li>
+</ul>
+</section><section class="slide level6">
+
+<p>git training</p>
+<ul>
+<li>even if people use layers above git (github/bitbucket/gitlab, Teams Foundation Server, gitflow plugins …), it’s convenient that the team is decently trained on raw git usage for the basic operations (pull, fetch, push, reset, merge, rebase, reflog, etc)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>git training (join)</p>
+<p><img src="images/gitComplicatedXKCD.png" style="width:30.0%;height:30.0%" /></p>
+</section><section class="slide level6">
+
+</section>
+<section id="basic-concepts" class="title-slide slide level1"><h1>basic concepts</h1></section><section class="slide level6">
+
+<p>what is a commit?</p>
+<ul>
+<li>commits have different meanings / actions depending on the VCS</li>
+<li>in SVN: store + share + publish</li>
+<li>in git: store only</li>
+<li>git encourages committing often / svn not</li>
+<li>quote by Seth Robertson: “Commit Often, Perfect Later, Publish Once”</li>
+</ul>
+</section><section class="slide level6">
+
+<p>what is a branch?</p>
+<ul>
+<li>different VCSs have different meanings or uses for a branch</li>
+<li>humans think of a branch as in a tree (bifurcation)</li>
+<li>in svn, a branch copies (cheaply) the files</li>
+<li>in git, a branch is simply a label of a history you don’t want to lose, but it is not required to explicitly use them</li>
+<li>here, we’ll use the <em>human</em> meaning</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/treebranches.jpg" style="width:40.0%;height:40.0%" /></p>
+</section><section class="slide level6">
+
+<p>branching is easy, but …</p>
+<ul>
+<li>in all VCSs, branching is easy</li>
+<li>integrating is the <strong>tough</strong> part</li>
+<li>in SVN, <em>merging</em> is not really efficient (design limitation)</li>
+<li>branching increases the complexity of your repository (Leroy principle)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/mergeComplexityDivergeLeroy.jpg" style="width:80.0%;height:80.0%" /></p>
+</section><section class="slide level6">
+
+<p>merge vs rebase vs cherry-pick</p>
+<p>Reminder of these 2 ways of integrating changes.</p>
+<ul>
+<li>merge: join 2 branches with a new commit</li>
+<li>rebase: moves changes (replays) on a different base point from base branch</li>
+<li>cherry-pick: picks only 1 commit from 1 branch to another - may introduce conflicts (<code>git cherry</code> command may detect them)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/mergeVSrebase.png" style="width:40.0%;height:40.0%" /></p>
+</section><section class="slide level6">
+
+</section>
+<section id="merge-conflicts" class="title-slide slide level1"><h1>merge conflicts</h1></section><section class="slide level6">
+
+<p>sounds familiar?</p>
+<p><img src="images/svnmergeconflict.png" style="width:70.0%;height:70.0%" /></p>
+</section><section class="slide level6">
+
+<p>sounds familiar?</p>
+<ul>
+<li>in SVN you can’t even commit if somebody has modified the same file (in a different place)</li>
+<li>in GIT you can’t push without fetch/pull in the same branch</li>
+<li>so first you have to update/pull …</li>
+<li>and then, you may have the most feared enemy of team development: merge conflicts</li>
+</ul>
+</section><section class="slide level6">
+
+<p>let’s have a survey</p>
+<ul>
+<li>how often / when do you update/pull?</li>
+<li>how often / when do you commit/backup?</li>
+<li>how often / when do you share/publish (push)?</li>
+<li>answers on average - like every week / day / twice a day / 1-2 hours / several times an hour</li>
+</ul>
+</section><section class="slide level6">
+
+<p>updating too frequently?</p>
+<ul>
+<li>updating frequently helps reduce the complexity of merge conflicts</li>
+<li>but … you get unexpected / potentially dangerous changes (not about build)</li>
+<li>lose the isolation of your feature branch development (unless some change is desired)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/updateFrequently.jpg" style="width:40.0%;height:40.0%" /></p>
+</section><section class="slide level6">
+
+<p>probability of merge conflicts</p>
+<ul>
+<li>depends on:</li>
+<li>integration frequency</li>
+<li>codebase size</li>
+<li>location / distribution of tasks in the code</li>
+</ul>
+</section><section class="slide level6">
+
+<p>integration frequency</p>
+<ul>
+<li>difficult to quantificate (what does <em>frequent</em> mean in terms of time?)</li>
+<li>how often shall we integrate changes?</li>
+<li>how many developers in the team? are there subteams?</li>
+<li>depends on several factors, like delay before commit (code review, validation, …)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>codebase size</p>
+<ul>
+<li>size of your changes</li>
+<li>size of codebase</li>
+<li>ratio changes/codebase =&gt; merge conflict probability</li>
+<li>few changes compensate a low integration frequency</li>
+</ul>
+</section><section class="slide level6">
+
+<p>distribution of tasks in the code</p>
+<ul>
+<li>avoid (complex) merge conflicts, no matter how often integration is done or how large the codebase is by:</li>
+<li>try to be smart distributing the tasks</li>
+<li>make developers work on different locations (i.e. on a new feature / module)</li>
+<li>have the release manager (or the self-managed team) ensure people do not work on the same module / files</li>
+</ul>
+</section><section class="slide level6">
+
+<p>types of merge conflicts</p>
+<ul>
+<li>simple textual conflict</li>
+<li>painful textual conflict : many changes, impossible to process by diff viewers</li>
+<li>semantic conflict (NOT DETECTED - it builds!) : VERY DANGEROUS - example: rename method, other dev adds call to old method name</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/solvingToughConflict.png" style="width:60.0%;height:60.0%" /></p>
+</section><section class="slide level6">
+
+<p>avoid banal merge conflicts</p>
+<ul>
+<li>reduce conflict occurrences and complexity by:</li>
+<li>enforce style before reviewing changes, so later on colleagues don’t feel tempted to make unrelated changes fixing them</li>
+<li>write tidy code: EOL whitespace, indentation, TAB/blanks consistency, fileformat (DOS/unix), … there are tools for that</li>
+<li>don’t fix other colleagues unrelated changes =&gt; do that on a specific commit / also reducing code smells with tools like sonarqube</li>
+</ul>
+</section><section class="slide level6">
+
+<p>zero conflicts trick (“only for you my friend”)</p>
+<p><img src="images/avoidConflict.jpg" style="width:40.0%;height:40.0%" /></p>
+</section><section class="slide level6">
+
+<p>minimize merge conflicts</p>
+<ul>
+<li>commit/publish first the smallest / simplest change (less probability of hard to solve merge conflicts)</li>
+<li>the <em>zero conflicts trick</em> should be intentionally avoided at all costs, may cause conflict panic</li>
+<li><em>high-tech</em> &amp; <em>revolutionary</em> trick: use your <em>soft skills</em> and communicate (TALK!): before the commit, but also before developing the change</li>
+<li>use peer review to keep colleagues informed on what you have done (not only for reviewing the code)</li>
+<li>use agile meetings to inform / get informed about possible conflicts</li>
+<li>use the proper branching pattern accordingly</li>
+</ul>
+</section><section class="slide level6">
+
+</section>
+<section id="branching-patterns-integration" class="title-slide slide level1"><h1>branching patterns (integration)</h1></section><section class="slide level6">
+
+<p>Most relevant branching patterns related to integration (sharing developers work):</p>
+<ul>
+<li>mainline</li>
+<li>feature branch</li>
+<li>continuous integration</li>
+<li>collaboration branch</li>
+<li>experimental / future branch</li>
+<li>squash &amp; merge (or rebase)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>mainline integration</p>
+<ul>
+<li>no branches</li>
+<li>very simple</li>
+<li>everybody has used it some time</li>
+<li>in practice, it does not exist (every single sandbox is a branch by itself)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>feature branch</p>
+<ul>
+<li>parallel, isolated development for a new feature</li>
+<li>variants: allow or not to update from main branch (usually not)</li>
+<li>variant: allow or not to break tests or even builds</li>
+<li>not a hotfix branch (later)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>develop branch</p>
+<ul>
+<li>an integration branch to integrate all work before the mainline</li>
+<li>helps keep a healthy mainline</li>
+<li>adds complexity</li>
+<li>used by git-flow and other complex BS</li>
+</ul>
+</section><section class="slide level6">
+
+<p>continuous integration</p>
+<ul>
+<li>highly collaborative</li>
+<li>simulates developers are working on the same set of files / folders</li>
+<li>share / integrate continuously, any non build-breaking change</li>
+<li>reduces probability of merge conflicts, specially the tough ones</li>
+<li>variant: agree on being able to share code that breaks tests (even builds!)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>team-integration branch</p>
+<ul>
+<li>allows a sub-team to integrate its changes before integrating with mainline</li>
+<li>provides a coherent and low-noise task delivery</li>
+</ul>
+</section><section class="slide level6">
+
+<p>collaboration branch</p>
+<ul>
+<li>useful for scoped continuous integration (share continously without disturbing the whole team)</li>
+<li>isolation from/to outer world when sharing on a sub-team (feature)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>experimental / future branch</p>
+<ul>
+<li>branches that have no expectation of early release</li>
+<li>“future” may mean “very experimental”, or for a far future</li>
+<li>does not create noise on mainline while doing extreme refactoring</li>
+<li>integration may be tough</li>
+</ul>
+</section><section class="slide level6">
+
+<p>squash &amp; merge / rebase</p>
+<ul>
+<li>recent approach</li>
+<li>squash all commits into 1 before integrating into the mainline</li>
+<li>dramatically reduces / avoids log history chaos</li>
+<li>provides a clean (but isolated) mainline, but loses full history (partial commits &amp; branch origin)</li>
+<li>also possible with rebase instead of merge (thus becoming a cherry-pick)</li>
+<li>popular and possible with the PRs of github, bitbucket, etc</li>
+</ul>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/squashNmerge.png" style="width:70.0%;height:70.0%" /></p>
+</section><section class="slide level6">
+
+<p>(join)</p>
+<p><img src="images/squashNmerge2.png" style="width:40.0%;height:40.0%" /></p>
+</section><section class="slide level6">
+
+</section>
+<section id="branching-patterns-releasing" class="title-slide slide level1"><h1>branching patterns (releasing)</h1></section><section class="slide level6">
+
+<p>Most relevant branching patterns related to releasing</p>
+<ul>
+<li>hotfix branch</li>
+<li>release branch</li>
+<li>maturity/stable branch</li>
+<li>release train, future / cascaded trains</li>
+<li>release-ready mainline</li>
+</ul>
+</section><section class="slide level6">
+
+<p>hotfix branch</p>
+<ul>
+<li>similar to feature branch (but triggered by users / testers)</li>
+<li>departs from production code, not mainline / develop</li>
+<li>is expected to be closed quickly ASAP</li>
+</ul>
+</section><section class="slide level6">
+
+<p>release branch</p>
+<ul>
+<li>a branch devoted to increase stability on a given product features</li>
+<li>does not accept <em>cool</em> and new <em>features</em>, only bugfixes</li>
+<li>may cause merge conflicts when porting fixes to mainline (diverged?)</li>
+</ul>
+</section><section class="slide level6">
+
+<p>maturity/stable branch</p>
+<ul>
+<li>branch (or tag) with stable code (answers the <em>what is your latest stable release?</em> question)</li>
+<li>to be given to testers, beta-testers, or install in production</li>
+<li>also as a stable point for developing new features <em>without unexpected bugs</em></li>
+</ul>
+</section><section class="slide level6">
+
+<p>release train, future / cascaded trains</p>
+<ul>
+<li>commitment to release in fixed slots of time from the healthy mainline</li>
+<li>aims at not delaying too much releasing of new features</li>
+<li>its changes are also applied to the mainline (hopefully with automerge)</li>
+<li>there may be several cascaded <em>trains</em> (April train, June train, …), the latest one (June) feeding to the previous one (April), etc and the mainline</li>
+</ul>
+</section><section class="slide level6">
+
+<p>release-ready mainline</p>
+<ul>
+<li>commitment to always have a healthy mainline, ready for production/deployment at any time</li>
+<li>works better with an integration buffer below it (a <em>develop</em>/<em>integration</em> branch)</li>
+</ul>
+</section><section class="slide level6">
+
+</section>
+<section id="the.best.one" class="title-slide slide level1"><h1>THE.BEST.ONE</h1></section><section class="slide level6">
+
+<p>what is the best one?</p>
+<ul>
+<li>some people just want to use the same BS always</li>
+<li>some people think a given BS is the best one, and suits all kind of projects</li>
+<li>so … it depends! the ERNI BS selector comes in handy</li>
+</ul>
+</section><section class="slide level6">
+
+<p>Martin Fowler’s opinion</p>
+<ul>
+<li>(I have quoted from his web page https://martinfowler.com/articles/branching-patterns.html)</li>
+<li>most influential developers (chief scientist at thoughtworks)</li>
+<li>book author (UML, refactoring, agile, …) and board member of agile technologies</li>
+<li>advocated XP (eXtreme Programming) in the late ’90s together with Kent Beck</li>
+<li>he strongly recommends to use <em>Continous Integration</em> (simulate working on same set of files, sharing work / integrating very often) - reason: minimize merge conflicts</li>
+<li>I beg to humbly disagree with him: have used it only some times, depending on development phase</li>
+<li>when developing in feature branch, one does not want the <em>noise</em> caused by other colleagues work</li>
+</ul>
+</section><section class="slide level6">
+
+<p>my opinion</p>
+<ul>
+<li>play as a team, being always consistent, without anarchy</li>
+<li>start with something simple (use ERNI’s BS selector)</li>
+<li>analyze if it works well, and if not, why</li>
+<li>be flexible: feel free to adapt / change if required (all together)</li>
+</ul>
+</section><section class="slide level6">
+
+</section><section class="slide level6">
+
+<p>conclusion</p>
+<ul>
+<li>(define,) agree &amp; use a branching strategy</li>
+<li>choose the proper one with awareness</li>
+<li>if no time (or want to double check) use ERNI’s selector</li>
+<li>be open &amp; ready to change / adapt</li>
+<li>to minimize merge conflicts, use agile (daily) meetings to inform of upcoming refactors &amp; commits</li>
+</ul>
+</section><section class="slide level6">
+
+<p>thanks</p>
+<ul>
+<li>Martin Fowler, for the <em>branching patterns</em> online article</li>
+<li>Oliver Widder, for the <em>geek &amp; poke</em> cartoons</li>
+<li>Juan Carlos Arco (ERNI Barcelona), my mentor, for endless help and lots, lots of patience with me</li>
+<li>Alberto Martin Casado (ERNI Madrid), for providing knowledge and guidance, allowing me to learn about this</li>
+<li>David Carmona (ERNI Barcelona), for technical help broadcasting</li>
+</ul>
+</section>
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<div id="progress-bar"></div>
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  [role="note"] { display: none; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+    display: none;
+  }
+  .view body {
+    position: static;
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    display: inline-block;
+    overflow: visible; overflow-x: hidden;
+    /* undo Dz.onresize */
+    transform: none !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -o-transform: none !important;
+    -ms-transform: none !important;
+  }
+  .view head, .view head > title { display: block }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  .view section {
+    pointer-events: auto;
+    position: static;
+    width: 800px; height: 600px;
+    margin: -150px -200px;
+    float: left;
+
+    transform: scale(.4);
+    -moz-transform: scale(.4);
+    -webkit-transform: scale(.4);
+    -o-transform: scale(.4);
+    -ms-transform: scale(.4);
+  }
+  .view section > * { pointer-events: none; }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  html.view { overflow: visible; }
+  body.loaded { display: block; }
+  .incremental {visibility: hidden; }
+  .incremental[active] {visibility: visible; }
+  #progress-bar{
+    bottom: 0;
+    position: absolute;
+    -moz-transition: width 400ms linear 0s;
+    -webkit-transition: width 400ms linear 0s;
+    -ms-transition: width 400ms linear 0s;
+    transition: width 400ms linear 0s;
+  }
+  .view #progress-bar {
+    display: none;
+  }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    html: null,
+    slides: null,
+    progressBar : null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = Array.prototype.slice.call($$("body > section"));
+    this.progressBar = $("#progress-bar");
+    this.html = document.body.parentNode;
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+    this.setupView();
+  }
+
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+    if (aEvent.keyCode == 70) { // f
+      aEvent.preventDefault();
+      this.goFullscreen();
+    }
+    if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.toggleView();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  Dz.setupView = function() {
+    document.body.addEventListener("click", function ( e ) {
+      if (!Dz.html.classList.contains("view")) return;
+      if (!e.target || e.target.nodeName != "SECTION") return;
+
+      Dz.html.classList.remove("view");
+      Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+    }, false);
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.MozTransform = transform;
+    db.style.WebkitTransform = transform;
+    db.style.OTransform = transform;
+    db.style.msTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getNotes = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("[role='note']");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getNotes(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    this.setProgress(newidx, newstep);
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.toggleView = function() {
+    this.html.classList.toggle("view");
+
+    if (this.html.classList.contains("view")) {
+      $("section[aria-selected]").scrollIntoView(true);
+    }
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      if (this.html.classList.contains("view")) {
+        next.scrollIntoView();
+      }
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = $$('.incremental');
+    if (this.step <= 0) {
+      $$.forEach(incrementals, function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      $$.forEach(incrementals, function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+
+  Dz.goFullscreen = function() {
+    var html = $('html'),
+        requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+    if (requestFullscreen) {
+      requestFullscreen.apply(html);
+    }
+  }
+  
+  Dz.setProgress = function(aIdx, aStep) {
+    var slide = $("section:nth-of-type("+ aIdx +")");
+    if (!slide)
+      return;
+    var steps = slide.$$('.incremental > *').length + 1,
+        slideSize = 100 / (this.slides.length - 1),
+        stepSize = slideSize / steps;
+    this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+  
+  function init() {
+    Dz.init();
+    window.onkeydown = Dz.onkeydown.bind(Dz);
+    window.onresize = Dz.onresize.bind(Dz);
+    window.onhashchange = Dz.onhashchange.bind(Dz);
+    window.onmessage = Dz.onmessage.bind(Dz);
+  }
+
+  window.onload = init;
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>
+<!-- vim: set fdm=marker: }}} -->
+</body>
+</html>
