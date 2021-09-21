@@ -282,6 +282,10 @@ what is a branch?
 - in git, a branch is simply a label of a history you don't want to lose, but it is not required to explicitly use them
 - here, we'll use the _human_ meaning
 
+---
+
+(join)
+
 ![](images/treebranches.jpg){width=40% height=40%}
 
 ---
@@ -292,6 +296,10 @@ branching is easy, but ...
 - integrating is the __tough__ part
 - in SVN, _merging_ is not really efficient (design limitation)
 - branching increases the complexity of your repository (Leroy principle)
+
+---
+
+(join)
 
 ![](images/mergeComplexityDivergeLeroy.jpg){width=40% height=40%}
 
@@ -304,6 +312,10 @@ Reminder of these 2 ways of integrating changes.
 - merge: join 2 branches with a new commit
 - rebase: moves changes (replays) on a different base point from base branch
 - cherry-pick: picks only 1 commit from 1 branch to another - may introduce conflicts (`git cherry` command may detect them)
+
+---
+
+(join)
 
 ![](images/mergeVSrebase.png){width=40% height=40%}
 
@@ -382,6 +394,10 @@ sounds familiar?
 
 ![](images/svnmergeconflict.png){width=70% height=70%}
 
+---
+
+sounds familiar?
+
 - in SVN you can't even commit if somebody has modified the same file (in a different place)
 - in GIT you can't push without fetch/pull in the same branch
 
@@ -392,6 +408,12 @@ types of merge conflicts
 - textual conflict
 - painful textual conflict : many changes, impossible to process by diff viewers
 - semantic conflict (NOT DETECTED - it builds!) : VERY DANGEROUS - example: rename method, other dev adds call to old method name
+
+---
+
+(join)
+
+![](images/solvingToughConflict.png){width=70% height=70%}
 
 ---
 
