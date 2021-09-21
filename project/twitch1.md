@@ -20,11 +20,11 @@ objective
 
 HEY WAIT! what's this flow/BS stuff?
 
-- is this a *self-help therapy*?
+- is this a _self-help therapy_?
 - do I really need a BS?
 - can't I do without? (as usual)
-- *how much* does this cost?
-- what do I get/avoid *in return*?
+- _how much_ does this cost?
+- what do I get/avoid _in return_?
 
 
 ---
@@ -62,7 +62,7 @@ about me with VCSs
 - DVCSs: tried Ubuntu's bzr (bazaar), though never tried mercurial (hg)
 - tried git in the beginning, didn't understand anything
 - tried git again when hype, and liked it so much, started to use it over SVN
-- using git *officially* only since May 2021
+- using git _officially_ only since May 2021
 
 
 ---
@@ -77,6 +77,19 @@ about me with VCSs #2
 
 ---
 
+target audience
+
+- managers (have the last word)
+- product owners
+- SW architects
+- project managers
+- agile masters?
+- NOT FOR devops engineers (know more than me :) !)
+- ... and developers
+
+
+---
+
 objective:
 
 - present ERNI-services's BS selector
@@ -85,19 +98,6 @@ objective:
 - help you decide if you need one (or not!)
 - help you decide the most suited for YOUR project
 - decide with awareness (not blindly or inertia or prejudice)
-
-
----
-
-target audience
-
-- managers (have the last word)
-- product owners
-- SW architects
-- project managers
-- devops engineers (know more than me!)
-- agile masters?
-- ... and developers
 
 
 ---
@@ -129,22 +129,21 @@ contents, concepts determining which BS to choose
 # git workflows & branching strategies, patterns
 
 ---
+abbreviations
 
-about workflows and strategies
-
-* a branching strategy (B.S.)
-* ... is part of a (git) workflow
-* ... the most important one
+* BS: Branching Strategy
+* gWF: (git) WorkFlow -- not only with git!
+* VCS: Version Control System (like svn, git, ...)
+* D-VCS / DVCS: Distributed VCS (git, hg, bzr, ...)
 
 
 ---
 
 about workflows and strategies
 
-* conventions between developers
-* rules to store, branch, merge changes
-* rules to publish and deploy ...
-* conventions may feel arbitrary, inappropiate ...
+* a branching strategy (BS)  
+* ... is part of a (git) workflow
+* ... the most important one
 
 
 ---
@@ -153,7 +152,17 @@ branching patterns / branching strategies
 
 * a branching pattern is a way of sharing/integrating developer changes
 * a branching pattern is a way of managing the path to production / deployment
-* a branching strategy is a set of branching patterns
+* a branching strategy is a set of branching patterns (maybe only 1)
+
+
+---
+
+git workflows and strategies
+
+* conventions between developers
+* rules to store, branch, merge changes
+* rules to publish and deploy ...
+* conventions may feel arbitrary, inappropiate ...
 
 
 ---
@@ -164,6 +173,7 @@ branching patterns / branching strategies
 
 now seriously, do I need one?
 
+- are these BS just _hype_?
 - you may not (who knows)
 - will __most probably__ be useful
 - ... and will save time & money
@@ -201,9 +211,9 @@ benefits (2)
 
 ---
 
-benefits (merging)
+benefits (merging-related)
 
-- avoid / minimize _merge conflicts_
+- avoid / minimize amount of _merge conflicts_
 - minimize conflicts __complexity__
 - reduce time when _publishing_
 
@@ -226,10 +236,10 @@ benefits (general)
 
 cost
 
-* more (?) ceremony for some operations
-* integration manager may be required (if none already)
-* need to train developers
-* developers may need to be used to it
+* more ceremony/bureaucracy for some operations (maybe)
+* integration / release manager may be required (if none already)
+* may need to train / educate developers
+* developers may need some time to be adapt to it
 
 
 ---
@@ -248,6 +258,18 @@ what is a commit?
 
 ---
 
+what is a branch?
+
+- different VCSs have different meanings or uses for a branch
+- humans think of a branch as in a tree (bifurcation)
+- in svn, a branch copies (cheaply) the files
+- in git, a branch is simply a label of a history you don't want to lose, but it is not required to explicitly use them
+- here, we'll use the _human_ meaning
+
+![](images/treebranches.jpg){width=40% height=40%}
+
+---
+
 merge vs rebase?
 
 Reminder of these 2 ways of integrating changes.
@@ -255,4 +277,113 @@ Reminder of these 2 ways of integrating changes.
 ![](images/mergeVSrebase.png){width=40% height=40%}
 
 ---
+
+merge conflicts
+
+---
+
+sounds familiar?
+
+- image
+
+---
+
+types of merge conflicts
+
+- textual conflict
+- painful textual conflict : many changes
+- semantic conflict (NOT DETECTED) : rename method, other dev adds call to old method name
+
+---
+
+avoid banal merge conflicts
+
+- enforce text style before commits (so people don't feel tempted to make unrelated changes)
+- write tidy code: EOL whitespace, indentation, TAB/blanks consistency, fileformat (DOS/unix), ... there are tools for that
+
+
+---
+
+merge conflict
+
+in SVN:
+
+- you can't even commit if somebody has modified the same file (in a different place)
+- it's like in git, a push without fetch/pull in the same branch
+
+![](images/svnmergeconflict.png){width=70% height=70%}
+
+---
+
+minimize merge conflicts
+
+- enforce text style before commits (so people don't feel tempted to make unrelated changes)
+- write tidy code: EOL whitespace, indentation, TAB/blanks consistency, fileformat (DOS/unix), ... there are tools for that
+
+
+---
+
+# branching patterns
+
+---
+
+Let's take a look at the most relevant branching patterns
+
+- feature branch
+- 
+
+
+---
+
+# I want the BEST ONE
+
+---
+
+what is the best one?
+
+- some people just want to use the same BS always
+- some people think a given BS is the best one, and suits all kind of projects
+- 
+
+---
+
+Martin Fowler's opinion
+
+- (I have quoted from his web page https://martinfowler.com/articles/branching-patterns.html)
+- most influential developers (chief scientist at thoughtworks)
+- author and board member of agile technologies
+- advocated XP (eXtreme Programming) in the late '90 with Kent Beck
+- he strongly recommends to use _Continous Integration_ (simulate working on same set of files, sharing work / integrating very often)
+- reason: minimize merge conflicts
+- I beg to disagree with him: use it some times, but depends on development phase
+- depends if work related or not, how large is the codebase
+
+
+---
+
+my opinion
+
+* be always consistent (all developers)
+* start with something simple (use BS selector)
+* feel free to change if required
+
+---
+
+
+
+
+
+
+---
+
+conclusion
+
+- (define,) agree & use a branching strategy 
+- choose the proper one with awareness, or use ERNI's selector if no time
+- be open & ready to change / adapt
+- to minimize merge conflicts, use agile (daily) meetings to inform of upcoming refactors & commits
+
+
+---
+
 
