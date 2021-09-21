@@ -1,6 +1,6 @@
-% branching strategy selector
-% Marc Gonzalez-Carnicer
-% February 2021
+% branching strategy selector, part #1 (basic concepts)
+% Marc Gonzalez-Carnicer (ERNI Barcelona)
+% September 2021
 
 ---
 
@@ -92,7 +92,7 @@ target audience
 
 objective:
 
-- present ERNI-services's BS selector
+- showcase ERNI-services's BS selector
 - provide _beginner level_ knowledge about BS & gWF and underlying, related concepts
 - understand why they are (or not) useful
 - help you decide if you need one (or not!), and the MOST suited
@@ -102,19 +102,19 @@ objective:
 
 ---
 
-contents (general)
+contents (general) (part #1, this session)
 
 - ... only at introductory level (devops engineers know more than me!)
 - definition of branching pattern, branching strategy, git workflow
 - benefits (& costs) of gWF & BS
-- list and description of some of them
+- basic concepts, featuring merge conflicts (solving vs minimizing)
 - list of branching patterns
-- merge conflicts, solving vs minimizing
+- list of branching strategies
 
 
 ---
 
-contents, concepts determining which BS to choose
+contents, concepts determining which BS to choose (in part #2, next session)
 
 - about integration of developers work
 - about BS strategy
@@ -126,15 +126,17 @@ contents, concepts determining which BS to choose
 
 ---
 
-# git workflows & branching strategies, patterns
+# git workflows & branching strategies / patterns
 
 ---
+
 abbreviations
 
 * BS: Branching Strategy
 * gWF: (git) WorkFlow -- not only with git!
 * VCS: Version Control System (like svn, git, ...)
 * D-VCS / DVCS: Distributed VCS (git, hg, bzr, ...)
+* PR: pull request
 
 
 ---
@@ -231,6 +233,8 @@ benefits (general)
     (with this work)
 ```
 
+Source: our own survey (mostly between ERNI developers)
+
 ---
 
 
@@ -247,6 +251,10 @@ git training
 
 - even if people use layers above git (github/bitbucket/gitlab, Teams Foundation Server, gitflow plugins ...), it's convenient that the team is decently trained on raw git usage for the basic operations (pull, fetch, push, reset, merge, rebase, reflog, etc)
 
+---
+
+git training (join)
+
 ![](images/gitComplicatedXKCD.png){width=70% height=70%}
 
 ---
@@ -261,6 +269,7 @@ what is a commit?
 - in SVN: store + share + publish
 - in git: store only
 - git encourages committing often / svn not
+- Seth Robertson: "Commit Often, Perfect Later, Publish Once: Git Best Practices"
 
 
 ---
@@ -282,13 +291,19 @@ branching is easy
 - in all VCSs, branching is easy
 - integrating is the __tough__ part
 - in SVN, _merging_ is not really efficient (design limitation)
+- branching increases the complexity of your repository (Leroy principle)
 
+![](images/mergeComplexity.jpg){width=40% height=40%}
 
 ---
 
-merge vs rebase?
+merge vs rebase vs cherry-pick
 
 Reminder of these 2 ways of integrating changes.
+
+- merge: join 2 branches with a new commit
+- rebase: moves changes (replays) on a different base point from base branch
+- cherry-pick: picks only 1 commit from 1 branch to another - may introduce conflicts (`git cherry` command may detect them)
 
 ![](images/mergeVSrebase.png){width=40% height=40%}
 
@@ -299,19 +314,24 @@ Reminder of these 2 ways of integrating changes.
 
 ---
 
-survey
+let's have a survey
 
 - how often / when do you update/pull?
 - how often / when do you commit/backup?
 - how often / when do you share/publish (push)?
-- answers like every week / day / twice a day / hour / several times an hour
+- answers on average - like every week / day / twice a day / 1-2 hours / several times an hour
 
 
 ---
 
 updating too frequently?
 
+- updating frequently helps reduce the complexity of merge conflicts
+- but ... you get unexpected / potentially dangerous changes (not about build)
+- lose the isolation of your feature branch development (unless some change is desired)
+
 ![](images/updateFrequently.jpg){width=55% height=55%}
+
 
 
 ---
@@ -328,21 +348,29 @@ probability of merge conflicts
 
 integration frequency
 
-- difficult to quantificate (what does _frequent_ mean in terms of tmie?)
+- difficult to quantificate (what does _frequent_ mean in terms of time?)
+- how often shall we integrate changes?
+- how many developers in the team? are there subteams?
 - depends on several factors
 
 ---
 
 codebase size
 
+- size of your changes
+- size of codebase
+- ratio changes/codebase => merge conflict probability
+- few changes compensate a low integration frequency
+
 
 ---
 
 distribution of tasks in the code
 
-- if developers work on different locations, no matter how frequent or large codebase
-- new feature / module
-- release manager (or the group) ensure people do not work on the same module / files
+- avoid (complex) merge conflicts, no matter how often integration is done or how large the codebase is by:
+- try to be smart distributing the tasks
+- make developers work on different locations (i.e. on a new feature / module)
+- have the release manager (or the self-managed team) ensure people do not work on the same module / files
 
 ---
 
@@ -363,19 +391,21 @@ types of merge conflicts
 
 - textual conflict
 - painful textual conflict : many changes, impossible to process by diff viewers
-- semantic conflict (NOT DETECTED) : VERY DANGEROUS - example: rename method, other dev adds call to old method name - it builds!
+- semantic conflict (NOT DETECTED - it builds!) : VERY DANGEROUS - example: rename method, other dev adds call to old method name
 
 ---
 
 avoid banal merge conflicts
 
-- enforce text style before commits (so people don't feel tempted to make unrelated changes)
+- reduce conflict occurrences and complexity by:
+- enforce style before reviewing changes, so later on colleagues don't feel tempted to make unrelated changes fixing them
 - write tidy code: EOL whitespace, indentation, TAB/blanks consistency, fileformat (DOS/unix), ... there are tools for that
+- don't fix other colleagues unrelated changes => do that on a specific commit / also reducing code smells with tools like sonarqube
 
 
 ---
 
-zero conflicts trick, only for you
+zero conflicts trick (only for you AMIGO)
 
 
 ![](images/avoidConflict.jpg){width=55% height=55%}
@@ -385,10 +415,12 @@ zero conflicts trick, only for you
 
 minimize merge conflicts
 
-- the _zero conflicts trick_ should be intentionally avoided at all costs
-- _high-tech_ & _revolutionary_ trick: use your _soft skills_ and TALK! before the commit, but also before developing the change: first smallest / simplest change (less probability of hard to solve merge conflicts)
+- commit/publish first the smallest / simplest change (less probability of hard to solve merge conflicts)
+- the _zero conflicts trick_ should be intentionally avoided at all costs, may cause conflict panic
+- _high-tech_ & _revolutionary_ trick: use your _soft skills_ and communicate (TALK!): before the commit, but also before developing the change
 - use peer review to keep colleagues informed on what you have done (not only for reviewing the code)
-- use the proper branching pattern acordingly
+- use agile meetings to inform / get informed about possible conflicts
+- use the proper branching pattern accordingly
 
 
 ---
@@ -397,38 +429,25 @@ minimize merge conflicts
 
 ---
 
-Let's take a look at the most relevant branching patterns related to integration (sharing developers work):
+
+Most relevant branching patterns related to integration (sharing developers work):
 
 - mainline
 - feature branch
-- release branch
+- continuous integration
+- collaboration branch
+- experimental / future branch
+- squash & merge (or rebase)
 
 
 ---
 
 mainline integration
 
-- work without branches
-- in practice, it does not exist (every single sandbox is a branch by itself)
-
-
----
-
-Let's take a look at the most relevant branching patterns related to integration (sharing developers work):
-
-- mainline
-- feature branch
-- release branch
-
-
-
----
-
-mainline
-
 - no branches
 - very simple
 - everybody has used it some time
+- in practice, it does not exist (every single sandbox is a branch by itself)
 
 
 ---
@@ -437,19 +456,127 @@ feature branch
 
 - parallel, isolated development for a new feature
 - variants: allow or not to update from main branch (usually not)
+- variant: allow or not to break tests or even builds
+- not a hotfix branch
 
+---
+
+develop branch
+
+- an integration branch to integrate all work before the mainline
+- helps keep a healthy mainline
+- adds complexity
+- used by git-flow and other complex BS
 
 ---
 
 continuous integration
 
 - highly collaborative
-- simulates developers work on the same set of files / folders
-- share / integrate continuously
-- reduces probability of merge conflicts
+- simulates developers are working on the same set of files / folders
+- share / integrate continuously, any non build-breaking change
+- reduces probability of merge conflicts, specially the tough ones
+- variant: agree on being able to share code that breaks tests (even builds!)
+
+---
+
+team-integration branch
+
+- allows a sub-team to integrate its changes before integrating with mainline
+- provides a coherent and low-noise task delivery
 
 
 ---
+
+collaboration branch
+
+- useful for scoped continuous integration (share continously without disturbing the whole team)
+- isolation when sharing on a sub-team (feature)
+
+
+---
+
+experimental / future branch
+
+- branches that have no expectation of early release
+- "future" may mean "very experimental", or for a far future
+- does not create noise on mainline while doing extreme refactoring
+- integration may be tough
+
+
+---
+
+squash & merge / rebase
+
+- recent approch
+- squash all commits before integrating into the mainline
+- avoids log history chaos, provides a clean (but isolated) mainline, losing full history
+- also possible with rebase instead of merge (thus becoming a cherry-pick)
+- popular and possible with the PRs of github, bitbucket, etc
+
+
+
+---
+
+# branching patterns (releasing)
+
+---
+
+
+Most relevant branching patterns related to releasing
+
+- hotfix branch
+- release branch
+- maturity/stable branch
+- release train, future / cascaded trains
+- release-ready mainline
+
+
+
+---
+
+hotfix branch
+
+- similar to feature branch (but triggered by users / testers)
+- departs from production code, not mainline / develop
+- is expected to be closed quickly ASAP
+
+
+---
+
+release branch
+
+- a branch devoted to increase stability on a given product features
+- does not accept _cool_ and new _features_
+- may cause merge conflicts when porting fixes to mainline (diverged?)
+
+
+---
+
+maturity/stable branch
+
+- branch (or tag) with stable code (answers the _what is your latest stable release?_ question)
+- to be given to testers, beta-testers, or install in production
+- also as a stable point for developing new features _without unexpected bugs_
+
+
+
+---
+
+release train, future / cascaded trains
+
+- commitment to release in fixed slots of time from the healthy mainline
+- aims at not delaying too much releasing of new features
+- its changes are also applied to the mainline (hopefully with automerge)
+- there may be several cascaded _trains_ (April train, June train, ...), the latest one (June) feeding to the previous one (April), etc and the mainline
+
+
+---
+
+release-ready mainline
+
+- commitment to always have a healthy mainline, ready for production/deployment at any time
+- works better with an integration buffer below it (a _develop_/_integration_ branch)
 
 
 ---
@@ -462,7 +589,7 @@ what is the best one?
 
 - some people just want to use the same BS always
 - some people think a given BS is the best one, and suits all kind of projects
-- 
+- so ... it depends! the ERNI BS selector comes in handy
 
 ---
 
@@ -470,20 +597,20 @@ Martin Fowler's opinion
 
 - (I have quoted from his web page https://martinfowler.com/articles/branching-patterns.html)
 - most influential developers (chief scientist at thoughtworks)
-- author and board member of agile technologies
-- advocated XP (eXtreme Programming) in the late '90s with Kent Beck
-- he strongly recommends to use _Continous Integration_ (simulate working on same set of files, sharing work / integrating very often)
-- reason: minimize merge conflicts
-- I beg to disagree with him: use it some times, but depends on development phase
-- depends if work related or not, how large is the codebase
+- book author (UML, refactoring, agile, ...) and board member of agile technologies
+- advocated XP (eXtreme Programming) in the late '90s together with Kent Beck
+- he strongly recommends to use _Continous Integration_ (simulate working on same set of files, sharing work / integrating very often) - reason: minimize merge conflicts
+- I beg to humbly disagree with him: have used it only some times, depending on development phase
+- when developing in feature branch, one does not want the _noise_ caused by other colleagues work
 
 
 ---
 
 my opinion
 
-* play as a team, bein always consistent, without anarchy
+* play as a team, being always consistent, without anarchy
 * start with something simple (use BS selector)
+* analyze if it works well, and if not, why
 * be flexible: feel free to adapt / change if required (all together)
 
 ---
@@ -505,4 +632,12 @@ conclusion
 
 ---
 
+thanks
+
+- Martin Fowler, for the _branching patterns_ online article
+- Oliver Widder, for the _geek & poke_ cartoons
+
+- Juan Carlos Arco (ERNI Barcelona), my mentor, for endless help and lots, lots of patience with me
+- Alberto Martin Casado (ERNI Madrid), for providing knowledge and guidance, allowing me to learn about this
+- David Carmona (ERNI Barcelona), for technical help broadcasting
 
