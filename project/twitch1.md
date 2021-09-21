@@ -237,7 +237,6 @@ Source: our own survey (mostly between ERNI developers)
 
 ---
 
-
 cost
 
 * more ceremony/bureaucracy for some operations (maybe)
@@ -251,11 +250,12 @@ git training
 
 - even if people use layers above git (github/bitbucket/gitlab, Teams Foundation Server, gitflow plugins ...), it's convenient that the team is decently trained on raw git usage for the basic operations (pull, fetch, push, reset, merge, rebase, reflog, etc)
 
+
 ---
 
 git training (join)
 
-![](images/gitComplicatedXKCD.png){width=70% height=70%}
+![](images/gitComplicatedXKCD.png){width=30% height=30%}
 
 ---
 
@@ -269,7 +269,7 @@ what is a commit?
 - in SVN: store + share + publish
 - in git: store only
 - git encourages committing often / svn not
-- Seth Robertson: "Commit Often, Perfect Later, Publish Once: Git Best Practices"
+- quote by Seth Robertson: "Commit Often, Perfect Later, Publish Once"
 
 
 ---
@@ -301,7 +301,7 @@ branching is easy, but ...
 
 (join)
 
-![](images/mergeComplexityDivergeLeroy.jpg){width=40% height=40%}
+![](images/mergeComplexityDivergeLeroy.jpg){width=80% height=80%}
 
 ---
 
@@ -326,6 +326,21 @@ Reminder of these 2 ways of integrating changes.
 
 ---
 
+sounds familiar?
+
+![](images/svnmergeconflict.png){width=70% height=70%}
+
+---
+
+sounds familiar?
+
+- in SVN you can't even commit if somebody has modified the same file (in a different place)
+- in GIT you can't push without fetch/pull in the same branch
+- so first you have to update/pull ...
+- and then, you may have the most feared enemy of team development: merge conflicts
+
+---
+
 let's have a survey
 
 - how often / when do you update/pull?
@@ -342,7 +357,11 @@ updating too frequently?
 - but ... you get unexpected / potentially dangerous changes (not about build)
 - lose the isolation of your feature branch development (unless some change is desired)
 
-![](images/updateFrequently.jpg){width=55% height=55%}
+---
+
+(join)
+
+![](images/updateFrequently.jpg){width=40% height=40%}
 
 
 
@@ -363,7 +382,7 @@ integration frequency
 - difficult to quantificate (what does _frequent_ mean in terms of time?)
 - how often shall we integrate changes?
 - how many developers in the team? are there subteams?
-- depends on several factors
+- depends on several factors, like delay before commit (code review, validation, ...)
 
 ---
 
@@ -386,26 +405,9 @@ distribution of tasks in the code
 
 ---
 
-merge conflicts
-
----
-
-sounds familiar?
-
-![](images/svnmergeconflict.png){width=70% height=70%}
-
----
-
-sounds familiar?
-
-- in SVN you can't even commit if somebody has modified the same file (in a different place)
-- in GIT you can't push without fetch/pull in the same branch
-
----
-
 types of merge conflicts
 
-- textual conflict
+- simple textual conflict
 - painful textual conflict : many changes, impossible to process by diff viewers
 - semantic conflict (NOT DETECTED - it builds!) : VERY DANGEROUS - example: rename method, other dev adds call to old method name
 
@@ -413,7 +415,7 @@ types of merge conflicts
 
 (join)
 
-![](images/solvingToughConflict.png){width=70% height=70%}
+![](images/solvingToughConflict.png){width=60% height=60%}
 
 ---
 
@@ -427,10 +429,10 @@ avoid banal merge conflicts
 
 ---
 
-zero conflicts trick (only for you AMIGO)
+zero conflicts trick ("only for you my friend")
 
 
-![](images/avoidConflict.jpg){width=55% height=55%}
+![](images/avoidConflict.jpg){width=40% height=40%}
 
 
 ---
@@ -537,7 +539,17 @@ squash & merge / rebase
 - also possible with rebase instead of merge (thus becoming a cherry-pick)
 - popular and possible with the PRs of github, bitbucket, etc
 
+---
 
+(join)
+
+![](images/squashNmerge.png){width=70% height=70%}
+
+---
+
+(join)
+
+![](images/squashNmerge2.png){width=40% height=40%}
 
 ---
 
@@ -632,7 +644,7 @@ Martin Fowler's opinion
 my opinion
 
 * play as a team, being always consistent, without anarchy
-* start with something simple (use BS selector)
+* start with something simple (use ERNI's BS selector)
 * analyze if it works well, and if not, why
 * be flexible: feel free to adapt / change if required (all together)
 
@@ -648,7 +660,8 @@ my opinion
 conclusion
 
 - (define,) agree & use a branching strategy 
-- choose the proper one with awareness, or use ERNI's selector if no time
+- choose the proper one with awareness
+- if no time (or want to double check) use ERNI's selector
 - be open & ready to change / adapt
 - to minimize merge conflicts, use agile (daily) meetings to inform of upcoming refactors & commits
 
@@ -659,7 +672,6 @@ thanks
 
 - Martin Fowler, for the _branching patterns_ online article
 - Oliver Widder, for the _geek & poke_ cartoons
-
 - Juan Carlos Arco (ERNI Barcelona), my mentor, for endless help and lots, lots of patience with me
 - Alberto Martin Casado (ERNI Madrid), for providing knowledge and guidance, allowing me to learn about this
 - David Carmona (ERNI Barcelona), for technical help broadcasting
