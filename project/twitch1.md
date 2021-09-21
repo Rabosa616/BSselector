@@ -286,14 +286,14 @@ what is a branch?
 
 ---
 
-branching is easy
+branching is easy, but ...
 
 - in all VCSs, branching is easy
 - integrating is the __tough__ part
 - in SVN, _merging_ is not really efficient (design limitation)
 - branching increases the complexity of your repository (Leroy principle)
 
-![](images/mergeComplexity.jpg){width=40% height=40%}
+![](images/mergeComplexityDivergeLeroy.jpg){width=40% height=40%}
 
 ---
 
@@ -457,7 +457,7 @@ feature branch
 - parallel, isolated development for a new feature
 - variants: allow or not to update from main branch (usually not)
 - variant: allow or not to break tests or even builds
-- not a hotfix branch
+- not a hotfix branch (later)
 
 ---
 
@@ -491,7 +491,7 @@ team-integration branch
 collaboration branch
 
 - useful for scoped continuous integration (share continously without disturbing the whole team)
-- isolation when sharing on a sub-team (feature)
+- isolation from/to outer world when sharing on a sub-team (feature)
 
 
 ---
@@ -508,9 +508,10 @@ experimental / future branch
 
 squash & merge / rebase
 
-- recent approch
-- squash all commits before integrating into the mainline
-- avoids log history chaos, provides a clean (but isolated) mainline, losing full history
+- recent approach
+- squash all commits into 1 before integrating into the mainline
+- dramatically reduces / avoids log history chaos
+- provides a clean (but isolated) mainline, but loses full history (partial commits & branch origin)
 - also possible with rebase instead of merge (thus becoming a cherry-pick)
 - popular and possible with the PRs of github, bitbucket, etc
 
@@ -547,7 +548,7 @@ hotfix branch
 release branch
 
 - a branch devoted to increase stability on a given product features
-- does not accept _cool_ and new _features_
+- does not accept _cool_ and new _features_, only bugfixes
 - may cause merge conflicts when porting fixes to mainline (diverged?)
 
 
