@@ -670,9 +670,9 @@ conclusion
 
 thanks
 
-- Martin Fowler, for the _branching patterns_ online article
-- Oliver Widder, for the _geek & poke_ cartoons
-- Juan Carlos Arco (ERNI Barcelona), my mentor, for endless help and lots, lots of patience with me
+- Juan Carlos Arco (ERNI Barcelona), my mentor, for endless provided help and lots, lots of patience with me
 - Alberto Martin Casado (ERNI Madrid), for providing knowledge and guidance, allowing me to learn about this
 - David Carmona (ERNI Barcelona), for technical help broadcasting
+- Martin Fowler, for the _branching patterns_ online article
+- Oliver Widder, for the _geek & poke_ cartoons
 
