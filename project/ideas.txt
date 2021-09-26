@@ -291,7 +291,7 @@ First 2 for FW/user applications. The other 6 for services.
 
 * user notification / pull
 * automated upgrade system
-* bluegreen deployment : Version B is released alongside version A, then the traffic is switched to version B.
+* blue-green deployment : Version B is released alongside version A, then the traffic is switched to version B.
 * canary : Version B is released to a subset of users, then proceed to a full rollout. Low testing confidence.
 * A/B testing: Version B is released to a subset of users under specific condition.
 * Recreate: Version A is terminated then version B is rolled out, implies shutdown time.
@@ -313,11 +313,33 @@ types of branches
 * team-integration branch
 
 
-deployment / release strategies
--------------------------------
+deployment / release frequency
+------------------------------
+
+* continuous (healthy mainline 100.00% of time)
+* every day
+* every week
+* every month
+* when it's ready
+
+
+FW/SW deployment / release strategies
+-------------------------------------
 
 * release train (periodic releases)
 * release-ready mainline
+* when it's ready
+
+
+devops deploy strategy
+----------------------
+
+* blue-green deployment
+* canary release
+* A/B testing
+
+
+
 
 
 
@@ -380,11 +402,14 @@ Simpler than git-flow, more complex than github-flow (really?)
 
 It has 11 rules, not only related to the VCS, but also to testing and deployment.
 
+
 Has intermediate branches such as production and staging.
 
-Emphasizes testing before testing, cant merge if tests are not passed.
+Emphasizes testing before deploying, cant merge if tests are not passed.
 
 Emphasis on CI-CD (promotes automatic deployment)
+
+Good when continuous deployment is NOT possible, production branch stores releasable code.
 
 
 
@@ -399,11 +424,23 @@ Its author claims that it is much simpler but also equally powerful as git-flow.
 
 Not recommended for continuous deployment.
 
+Not recommended if only a single version in production is allowed.
 
-simplified git-flow
--------------------
+
+simplified git-flow #1 (there are many flavours)
+------------------------------------------------
 
 A subset of git-flow.
+
+- no release branches (instead, tags in master are frozen releases)
+- hotfix branches from master as in regular gitflow
+- master deployed automatically
+- develop always ready to deploy
+- develop merged at least daily into master
+- small branches from develop, merged back regularly
+- long lived features still possible, but discouraged
+
+https://medium.com/goodtogoat/simplified-git-flow-5dc37ba76ea8
 
 
 continuous-integration (not as in CI-CD!)
