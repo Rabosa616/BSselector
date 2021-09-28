@@ -17,19 +17,19 @@ class BranchingStrategy :
 
 
   dictNamesBS = {
-    BS_UNKNOWN              : "UNKNOWN"             ,
-    BS_NONE                 : "NONE"                ,
-    BS_SINGLEDEV            : "SINGLEDEV"           ,
-    BS_ANARCHY              : "ANARCHY"             ,
-    BS_GITFLOW              : "GITFLOW"             ,
-    BS_GITHUBFLOW           : "GITHUBFLOW"          ,
-    BS_TRUNKBASED           : "TRUNKBASED"          ,
-    BS_GITLABFLOW           : "GITLABFLOW"          ,
-    BS_ONEFLOW              : "ONEFLOW"             ,
-    BS_CONTINUOUSINTEG      : "CONTINUOUSINTEG"     ,
-    BS_SIMPLIFIEDGITFLOW1   : "SIMPLIFIEDGITFLOW1"  ,
-    BS_ONEFLOWEXTENDED      : "BS_ONEFLOWEXTENDED"  ,
-    BS_FORKINGFLOW          : "BS_FORKINGFLOW"      ,
+    BS_UNKNOWN              : "UNKNOWN / N.A."                  ,
+    BS_NONE                 : "NONE"                            ,
+    BS_SINGLEDEV            : "Single developer"                ,
+    BS_ANARCHY              : "Anarchy workflow"                ,
+    BS_GITFLOW              : "git-flow"                        ,
+    BS_GITHUBFLOW           : "github-flow"                     ,
+    BS_TRUNKBASED           : "trunk-based development"         ,
+    BS_GITLABFLOW           : "gitlab-flow"                     ,
+    BS_ONEFLOW              : "one-flow"                        ,
+    BS_CONTINUOUSINTEG      : "Continuous Integration"          ,
+    BS_SIMPLIFIEDGITFLOW1   : "Simplified git-flow"             ,
+    BS_ONEFLOWEXTENDED      : "Extended one-flow"               ,
+    BS_FORKINGFLOW          : "Forking workflow (git-flow)"     ,
   }
 
 
