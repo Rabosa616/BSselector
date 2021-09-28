@@ -84,20 +84,25 @@ The inputs, or selection parameters, that may be used in order to choose the bra
 
 * expected (main) project duration
 * deployment frequency
-* number of long-lived branches (1 or 2)
+* number of long-lived branches (1, 2, 3)
 * number of total developers
 * number of teams
 * number of projects
 * existing code base size (0?)
 * existing code repos
-* single version / different-custom products or different customers
-* CI/CD: integration strategy(ies)
-* CI/CD: deployment strategy(ies)
-* error tolerance in production (none, trivial, serious)
-* releasing strategy(ies)
-* testing strategy / testing coverage
-* team collaboration style
 * application type (FW, app, web, ...)
+* single version / different-custom products or different customers
+* integration frequency (low/medium/high)
+* integration with merge or rebase
+* integration with squash
+* error tolerance in production (none, trivial, serious)
+* testing coverage / testing strategy
+* release branches allowed
+* feature branches allowed
+* deployment frequency
+* releasing strategy(ies) used
+* CD: deployment strategy(ies)
+* team collaboration style
 * team working mode (in person/remote, full/part time)
 * overall team experience with VCS tool
 * personal habits (and prejudices)
@@ -120,11 +125,11 @@ The main output for this work is a chosen branching strategy. It can be any of:
 - gitlab-flow
 - one-flow
 - trunk-based development
-- continuous integration (not in the CI-CD meaning)
+- continuous integration
 - simplified git-flow
 - centralized workflow
 - one-flow plus
-- forking workflow (as suggested by atlassian doc)
+- forking workflow
 - ...
 
 It is not essential to choose the very best strategy. Some of them are similar, and you may always change. The most important thing is that you DON'T pick the one that **DOES NOT suit you**.
@@ -291,7 +296,7 @@ First 2 for FW/user applications. The other 6 for services.
 
 * user notification / pull
 * automated upgrade system
-* bluegreen deployment : Version B is released alongside version A, then the traffic is switched to version B.
+* blue-green deployment : Version B is released alongside version A, then the traffic is switched to version B.
 * canary : Version B is released to a subset of users, then proceed to a full rollout. Low testing confidence.
 * A/B testing: Version B is released to a subset of users under specific condition.
 * Recreate: Version A is terminated then version B is rolled out, implies shutdown time.
@@ -313,11 +318,33 @@ types of branches
 * team-integration branch
 
 
-deployment / release strategies
--------------------------------
+deployment / release frequency
+------------------------------
+
+* continuous (healthy mainline 100.00% of time)
+* every day
+* every week
+* every month
+* when it's ready
+
+
+FW/SW deployment / release strategies
+-------------------------------------
 
 * release train (periodic releases)
 * release-ready mainline
+* when it's ready
+
+
+devops deploy strategy
+----------------------
+
+* blue-green deployment
+* canary release
+* A/B testing
+
+
+
 
 
 
@@ -380,11 +407,14 @@ Simpler than git-flow, more complex than github-flow (really?)
 
 It has 11 rules, not only related to the VCS, but also to testing and deployment.
 
+
 Has intermediate branches such as production and staging.
 
-Emphasizes testing before testing, cant merge if tests are not passed.
+Emphasizes testing before deploying, cant merge if tests are not passed.
 
 Emphasis on CI-CD (promotes automatic deployment)
+
+Good when continuous deployment is NOT possible, production branch stores releasable code.
 
 
 
@@ -399,11 +429,36 @@ Its author claims that it is much simpler but also equally powerful as git-flow.
 
 Not recommended for continuous deployment.
 
+Not recommended if only a single version in production is allowed.
 
-simplified git-flow
--------------------
+
+simplified git-flow #1 (there are many flavours)
+------------------------------------------------
 
 A subset of git-flow.
+
+- no release branches (instead, tags in master are frozen releases)
+- hotfix branches from master as in regular gitflow
+- master deployed automatically
+- develop always ready to deploy
+- develop merged at least daily into master
+- small branches from develop, merged back regularly
+- long lived features still possible, but discouraged
+
+https://medium.com/goodtogoat/simplified-git-flow-5dc37ba76ea8
+
+
+
+forking workflow (subset of gitflow)
+------------------------------------
+
+Uses decentralized servers, one per developer (or team). There is a central server where only project owner(s) can write.
+
+The product owner picks the features into the central as they are ready / available.
+
+Ideal for open source projects. It is possible to use with the github service (fork repo).
+
+
 
 
 continuous-integration (not as in CI-CD!)
@@ -418,14 +473,17 @@ Developers must commit at least once a day and share their healthy work.
 Not valid for multiple product development.
 
 
+
 trunk-based development
 -----------------------
 
-Similar to continuous integration, but allows short-lived feature branches. Has also release branches, where it is forbidden to commit.
+Similar to continuous integration, but allows short-lived feature branches. Has also release branches, where it is forbidden to commit (_maturity /stable tag_).
 
-Supposed to enable CI-CD (continuous integration and deployment).
+It is supposed to facilitate CD (continuous deployment).
 
 Not valid for large number of developers and several parallel developments.
+
+
 
 
 subversion-like development
@@ -531,19 +589,28 @@ high test coverage
 
 * all of them
 
-3-8 developers
+2-8 developers
 --------------
 
 * github-flow
 * one-flow
 
-1-8+ developers
+5-13 developers
 ---------------
 
 * github-flow
 * one-flow
 
 
+8-21 developers
+---------------
+
+* j
+
+13+ developers
+---------------
+
+* j
 
 
 more classifications are possible!
