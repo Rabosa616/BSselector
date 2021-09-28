@@ -125,6 +125,53 @@ class BranchingStrategy :
     BS_CONTINUOUSINTEG      : False,
   }
 
+  dictBS_test_coverage_low = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_ONEFLOW              : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+
+    BS_CONTINUOUSINTEG      : False,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+  }
+
+  dictBS_test_coverage_medium = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_ONEFLOW              : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_NONE                 : False,
+    BS_GITHUBFLOW           : False,
+    BS_CONTINUOUSINTEG      : False,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+  }
+
+  dictBS_test_coverage_high = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+  }
+  
+
 
 if __name__ == "__main__":
 
