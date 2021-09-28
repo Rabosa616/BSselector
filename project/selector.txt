@@ -1,0 +1,136 @@
+selection parameters
+--------------------
+
+* expected (main) project duration
+* deployment frequency
+* number of long-lived branches (1 or 2)
+* number of total developers
+* number of teams
+* number of projects
+* existing code base size (0?)
+* existing code repos
+* single version / different-custom products or different customers
+* CI/CD: integration strategy(ies)
+* CI/CD: deployment strategy(ies)
+* error tolerance in production (none, trivial, serious)
+* releasing strategy(ies)
+* testing strategy / testing coverage
+* team collaboration style
+* application type (FW, app, web, ...)
+* team working mode (in person/remote, full/part time)
+* overall team experience with VCS tool
+* personal habits (and prejudices)
+* corporate policies (and managers/"gurus" prejudices)
+
+
+branching strategies
+--------------------
+
+The main output for this work is a chosen branching strategy. It can be any of:
+
+- none (anarchy)
+- simple-man workflow
+- git-flow (the most complete one)
+- github-flow
+- gitlab-flow
+- one-flow
+- trunk-based development
+- continuous integration
+- simplified git-flow
+- centralized workflow
+- one-flow plus
+- forking workflow
+
+
+branching strategies types
+==========================
+
+
+complex
+-------
+
+* git-flow
+* none (anarchy)
+* gitlab-flow (sometimes)
+
+
+feature-driven
+--------------
+
+* gitlab-flow
+* one-flow
+
+
+continuous delivery oriented
+-------------------
+
+* github-flow
+* gitlab-flow
+* continuous integration
+* trunk-based development
+
+
+maintain several products/releases/customers
+--------------------------------------------
+
+* git-flow
+
+
+
+maintain only 1 product
+-----------------------
+
+* one-flow
+* gitlab-flow
+* gitlab-flow
+
+
+low test coverage
+-----------------
+
+* git-flow
+* gitlab-flow
+
+
+high test coverage
+------------------
+
+* github-flow
+
+
+1 developer
+-----------
+
+* none (anarchy)
+* all the others ...
+
+
+1-3 developers
+--------------
+
+* all of them
+
+2-8 developers
+--------------
+
+* github-flow
+* one-flow
+
+5-13 developers
+---------------
+
+* github-flow
+* one-flow
+
+
+8-21 developers
+---------------
+
+* j
+
+13+ developers
+---------------
+
+* j
+
+
