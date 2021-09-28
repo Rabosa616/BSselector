@@ -170,7 +170,34 @@ class BranchingStrategy :
     BS_FORKINGFLOW          : True,
     BS_NONE                 : True,
   }
+
+  dictBS_single_version_product = {
+    BS_GITHUBFLOW           : True,
+  }
+
+  dictBS_multiple_version_product = {
+    BS_GITFLOW              : True,
+
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_GITHUBFLOW           : False,
+    BS_NONE                 : False,
+  }
   
+  dictBS_continuous_delivery = {
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+
+    BS_GITFLOW              : False,
+    BS_ONEFLOW              : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_NONE                 : False,
+    BS_FORKINGFLOW          : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+  }
+
 
 
 if __name__ == "__main__":
