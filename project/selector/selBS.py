@@ -222,7 +222,8 @@ class BranchingStrategy :
     print("select, check selected not rejected")
     rejected = self.dictRejectedBS
     for bs in self.dictSelectedBS :
-      print("bs id = %d, selected %d times" % (bs, self.dictSelectedBS[bs]))
+      print("bs id = %d, selected %d times [%s]" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
+
       if bs not in rejected :
         print("bs id = %d, never rejected -- adding to final list" % bs)
         self.listFinalBS.append(bs)
@@ -268,6 +269,7 @@ if __name__ == "__main__":
   # example #0 : gitlab-flow, simplified git-flow
   selector.addSelector(BranchingStrategy.dictBS_1_developers)
   selector.addSelector(BranchingStrategy.dictBS_continuous_delivery)
+  selector.addSelector(BranchingStrategy.dictBS_test_coverage_low)
 
   selector.select()
 
