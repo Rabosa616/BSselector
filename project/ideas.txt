@@ -120,11 +120,11 @@ The main output for this work is a chosen branching strategy. It can be any of:
 - gitlab-flow
 - one-flow
 - trunk-based development
-- continuous integration (not in the CI-CD meaning)
+- continuous integration
 - simplified git-flow
 - centralized workflow
 - one-flow plus
-- forking workflow (as suggested by atlassian doc)
+- forking workflow
 - ...
 
 It is not essential to choose the very best strategy. Some of them are similar, and you may always change. The most important thing is that you DON'T pick the one that **DOES NOT suit you**.
@@ -443,6 +443,19 @@ A subset of git-flow.
 https://medium.com/goodtogoat/simplified-git-flow-5dc37ba76ea8
 
 
+
+forking workflow (subset of gitflow)
+------------------------------------
+
+Uses decentralized servers, one per developer (or team). There is a central server where only project owner(s) can write.
+
+The product owner picks the features into the central as they are ready / available.
+
+Ideal for open source projects. It is possible to use with the github service (fork repo).
+
+
+
+
 continuous-integration (not as in CI-CD!)
 -----------------------------------------
 
@@ -455,14 +468,17 @@ Developers must commit at least once a day and share their healthy work.
 Not valid for multiple product development.
 
 
+
 trunk-based development
 -----------------------
 
-Similar to continuous integration, but allows short-lived feature branches. Has also release branches, where it is forbidden to commit.
+Similar to continuous integration, but allows short-lived feature branches. Has also release branches, where it is forbidden to commit (_maturity /stable tag_).
 
-Supposed to enable CI-CD (continuous integration and deployment).
+It is supposed to facilitate CD (continuous deployment).
 
 Not valid for large number of developers and several parallel developments.
+
+
 
 
 subversion-like development
