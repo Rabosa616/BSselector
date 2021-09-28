@@ -568,19 +568,28 @@ high test coverage
 
 * all of them
 
-3-8 developers
+2-8 developers
 --------------
 
 * github-flow
 * one-flow
 
-1-8+ developers
+5-13 developers
 ---------------
 
 * github-flow
 * one-flow
 
 
+8-21 developers
+---------------
+
+* j
+
+13+ developers
+---------------
+
+* j
 
 
 more classifications are possible!
