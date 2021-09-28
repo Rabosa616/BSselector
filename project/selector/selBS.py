@@ -199,10 +199,75 @@ class BranchingStrategy :
   }
 
 
+  def __init__(self) :
+
+    self.listSelectorDicts = []
+
+    self.dictSelectedBS = {}
+    self.dictRejectedBS = {}
+    self.listFinalBS = []
+
+
+  def addSelector(self, addedSelectorDict) :
+
+    self.listSelectorDicts.append(addedSelectorDict)
+
+
+  def select(self) :
+
+    for selDict in self.listSelectorDicts :
+      print("select, selectDict ...")
+      self.selectDict(selDict)
+
+    print("select, check selected not rejected")
+    rejected = self.dictRejectedBS
+    for bs in self.dictSelectedBS :
+      print("bs id = %d, selected %d times" % (bs, self.dictSelectedBS[bs]))
+      if bs not in rejected :
+        print("bs id = %d, never rejected -- adding to final list" % bs)
+        self.listFinalBS.append(bs)
+      else :
+        print("bs id = %d, rejected %d times" % (bs, self.dictRejectedBS[bs]))
+
+    print("====")
+    print("select, list of final selected BS:")
+    print(self.listFinalBS)
+    for bs in self.listFinalBS :
+      print("-- %d : %s" % (bs, BranchingStrategy.dictNamesBS[bs]))
+
+
+  def selectDict(self, selDict) :
+
+    for key in selDict :
+      if selDict[key] == False :
+        try :
+          val = self.dictRejectedBS[key]
+        except :
+          val = 0
+        self.dictRejectedBS[key] = val + 1
+
+      else : # True
+        try :
+          val = self.dictSelectedBS[key]
+        except :
+          val = 0
+        self.dictSelectedBS[key] = val + 1
+
+    print("----")
+    print("selectDict, dictRejectedBS:")
+    print(self.dictRejectedBS)
+    print("----")
+    print("selectDict, dictSelectedBS:")
+    print(self.dictSelectedBS)
+
 
 if __name__ == "__main__":
 
-  print(BranchingStrategy.BS_SINGLEDEV)
+  selector = BranchingStrategy()
 
-  print(BranchingStrategy.dictNamesBS)
+  # example #0 : gitlab-flow, simplified git-flow
+  selector.addSelector(BranchingStrategy.dictBS_1_developers)
+  selector.addSelector(BranchingStrategy.dictBS_continuous_delivery)
+
+  selector.select()
 
