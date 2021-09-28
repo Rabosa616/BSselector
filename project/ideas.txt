@@ -84,20 +84,25 @@ The inputs, or selection parameters, that may be used in order to choose the bra
 
 * expected (main) project duration
 * deployment frequency
-* number of long-lived branches (1 or 2)
+* number of long-lived branches (1, 2, 3)
 * number of total developers
 * number of teams
 * number of projects
 * existing code base size (0?)
 * existing code repos
-* single version / different-custom products or different customers
-* CI/CD: integration strategy(ies)
-* CI/CD: deployment strategy(ies)
-* error tolerance in production (none, trivial, serious)
-* releasing strategy(ies)
-* testing strategy / testing coverage
-* team collaboration style
 * application type (FW, app, web, ...)
+* single version / different-custom products or different customers
+* integration frequency (low/medium/high)
+* integration with merge or rebase
+* integration with squash
+* error tolerance in production (none, trivial, serious)
+* testing coverage / testing strategy
+* release branches allowed
+* feature branches allowed
+* deployment frequency
+* releasing strategy(ies) used
+* CD: deployment strategy(ies)
+* team collaboration style
 * team working mode (in person/remote, full/part time)
 * overall team experience with VCS tool
 * personal habits (and prejudices)
