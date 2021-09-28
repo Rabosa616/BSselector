@@ -219,6 +219,7 @@ class BranchingStrategy :
       print("select, selectDict ...")
       self.selectDict(selDict)
 
+    print("========")
     print("select, check selected not rejected")
     rejected = self.dictRejectedBS
     for bs in self.dictSelectedBS :
@@ -260,6 +261,7 @@ class BranchingStrategy :
     print("----")
     print("selectDict, dictSelectedBS:")
     print(self.dictSelectedBS)
+    print("====")
 
 
 if __name__ == "__main__":
