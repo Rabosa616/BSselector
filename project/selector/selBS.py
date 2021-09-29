@@ -237,6 +237,62 @@ class BranchingStrategy :
     BS_ANARCHY              : False,
   }
 
+  # 1-time a day or more
+  dictBS_deploy_very_frequently = {
+    BS_GITHUBFLOW           : True,
+    BS_GITLABFLOW           : True,
+    BS_TRUNKBASED           : True,
+
+    BS_ONEFLOWEXTENDED      : False,
+    BS_NONE                 : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_FORKINGFLOW          : False,
+    BS_ONEFLOW              : False,
+    BS_GITFLOW              : False,
+  }
+
+  # 2-3 times a a week
+  dictBS_deploy_frequently = {
+    BS_GITHUBFLOW           : True,
+    BS_GITLABFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_ONEFLOW              : False,
+
+    BS_NONE                 : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_FORKINGFLOW          : False,
+    BS_GITFLOW              : False,
+  }
+
+  # 1 times every week or two
+  dictBS_deploy_not_frequently = {
+    BS_GITLABFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_ONEFLOW              : True,
+    BS_SINGLEDEV            : True,
+    BS_FORKINGFLOW          : True,
+    BS_GITFLOW              : True,
+    BS_NONE                 : True,
+
+    BS_GITHUBFLOW           : False,
+  }
+
+  # around once a month or less
+  dictBS_deploy_rarely = {
+    BS_GITFLOW              : True,
+    BS_ONEFLOW              : True,
+    BS_NONE                 : True,
+    BS_SINGLEDEV            : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+    BS_ANARCHY              : True,
+
+    BS_GITHUBFLOW           : False,
+    BS_GITLABFLOW           : False,
+  }
+
 
 
   def __init__(self) :
