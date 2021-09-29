@@ -3,6 +3,14 @@ import sys
 import getopt
 import pprint
 
+"""
+examples :
+
+#0: selBS.py -s 1_developers,continuous_delivery,test_coverage_low
+#1: selBS.py -s 5_13_developers,test_coverage_low,2_more_subteams_or_projects,maintain_multiple_version_product,long_project_life
+#2: selBS.py -s 1_3_developers,deploy_very_frequently,single_version_product,test_coverage_high
+#3: selBS.py -s 2_8_developers,deploy_very_frequently,single_version_product
+"""
 
 class BranchingStrategy :
 
