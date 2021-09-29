@@ -726,20 +726,21 @@ class BranchingStrategy :
   def select(self) :
 
     for selDict in self.listSelectorDicts :
-      print("select, selectDict ...")
+      #print("select, selectDict ...")
       self.selectDict(selDict)
 
-    print("========")
-    print("select, check selected not rejected")
+    #print("========")
+    #print("select, check selected not rejected")
     rejected = self.dictRejectedBS.keys()
     for bs in self.dictSelectedBS :
-      print("bs id = %d, selected %d times [%s]" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
+      #print("bs id = %d, selected %d times [%s]" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
 
       if bs not in rejected :
-        print("bs id = %d, never rejected -- adding to final list" % bs)
+        #print("bs id = %d, never rejected -- adding to final list" % bs)
         self.listFinalBS.append((bs, self.dictSelectedBS[bs]))
       else :
-        print("bs id = %d, rejected %d times" % (bs, self.dictRejectedBS[bs]))
+        #print("bs id = %d, rejected %d times" % (bs, self.dictRejectedBS[bs]))
+        pass
 
     print("====")
     print("list of rejected BS:")
@@ -768,6 +769,7 @@ class BranchingStrategy :
           val = 0
         self.dictSelectedBS[key] = val + 1
 
+    """
     print("----")
     print("selectDict, dictRejectedBS:")
     print(self.dictRejectedBS)
@@ -775,6 +777,7 @@ class BranchingStrategy :
     print("selectDict, dictSelectedBS:")
     print(self.dictSelectedBS)
     print("====")
+    """
 
 
 if __name__ == "__main__":
