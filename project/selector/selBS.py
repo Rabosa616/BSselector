@@ -644,6 +644,66 @@ class BranchingStrategy :
     BS_FORKINGFLOW          : False,
   }
 
+  dictBS_release_branches_allowed = {
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_GITLABFLOW           : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : False,
+  }
+
+  dictBS_release_branches_not_allowed = {
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_GITFLOW              : False,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : False,
+    BS_ONEFLOW              : False,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_FORKINGFLOW          : False,
+    BS_NONE                 : True,
+  }
+
+  dictBS_feature_branches_allowed = {
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : False,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : False,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+  }
+
+  dictBS_feature_branches_not_allowed = {
+    BS_SINGLEDEV            : True,
+    BS_TRUNKBASED           : True,
+    BS_CONTINUOUSINTEG      : True,
+
+    BS_ANARCHY              : False,
+    BS_GITFLOW              : False,
+    BS_GITHUBFLOW           : False,
+    BS_GITLABFLOW           : False,
+    BS_ONEFLOW              : False,
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_FORKINGFLOW          : False,
+    BS_NONE                 : False,
+  }
+
 
 
   def __init__(self) :
