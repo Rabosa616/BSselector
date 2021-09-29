@@ -731,7 +731,7 @@ class BranchingStrategy :
 
     print("========")
     print("select, check selected not rejected")
-    rejected = self.dictRejectedBS
+    rejected = self.dictRejectedBS.keys()
     for bs in self.dictSelectedBS :
       print("bs id = %d, selected %d times [%s]" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
 
@@ -743,7 +743,7 @@ class BranchingStrategy :
 
     print("====")
     print("list of rejected BS:")
-    for bs in rejected :
+    for bs in sorted(self.dictRejectedBS, reverse = True) :
       print("-- BS id#%d : (score=-%d) %s" % (bs, self.dictRejectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
     print("list of final selected BS:")
     for bsTuple in sorted(self.listFinalBS, key = lambda x: x[1], reverse = True) :
