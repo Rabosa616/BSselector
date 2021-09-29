@@ -388,6 +388,34 @@ class BranchingStrategy :
     BS_CONTINUOUSINTEG      : False,
   }
 
+  dictBS_existing_repositories_1 = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_NONE                 : True,
+
+    BS_FORKINGFLOW          : False,
+  }
+
+  dictBS_existing_repositories_2_more = {
+    BS_GITFLOW              : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_NONE                 : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_CONTINUOUSINTEG      : False,
+  }
 
 
   def __init__(self) :
