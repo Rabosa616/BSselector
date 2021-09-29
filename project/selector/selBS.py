@@ -198,6 +198,46 @@ class BranchingStrategy :
     BS_ANARCHY              : False,
   }
 
+  # short: half year or less
+  dictBS_short_project_life = {
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_NONE                 : True,
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+
+    BS_GITFLOW              : False,
+    BS_ONEFLOW              : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_FORKINGFLOW          : False,
+  }
+
+  # medium: around 1 year, less than 2 years
+  dictBS_medium_project_life = {
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+
+    BS_ONEFLOWEXTENDED      : False,
+  }
+
+  # long: 2 years or more
+  dictBS_long_project_life = {
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_GITFLOW              : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_ONEFLOWEXTENDED      : False,
+    BS_GITHUBFLOW           : False,
+    BS_NONE                 : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+  }
+
+
 
   def __init__(self) :
 
