@@ -607,6 +607,43 @@ class BranchingStrategy :
     BS_GITHUBFLOW           : False,
   }
 
+  dictBS_error_tolerance_production_high = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_ONEFLOW              : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_CONTINUOUSINTEG      : False,
+  }
+
+  dictBS_error_tolerance_production_regular = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : False,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_NONE                 : True,
+  }
+
+  dictBS_error_tolerance_production_low = {
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_CONTINUOUSINTEG      : True,
+
+    BS_FORKINGFLOW          : False,
+  }
+
 
 
   def __init__(self) :
