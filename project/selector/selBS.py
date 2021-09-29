@@ -858,11 +858,13 @@ if __name__ == "__main__":
   selector.addSelector(BranchingStrategy.dictBS_test_coverage_high)
   """
 
+  """
   # example #2, searching text dictionary
-
   selector.addSelector(BranchingStrategy.dictOptionsSelectionDictionaries["1_3_developers"])
   selector.addSelector(BranchingStrategy.dictOptionsSelectionDictionaries["deploy_very_frequently"])
   selector.addSelector(BranchingStrategy.dictOptionsSelectionDictionaries["single_version_product"])
   selector.addSelector(BranchingStrategy.dictOptionsSelectionDictionaries["test_coverage_high"])
+  """
+
   selector.select()
 
