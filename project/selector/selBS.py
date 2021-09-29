@@ -749,6 +749,10 @@ class BranchingStrategy :
     BS_CONTINUOUSINTEG      : False,
   }
 
+  """
+  separator
+  """
+
 
 
 
