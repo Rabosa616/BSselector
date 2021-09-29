@@ -704,56 +704,9 @@ class BranchingStrategy :
     BS_NONE                 : False,
   }
 
-
-  dictBS_deployment_frequency_high = {
-    BS_GITHUBFLOW           : True,
-    BS_TRUNKBASED           : True,
-    BS_CONTINUOUSINTEG      : True,
-
-    BS_SINGLEDEV            : False,
-    BS_ANARCHY              : False,
-    BS_GITFLOW              : False,
-    BS_SIMPLIFIEDGITFLOW1   : False,
-    BS_ONEFLOWEXTENDED      : False,
-    BS_FORKINGFLOW          : False,
-    BS_NONE                 : False,
-  }
-
-  dictBS_deployment_frequency_medium = {
-    BS_SINGLEDEV            : True,
-    BS_ANARCHY              : True,
-    BS_TRUNKBASED           : True,
-    BS_GITLABFLOW           : True,
-    BS_ONEFLOW              : True,
-    BS_CONTINUOUSINTEG      : True,
-    BS_SIMPLIFIEDGITFLOW1   : True,
-    BS_NONE                 : True,
-
-    BS_FORKINGFLOW          : False,
-    BS_GITFLOW              : False,
-  }
-
-  dictBS_deployment_frequency_low = {
-    BS_SINGLEDEV            : True,
-    BS_ANARCHY              : True,
-    BS_GITFLOW              : True,
-    BS_GITLABFLOW           : True,
-    BS_ONEFLOW              : True,
-    BS_SIMPLIFIEDGITFLOW1   : True,
-    BS_ONEFLOWEXTENDED      : True,
-    BS_FORKINGFLOW          : True,
-    BS_NONE                 : True,
-
-    BS_GITHUBFLOW           : False,
-    BS_TRUNKBASED           : False,
-    BS_CONTINUOUSINTEG      : False,
-  }
-
   """
   separator
   """
-
-
 
 
   def __init__(self) :
