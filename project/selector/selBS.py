@@ -742,6 +742,9 @@ class BranchingStrategy :
         print("bs id = %d, rejected %d times" % (bs, self.dictRejectedBS[bs]))
 
     print("====")
+    print("select, list of rejected BS:")
+    for bs in rejected :
+      print("-- BS id#%d : (score=-%d) %s" % (bs, self.dictRejectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
     print("select, list of final selected BS:", self.listFinalBS)
     for bs in self.listFinalBS :
       print("-- BS id#%d : (score=%d) %s" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
