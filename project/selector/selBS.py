@@ -778,10 +778,19 @@ if __name__ == "__main__":
 
   selector = BranchingStrategy()
 
+  """
   # example #0 : gitlab-flow, simplified git-flow
   selector.addSelector(BranchingStrategy.dictBS_1_developers)
   selector.addSelector(BranchingStrategy.dictBS_continuous_delivery)
   selector.addSelector(BranchingStrategy.dictBS_test_coverage_low)
+  """
+
+  # example #1 : git-flow, gitlab-flow, one-flow, Simplified git-flow, Forking workflow,
+  selector.addSelector(BranchingStrategy.dictBS_5_13_developers)
+  selector.addSelector(BranchingStrategy.dictBS_test_coverage_low)
+  selector.addSelector(BranchingStrategy.dictBS_2_more_subteams_or_projects)
+  selector.addSelector(BranchingStrategy.dictBS_maintain_multiple_version_product) 
+  selector.addSelector(BranchingStrategy.dictBS_long_project_life)
 
   selector.select()
 
