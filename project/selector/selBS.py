@@ -785,12 +785,20 @@ if __name__ == "__main__":
   selector.addSelector(BranchingStrategy.dictBS_test_coverage_low)
   """
 
+  """
   # example #1 : git-flow, gitlab-flow, one-flow, Simplified git-flow, Forking workflow,
   selector.addSelector(BranchingStrategy.dictBS_5_13_developers)
   selector.addSelector(BranchingStrategy.dictBS_test_coverage_low)
   selector.addSelector(BranchingStrategy.dictBS_2_more_subteams_or_projects)
   selector.addSelector(BranchingStrategy.dictBS_maintain_multiple_version_product) 
   selector.addSelector(BranchingStrategy.dictBS_long_project_life)
+  """
+
+  # example #2 : trunk-based development, github-flow, gitlab-flow, Continuous Integration, Simplified git-flow,
+  selector.addSelector(BranchingStrategy.dictBS_1_3_developers)
+  selector.addSelector(BranchingStrategy.dictBS_deploy_very_frequently)
+  selector.addSelector(BranchingStrategy.dictBS_single_version_product)
+  selector.addSelector(BranchingStrategy.dictBS_test_coverage_high)
 
   selector.select()
 
