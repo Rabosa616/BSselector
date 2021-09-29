@@ -293,6 +293,50 @@ class BranchingStrategy :
     BS_GITLABFLOW           : False,
   }
 
+  dictBS_1_longlived_branches = {
+    BS_TRUNKBASED           : True,
+    BS_SINGLEDEV            : True,
+    BS_GITHUBFLOW           : True,
+    BS_GITLABFLOW           : True,
+    BS_NONE                 : True,
+    BS_CONTINUOUSINTEG      : True,
+
+    BS_ANARCHY              : False,
+    BS_GITFLOW              : False,
+    BS_ONEFLOW              : False,
+    BS_FORKINGFLOW          : False,
+  }
+
+  dictBS_2_longlived_branches = {
+    BS_GITLABFLOW           : True,
+    BS_GITFLOW              : True,
+    BS_ONEFLOW              : True,
+    BS_FORKINGFLOW          : True,
+    BS_ONEFLOWEXTENDED      : True,
+
+    BS_TRUNKBASED           : False,
+    BS_SINGLEDEV            : False,
+    BS_GITHUBFLOW           : False,
+    BS_ANARCHY              : False,
+    BS_CONTINUOUSINTEG      : False,
+    BS_SIMPLIFIEDGITFLOW1   : False,
+  }
+
+  dictBS_3_longlived_branches = {
+    BS_GITFLOW              : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_TRUNKBASED           : False,
+    BS_SINGLEDEV            : False,
+    BS_GITHUBFLOW           : False,
+    BS_ANARCHY              : False,
+    BS_GITLABFLOW           : False,
+    BS_ONEFLOW              : False,
+    BS_CONTINUOUSINTEG      : False,
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_ONEFLOWEXTENDED      : False,
+  }
+
 
 
   def __init__(self) :
