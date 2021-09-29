@@ -737,17 +737,17 @@ class BranchingStrategy :
 
       if bs not in rejected :
         print("bs id = %d, never rejected -- adding to final list" % bs)
-        self.listFinalBS.append(bs)
+        self.listFinalBS.append((bs, self.dictSelectedBS[bs]))
       else :
         print("bs id = %d, rejected %d times" % (bs, self.dictRejectedBS[bs]))
 
     print("====")
-    print("select, list of rejected BS:")
+    print("list of rejected BS:")
     for bs in rejected :
       print("-- BS id#%d : (score=-%d) %s" % (bs, self.dictRejectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
-    print("select, list of final selected BS:", self.listFinalBS)
-    for bs in self.listFinalBS :
-      print("-- BS id#%d : (score=%d) %s" % (bs, self.dictSelectedBS[bs], BranchingStrategy.dictNamesBS[bs]))
+    print("list of final selected BS:")
+    for bsTuple in sorted(self.listFinalBS, key = lambda x: x[1], reverse = True) :
+      print("-- BS id#%d : (score=%d) %s" % (bsTuple[0], bsTuple[1], BranchingStrategy.dictNamesBS[bsTuple[0]]))
 
 
 
