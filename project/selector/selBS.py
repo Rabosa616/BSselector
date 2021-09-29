@@ -363,6 +363,31 @@ class BranchingStrategy :
     BS_NONE                 : False,
   }
 
+  dictBS_existing_codebase_zero_or_small = {
+    BS_CONTINUOUSINTEG      : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_NONE                 : True,
+
+    BS_GITFLOW              : False,
+    BS_FORKINGFLOW          : False,
+  }
+
+  dictBS_existing_codebase_large = {
+    BS_GITFLOW              : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_NONE                 : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_TRUNKBASED           : False,
+    BS_CONTINUOUSINTEG      : False,
+  }
+
 
 
   def __init__(self) :
