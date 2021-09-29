@@ -561,6 +561,53 @@ class BranchingStrategy :
     BS_NONE                 : False,
   }
 
+  dictBS_integrate_with_merge = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+
+    BS_ONEFLOW              : False,
+    BS_ONEFLOWEXTENDED      : False,
+  }
+
+  dictBS_integrate_with_rebase = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+
+    BS_GITHUBFLOW           : False,
+}
+
+  dictBS_integrate_with_squash = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+
+    BS_GITFLOW              : False,
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_GITHUBFLOW           : False,
+  }
+
+
 
   def __init__(self) :
 
