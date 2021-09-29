@@ -337,6 +337,32 @@ class BranchingStrategy :
     BS_ONEFLOWEXTENDED      : False,
   }
 
+  dictBS_1_subteams_or_projects = {
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_NONE                 : True,
+  }
+
+  dictBS_2_more_subteams_or_projects = {
+    BS_GITFLOW              : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_CONTINUOUSINTEG      : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_NONE                 : False,
+  }
+
 
 
   def __init__(self) :
