@@ -1,4 +1,9 @@
 
+import sys
+import getopt
+import pprint
+
+
 class BranchingStrategy :
 
   BS_UNKNOWN              = -1
@@ -773,6 +778,91 @@ class BranchingStrategy :
     self.listSelectorDicts.append(addedSelectorDict)
 
 
+  def processOptions(self, cliArgsList) :
+
+    selectors = 0
+    #print("processOptions, CLI args:", cliArgsList)
+    if len(cliArgsList) == 0 :
+      BranchingStrategy.listBranchingStrategies()
+    else :
+      try:
+        opts, args = getopt.getopt(sys.argv[1:], "hs:l:", ["help", "selectors=", "list-selectors="])
+        #print("opts:", opts)
+        #print("args:", args)
+      except getopt.GetoptError as err:
+        # print help information and exit:
+        print(err)  # will print something like "option -a not recognized"
+        BranchingStrategy.usage()
+        sys.exit(2)
+
+      for opt, arg in opts :
+        #print("opt:")
+        if opt == "-h" or opt == "--help" :
+          BranchingStrategy.usage()
+          sys.exit(0)
+        elif opt == "-l" or opt == "--list-selectors" : # TODO : try not to duplicate string literals
+          BranchingStrategy.listSelectors(arg)
+          sys.exit(0)
+        elif opt == "-s" or opt == "--selector" : # TODO : try not to duplicate string literals
+          selectors = self.addSelectors(arg)
+
+    return selectors
+
+
+  @staticmethod
+  def listBranchingStrategies() :
+    print("list of available Branching Strategies:")
+    pprint.pprint(BranchingStrategy.dictNamesBS)
+
+
+  @staticmethod
+  def listSelectors(filterText) :
+    print("list of available Branching Strategies selectors:")
+    selectors = list(BranchingStrategy.dictOptionsSelectionDictionaries.keys())
+    if filterText == "ALL" :
+      filteredSelectors = selectors
+    else :
+      print("filtering by :", filterText)
+      filteredSelectors = []
+      for sel in selectors :
+        if not sel.find(filterText) == -1 :
+          filteredSelectors.append(sel)
+
+    total = len(filteredSelectors)
+    pprint.pprint(filteredSelectors)
+    print("total available filters =", total)
+    return total
+
+
+  @staticmethod
+  def usage() :
+    print("")
+    print("Usage: selBS.py [-h|--help] [-s|--selectors=<list of comma-separated selectors>][-l|--list-selectors=<pattern>]")
+    print("")
+    print("Example: selBS.py --selectors=5_13_developers,multiple_version_product")
+    print("Example: selBS.py --list-selectors=coverage]")
+    print("Example: selBS.py --list-selectors=ALL]")
+
+
+
+  def addSelectors(self, selectorsTextList) :
+    selectors = 0
+    #print("addSelectors:", selectors)
+    for sel in selectorsTextList.split(",") :
+      #print("addSelectors, selector:", sel)
+      try :
+        dict = self.dictOptionsSelectionDictionaries[sel]
+      except :
+        print("FATAL: no selector matching '%s'" % sel)
+        print("try option -l to list the available selectors")
+        sys.exit(2)
+      self.addSelector(dict)
+      selectors += 1
+      print("selector '%s' added successfully " % sel)
+    return selectors
+
+
+
   def select(self) :
 
     for selDict in self.listSelectorDicts :
@@ -866,5 +956,10 @@ if __name__ == "__main__":
   selector.addSelector(BranchingStrategy.dictOptionsSelectionDictionaries["test_coverage_high"])
   """
 
-  selector.select()
+  selectors = selector.processOptions(sys.argv[1:])
+  if selectors > 0 :
+    print("total selectors added =", selectors)
+    selector.select()
+  else :
+    print("NO selectors added, quitting")
 
