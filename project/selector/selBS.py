@@ -489,6 +489,34 @@ class BranchingStrategy :
     BS_CONTINUOUSINTEG      : False,
   }
 
+  dictBS_maintain_single_version_product = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_FORKINGFLOW          : True,
+    BS_NONE                 : True,
+  }
+
+  dictBS_maintain_multiple_version_product = {
+    BS_GITFLOW              : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+    BS_CONTINUOUSINTEG      : False,
+
+    BS_NONE                 : False,
+    BS_GITHUBFLOW           : False,
+    BS_TRUNKBASED           : False,
+    BS_SINGLEDEV            : False,
+    BS_ANARCHY              : False,
+  }
+
 
   def __init__(self) :
 
