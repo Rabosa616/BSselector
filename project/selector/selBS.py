@@ -517,6 +517,50 @@ class BranchingStrategy :
     BS_ANARCHY              : False,
   }
 
+  dictBS_integration_frequency_high  = {
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_CONTINUOUSINTEG      : True,
+
+    BS_SIMPLIFIEDGITFLOW1   : False,
+    BS_ONEFLOWEXTENDED      : False,
+    BS_FORKINGFLOW          : False,
+    BS_NONE                 : False,
+    BS_ANARCHY              : False,
+    BS_GITFLOW              : False,
+  }
+
+  dictBS_integration_frequency_medium  = {
+    BS_GITFLOW              : True,
+    BS_GITHUBFLOW           : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_CONTINUOUSINTEG      : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+
+    BS_ANARCHY              : False,
+    BS_FORKINGFLOW          : False,
+    BS_NONE                 : False,
+  }
+
+  dictBS_integration_frequency_low  = {
+    BS_SINGLEDEV            : True,
+    BS_ANARCHY              : True,
+    BS_GITFLOW              : True,
+    BS_TRUNKBASED           : True,
+    BS_GITLABFLOW           : True,
+    BS_ONEFLOW              : True,
+    BS_SIMPLIFIEDGITFLOW1   : True,
+    BS_ONEFLOWEXTENDED      : True,
+    BS_FORKINGFLOW          : True,
+
+    BS_GITHUBFLOW           : False,
+    BS_CONTINUOUSINTEG      : False,
+    BS_NONE                 : False,
+  }
+
 
   def __init__(self) :
 
