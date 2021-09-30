@@ -1,9 +1,6 @@
 # Branching Strategy Selector project
 
-This repo contains the code of the ERNI-services git workflow &amp; Branching Strategy Selector (BSS).
-
-It also contains the (markdown-format) documents that were used to prepare 2 presentations: the author's MasterPiece presentation (February 2021), and the 2 twitch sessions that were broadcast to publicly showcase this project (September 2021).
-
+This repo contains the code of the ERNI-services git workflow &amp; Branching Strategy Selector (BSS). It allows to choose a Branching Strategy for a project according to its peculiarities. These peculiarities are used as selection parameters of the script, providing as output 1 or more suitable BSs, while highlighting which ones are not suitable (rejected).
 
 # the script
 
